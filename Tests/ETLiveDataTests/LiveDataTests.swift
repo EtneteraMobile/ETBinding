@@ -8,16 +8,52 @@
 
 import Foundation
 import XCTest
+import ETObserver
 import ETLiveData
 
-class ETLiveDataTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        //// XCTAssertEqual(ETLiveData().text, "Hello, World!")
+class LiveDataTests: XCTestCase {
+
+    func testObserveForever() {
+        let data = "test"
+        let exp = expectation(description: "New data")
+
+        let observer = Observer<String?> { input in
+            XCTAssert(input == data, "Observer returns invalid data")
+            exp.fulfill()
+        }
+
+        let liveData = LiveData<String>()
+        liveData.observeForever(observer: observer)
+        liveData.dispatch()
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testObserverWithLifecycleOwner() {
+
+    }
+
+    func testRemoveObserver() {
+        
+    }
+
+    func testReadData() {
+
+    }
+
+    func testDispatchSameDataMultipleTimes() {
+
+    }
+
+    func testThreadInObserverUpdate() {
+
+    }
+
+    func testThreadSafety() {
+        
     }
     
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+//    static var allTests = [
+//        ("testExample", testExample),
+//    ]
 }

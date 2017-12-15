@@ -14,7 +14,7 @@ public class LiveData<Value> {
     public typealias DataType = Value?
     public var data: DataType {
         didSet {
-            dispatchValue()
+            dispatch()
         }
     }
     // MARK: private
@@ -33,12 +33,12 @@ public class LiveData<Value> {
 public extension LiveData {
     // MARK: - Observe
 
-    func observe(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
+    @discardableResult func observe(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
         let wrapper = LifecycleBoundObserver(owner: owner, observer: Observer(update: onUpdate))
         return observe(wrapper)
     }
 
-    func observe(owner: LifecycleOwner, observer: Observer<DataType>) -> Observer<DataType> {
+    @discardableResult func observe(owner: LifecycleOwner, observer: Observer<DataType>) -> Observer<DataType> {
         let wrapper = LifecycleBoundObserver(owner: owner, observer: observer)
         return observe(wrapper)
     }
@@ -48,7 +48,7 @@ public extension LiveData {
         return observe(wrapper)
     }
 
-    func observeForever(observer: Observer<DataType>) -> Observer<DataType> {
+    @discardableResult func observeForever(observer: Observer<DataType>) -> Observer<DataType> {
         let wrapper = LifecycleBoundObserver(observer: observer)
         return observe(wrapper)
     }
@@ -70,7 +70,7 @@ public extension LiveData {
 
     // MARK: - Dispatch
 
-    func dispatchValue(initiator: Observer<DataType>? = nil) {
+    func dispatch(initiator: Observer<DataType>? = nil) {
         // Removes destroyed observers
         observers = observers.filter {
             $0.state != .destroyed

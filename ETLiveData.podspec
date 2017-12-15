@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ETLiveData"
   s.version      = "0.1"
-  s.summary      = ""
+  s.summary      = "ETLiveData"
   s.description  = <<-DESC
     Your description here.
   DESC
@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/EtneteraMobile/ETLiveData.git", :tag => s.version.to_s }
   s.source_files  = "Sources/**/*"
   s.frameworks  = "Foundation"
+  s.dependency 'ETObserver'
 end

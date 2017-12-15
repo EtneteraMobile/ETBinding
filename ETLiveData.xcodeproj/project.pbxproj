@@ -8,10 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* ETLiveData.framework */; };
-		71701EB21FE3A55500E30515 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71701EB11FE3A55500E30515 /* ETObserver.framework */; };
-		71701EB51FE3A65700E30515 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71701EB31FE3A65000E30515 /* ETObserver.framework */; };
-		71701EB81FE3A67B00E30515 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71701EB61FE3A66100E30515 /* ETObserver.framework */; };
-		71701EDA1FE3A69A00E30515 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71701ED81FE3A69200E30515 /* ETObserver.framework */; };
+		713F7DC31FE3AAB100B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC01FE3AA2900B86A50 /* ETObserver.framework */; };
+		713F7DC71FE3AAD500B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC51FE3AAD200B86A50 /* ETObserver.framework */; };
+		713F7DE61FE3AB6500B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */; };
+		713F7DE71FE3AB6900B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */; };
+		713F7DE91FE3AD0200B86A50 /* ETLiveData.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */; };
+		713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC01FE3AA2900B86A50 /* ETObserver.framework */; };
+		713F7DEB1FE3D3ED00B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC51FE3AAD200B86A50 /* ETObserver.framework */; };
+		713F7DEC1FE3D3F100B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */; };
+		713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
+		713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
+		713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		718BCFCD1FE3A11D008075BD /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC21FE3A11C008075BD /* DeallocTracker.swift */; };
 		718BCFCE1FE3A11D008075BD /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC21FE3A11C008075BD /* DeallocTracker.swift */; };
 		718BCFCF1FE3A11D008075BD /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC21FE3A11C008075BD /* DeallocTracker.swift */; };
@@ -81,10 +88,12 @@
 		52D6D9E21BEFFF6E002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71701EB11FE3A55500E30515 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/iOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		71701EB31FE3A65000E30515 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/Mac/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		71701EB61FE3A66100E30515 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/tvOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		71701ED81FE3A69200E30515 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/watchOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
+		713F7DC01FE3AA2900B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/iOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
+		713F7DC51FE3AAD200B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/tvOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
+		713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/Mac/ETObserver.framework; sourceTree = SOURCE_ROOT; };
+		713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/watchOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
+		713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ETLiveData.podspec; sourceTree = "<group>"; };
+		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
 		718BCFC21FE3A11C008075BD /* DeallocTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
 		718BCFC31FE3A11C008075BD /* LiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
 		718BCFC41FE3A11C008075BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -106,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71701EB21FE3A55500E30515 /* ETObserver.framework in Frameworks */,
+				713F7DC31FE3AAB100B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */,
+				713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71701EDA1FE3A69A00E30515 /* ETObserver.framework in Frameworks */,
+				713F7DE61FE3AB6500B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71701EB81FE3A67B00E30515 /* ETObserver.framework in Frameworks */,
+				713F7DC71FE3AAD500B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71701EB51FE3A65700E30515 /* ETObserver.framework in Frameworks */,
+				713F7DE71FE3AB6900B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7502881C68FEDE006590AF /* ETLiveData.framework in Frameworks */,
+				713F7DEC1FE3D3F100B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7502921C690C7A006590AF /* ETLiveData.framework in Frameworks */,
+				713F7DEB1FE3D3ED00B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +176,7 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */,
 				718BCFF11FE3A217008075BD /* Cartfile */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
@@ -193,6 +206,38 @@
 				DD7502731C68FC20006590AF /* Tests */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		713F7DC41FE3AAC000B86A50 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				713F7DC51FE3AAD200B86A50 /* ETObserver.framework */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		713F7DC81FE3AAE800B86A50 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		713F7DE31FE3AB1100B86A50 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		71712A6C1FE3A8350070AC9B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				713F7DC01FE3AA2900B86A50 /* ETObserver.framework */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		718BCFC51FE3A11D008075BD /* LiveStateData */ = {
@@ -230,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */,
+				713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */,
 			);
 			name = Tests;
 			path = Tests/ETLiveDataTests;
@@ -238,10 +284,10 @@
 		DD7502721C68FC1B006590AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71701EB11FE3A55500E30515 /* ETObserver.framework */,
-				71701EB31FE3A65000E30515 /* ETObserver.framework */,
-				71701EB61FE3A66100E30515 /* ETObserver.framework */,
-				71701ED81FE3A69200E30515 /* ETObserver.framework */,
+				713F7DE31FE3AB1100B86A50 /* watchOS */,
+				713F7DC81FE3AAE800B86A50 /* macOS */,
+				713F7DC41FE3AAC000B86A50 /* tvOS */,
+				71712A6C1FE3A8350070AC9B /* iOS */,
 				AD2FAA261CD0B6D800659CF4 /* ETLiveData.plist */,
 			);
 			name = Frameworks;
@@ -483,6 +529,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713F7DE91FE3AD0200B86A50 /* ETLiveData.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C7901EB5B82D000D00A4 /* LiveDataTests.swift in Sources */,
+				713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C78F1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */,
+				713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C78E1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */,
+				713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,10 +805,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -785,10 +832,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -806,6 +850,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS-Tests";
@@ -819,6 +867,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS-Tests";
@@ -839,9 +891,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
@@ -868,9 +917,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
@@ -899,9 +945,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -928,9 +971,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -958,10 +998,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
@@ -988,10 +1025,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Configs/ETLiveData.plist;
@@ -1012,6 +1046,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -1027,6 +1065,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -1041,6 +1083,10 @@
 		DD7502961C690C7A006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-tvOS-Tests";
@@ -1054,6 +1100,10 @@
 		DD7502971C690C7A006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-tvOS-Tests";

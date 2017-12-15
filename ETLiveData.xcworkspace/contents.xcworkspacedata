@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Example.playground">
+      location = "group:Example.playground">
    </FileRef>
    <FileRef
-      location = "self:ETLiveData.xcodeproj">
+      location = "container:ETLiveData.xcodeproj">
    </FileRef>
 </Workspace>

@@ -7,17 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710C699D1FE393F0003E61C3 /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C699C1FE393F0003E61C3 /* LiveData.swift */; };
+		710C699F1FE3940A003E61C3 /* LiveStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C699E1FE3940A003E61C3 /* LiveStateData.swift */; };
 		71C2A0061FD7C84600203DFF /* ETLiveData.h in Headers */ = {isa = PBXBuildFile; fileRef = 71C2A0041FD7C84600203DFF /* ETLiveData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71C2A00D1FD7C88800203DFF /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2A00B1FD7C88700203DFF /* Observer.swift */; };
-		71C2A00E1FD7C88800203DFF /* ObserverValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2A00C1FD7C88800203DFF /* ObserverValue.swift */; };
+		71C4A0281FE392CB00B9C23F /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A0271FE392CB00B9C23F /* DeallocTracker.swift */; };
+		71C4A02A1FE3934F00B9C23F /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A0291FE3934F00B9C23F /* Observer.swift */; };
+		71C4A02C1FE3935C00B9C23F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A02B1FE3935C00B9C23F /* Constants.swift */; };
+		71C4A02E1FE3937700B9C23F /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A02D1FE3937700B9C23F /* LifecycleState.swift */; };
+		71C4A0301FE3938800B9C23F /* LifecycleOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A02F1FE3938800B9C23F /* LifecycleOwner.swift */; };
+		71C4A0321FE3939B00B9C23F /* LifecycleBoundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A0311FE3939B00B9C23F /* LifecycleBoundObserver.swift */; };
+		71C4A0351FE393B500B9C23F /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4A0341FE393B500B9C23F /* StateValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		710C699C1FE393F0003E61C3 /* LiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
+		710C699E1FE3940A003E61C3 /* LiveStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateData.swift; sourceTree = "<group>"; };
 		71C2A0011FD7C84600203DFF /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C2A0041FD7C84600203DFF /* ETLiveData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETLiveData.h; sourceTree = "<group>"; };
 		71C2A0051FD7C84600203DFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71C2A00B1FD7C88700203DFF /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
-		71C2A00C1FD7C88800203DFF /* ObserverValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverValue.swift; sourceTree = "<group>"; };
+		71C4A0271FE392CB00B9C23F /* DeallocTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
+		71C4A0291FE3934F00B9C23F /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		71C4A02B1FE3935C00B9C23F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		71C4A02D1FE3937700B9C23F /* LifecycleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleState.swift; sourceTree = "<group>"; };
+		71C4A02F1FE3938800B9C23F /* LifecycleOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleOwner.swift; sourceTree = "<group>"; };
+		71C4A0311FE3939B00B9C23F /* LifecycleBoundObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleBoundObserver.swift; sourceTree = "<group>"; };
+		71C4A0341FE393B500B9C23F /* StateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710C69A01FE3942A003E61C3 /* LiveStateData */ = {
+			isa = PBXGroup;
+			children = (
+				71C4A0341FE393B500B9C23F /* StateValue.swift */,
+				710C699E1FE3940A003E61C3 /* LiveStateData.swift */,
+			);
+			path = LiveStateData;
+			sourceTree = "<group>";
+		};
+		710C69A11FE39442003E61C3 /* Owner Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				71C4A02D1FE3937700B9C23F /* LifecycleState.swift */,
+				71C4A02F1FE3938800B9C23F /* LifecycleOwner.swift */,
+				71C4A0311FE3939B00B9C23F /* LifecycleBoundObserver.swift */,
+			);
+			path = "Owner Lifecycle";
+			sourceTree = "<group>";
+		};
 		71C29FF51FD7C83600203DFF = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +93,12 @@
 		71C2A00A1FD7C87500203DFF /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				71C2A00B1FD7C88700203DFF /* Observer.swift */,
-				71C2A00C1FD7C88800203DFF /* ObserverValue.swift */,
+				71C4A02B1FE3935C00B9C23F /* Constants.swift */,
+				71C4A0271FE392CB00B9C23F /* DeallocTracker.swift */,
+				710C699C1FE393F0003E61C3 /* LiveData.swift */,
+				710C69A01FE3942A003E61C3 /* LiveStateData */,
+				71C4A0291FE3934F00B9C23F /* Observer.swift */,
+				710C69A11FE39442003E61C3 /* Owner Lifecycle */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -104,7 +141,8 @@
 		71C29FF61FD7C83600203DFF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = ETLiveData;
 				TargetAttributes = {
 					71C2A0001FD7C84600203DFF = {
 						CreatedOnToolsVersion = 9.1;
@@ -145,8 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C2A00D1FD7C88800203DFF /* Observer.swift in Sources */,
-				71C2A00E1FD7C88800203DFF /* ObserverValue.swift in Sources */,
+				71C4A02E1FE3937700B9C23F /* LifecycleState.swift in Sources */,
+				71C4A0281FE392CB00B9C23F /* DeallocTracker.swift in Sources */,
+				71C4A02C1FE3935C00B9C23F /* Constants.swift in Sources */,
+				710C699D1FE393F0003E61C3 /* LiveData.swift in Sources */,
+				710C699F1FE3940A003E61C3 /* LiveStateData.swift in Sources */,
+				71C4A02A1FE3934F00B9C23F /* Observer.swift in Sources */,
+				71C4A0301FE3938800B9C23F /* LifecycleOwner.swift in Sources */,
+				71C4A0351FE393B500B9C23F /* StateValue.swift in Sources */,
+				71C4A0321FE3939B00B9C23F /* LifecycleBoundObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,12 +201,60 @@
 		71C29FFA1FD7C83600203DFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		71C29FFB1FD7C83600203DFF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 			};
 			name = Release;
 		};
@@ -196,6 +289,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -226,7 +320,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.fortuna.ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETLiveData-iOS";
 				PRODUCT_NAME = ETLiveData;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -270,6 +364,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -293,7 +388,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.fortuna.ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETLiveData-iOS";
 				PRODUCT_NAME = ETLiveData;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

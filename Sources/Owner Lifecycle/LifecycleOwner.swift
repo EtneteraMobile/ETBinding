@@ -6,6 +6,6 @@
 //  Copyright © 2017 ETLiveData. All rights reserved.
 //
 
-public protocol LifecycleOwner {
+public protocol LifecycleOwner: class {
     func on(dealloc: @escaping () -> Void)
 }

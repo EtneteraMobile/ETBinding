@@ -14,6 +14,7 @@ public class LiveData<Value> {
     public typealias DataType = Value?
     public var data: DataType {
         didSet {
+            version += 1
             dispatch()
         }
     }
@@ -38,7 +39,7 @@ public extension LiveData {
         return observe(wrapper)
     }
 
-    @discardableResult func observe(owner: LifecycleOwner, observer: Observer<DataType>) -> Observer<DataType> {
+    @discardableResult func observe(owner: LifecycleOwner, observer: Observer<DataType>) -> Observer<DataType>? {
         let wrapper = LifecycleBoundObserver(owner: owner, observer: observer)
         return observe(wrapper)
     }
@@ -48,14 +49,14 @@ public extension LiveData {
         return observe(wrapper)
     }
 
-    @discardableResult func observeForever(observer: Observer<DataType>) -> Observer<DataType> {
+    @discardableResult func observeForever(observer: Observer<DataType>) -> Observer<DataType>? {
         let wrapper = LifecycleBoundObserver(observer: observer)
         return observe(wrapper)
     }
 
     // MARK: - Remove
 
-    func remove(observer: Observer<DataType>) -> Bool {
+    @discardableResult func remove(observer: Observer<DataType>) -> Bool {
         let existingIdx = observers.index { (rhs) -> Bool in
             return observer.hashValue == rhs.observer.hashValue
         }
@@ -96,7 +97,7 @@ public extension LiveData {
 private extension LiveData {
     private func observe(_ wrapper: LifecycleBoundObserver<DataType>) -> Observer<DataType> {
         guard observers.contains(wrapper) == false else {
-            preconditionFailure("Cannot add the same observer multiple times")
+            fatalError("Unable to register same observer multiple time")
         }
         observers.insert(wrapper)
         return wrapper.observer
@@ -109,6 +110,7 @@ private extension LiveData {
             wrapper.lastVersion < version else {
                 return
         }
+        wrapper.lastVersion = version
         wrapper.observer.update(data)
     }
 }

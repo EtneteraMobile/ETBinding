@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* ETLiveData.framework */; };
+		712FA2E41FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
+		712FA2E51FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
+		712FA2E61FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
+		712FA2E71FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
+		712FA2ED1FE91DF300969753 /* ExpectFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E81FE91DE300969753 /* ExpectFatalError.swift */; };
+		712FA2EE1FE91DF400969753 /* ExpectFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E81FE91DE300969753 /* ExpectFatalError.swift */; };
+		712FA2EF1FE91DF400969753 /* ExpectFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E81FE91DE300969753 /* ExpectFatalError.swift */; };
 		713F7DC31FE3AAB100B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC01FE3AA2900B86A50 /* ETObserver.framework */; };
 		713F7DC71FE3AAD500B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC51FE3AAD200B86A50 /* ETObserver.framework */; };
 		713F7DE61FE3AB6500B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */; };
@@ -19,6 +26,10 @@
 		713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
+		713F7DFD1FE3F57100B86A50 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DF81FE3F53000B86A50 /* Weak.swift */; };
+		713F7DFE1FE3F57200B86A50 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DF81FE3F53000B86A50 /* Weak.swift */; };
+		713F7DFF1FE3F57200B86A50 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DF81FE3F53000B86A50 /* Weak.swift */; };
+		713F7E001FE3F57300B86A50 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DF81FE3F53000B86A50 /* Weak.swift */; };
 		718BCFCD1FE3A11D008075BD /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC21FE3A11C008075BD /* DeallocTracker.swift */; };
 		718BCFCE1FE3A11D008075BD /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC21FE3A11C008075BD /* DeallocTracker.swift */; };
 		718BCFCF1FE3A11D008075BD /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC21FE3A11C008075BD /* DeallocTracker.swift */; };
@@ -88,12 +99,15 @@
 		52D6D9E21BEFFF6E002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		712FA2E31FE91DB000969753 /* TestableFatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableFatalError.swift; sourceTree = "<group>"; };
+		712FA2E81FE91DE300969753 /* ExpectFatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectFatalError.swift; sourceTree = "<group>"; };
 		713F7DC01FE3AA2900B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/iOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DC51FE3AAD200B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/tvOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/Mac/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/watchOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ETLiveData.podspec; sourceTree = "<group>"; };
 		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
+		713F7DF81FE3F53000B86A50 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		718BCFC21FE3A11C008075BD /* DeallocTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
 		718BCFC31FE3A11C008075BD /* LiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
 		718BCFC41FE3A11C008075BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -123,8 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */,
 				713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */,
+				52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +196,7 @@
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
 				52D6D97D1BEFF229002C0205 /* Products */,
+				713F7DF31FE3DA2400B86A50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,6 +247,23 @@
 			path = watchOS;
 			sourceTree = "<group>";
 		};
+		713F7DF31FE3DA2400B86A50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		713F7DFC1FE3F54100B86A50 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				718BCFC21FE3A11C008075BD /* DeallocTracker.swift */,
+				713F7DF81FE3F53000B86A50 /* Weak.swift */,
+				712FA2E31FE91DB000969753 /* TestableFatalError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		71712A6C1FE3A8350070AC9B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				718BCFC41FE3A11C008075BD /* Constants.swift */,
-				718BCFC21FE3A11C008075BD /* DeallocTracker.swift */,
+				713F7DFC1FE3F54100B86A50 /* Helpers */,
 				718BCFC31FE3A11C008075BD /* LiveData.swift */,
 				718BCFC51FE3A11D008075BD /* LiveStateData */,
 				718BCFC91FE3A11D008075BD /* Owner Lifecycle */,
@@ -274,6 +306,7 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				712FA2E81FE91DE300969753 /* ExpectFatalError.swift */,
 				8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */,
 				713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */,
 			);
@@ -360,6 +393,7 @@
 				52D6D9821BEFF229002C0205 /* Sources */,
 				52D6D9831BEFF229002C0205 /* Frameworks */,
 				52D6D9841BEFF229002C0205 /* Resources */,
+				713F7DF41FE3DAB400B86A50 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -432,6 +466,7 @@
 				DD7502761C68FCFC006590AF /* Sources */,
 				DD7502771C68FCFC006590AF /* Frameworks */,
 				DD7502781C68FCFC006590AF /* Resources */,
+				713F7DF51FE3DAE600B86A50 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -450,6 +485,7 @@
 				DD7502891C690C7A006590AF /* Sources */,
 				DD75028A1C690C7A006590AF /* Frameworks */,
 				DD75028B1C690C7A006590AF /* Resources */,
+				713F7DF71FE3DAFE00B86A50 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -478,6 +514,7 @@
 					52D6D9851BEFF229002C0205 = {
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					52D6D9E11BEFFF6E002C0205 = {
 						CreatedOnToolsVersion = 7.1;
@@ -577,6 +614,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		713F7DF41FE3DAB400B86A50 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ETObserver.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		713F7DF51FE3DAE600B86A50 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ETObserver.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		713F7DF71FE3DAFE00B86A50 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ETObserver.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52D6D9771BEFF229002C0205 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -587,6 +672,8 @@
 				718BCFCD1FE3A11D008075BD /* DeallocTracker.swift in Sources */,
 				718BCFD91FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD11FE3A11D008075BD /* LiveData.swift in Sources */,
+				712FA2E41FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				713F7E001FE3F57300B86A50 /* Weak.swift in Sources */,
 				718BCFE91FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD51FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE51FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -598,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C7901EB5B82D000D00A4 /* LiveDataTests.swift in Sources */,
+				712FA2ED1FE91DF300969753 /* ExpectFatalError.swift in Sources */,
 				713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +699,8 @@
 				718BCFCF1FE3A11D008075BD /* DeallocTracker.swift in Sources */,
 				718BCFDB1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD31FE3A11D008075BD /* LiveData.swift in Sources */,
+				712FA2E61FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				713F7DFE1FE3F57200B86A50 /* Weak.swift in Sources */,
 				718BCFEB1FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD71FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE71FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -626,6 +716,8 @@
 				718BCFD01FE3A11D008075BD /* DeallocTracker.swift in Sources */,
 				718BCFDC1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD41FE3A11D008075BD /* LiveData.swift in Sources */,
+				712FA2E71FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				713F7DFD1FE3F57100B86A50 /* Weak.swift in Sources */,
 				718BCFEC1FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD81FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE81FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -641,6 +733,8 @@
 				718BCFCE1FE3A11D008075BD /* DeallocTracker.swift in Sources */,
 				718BCFDA1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD21FE3A11D008075BD /* LiveData.swift in Sources */,
+				712FA2E51FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				713F7DFF1FE3F57200B86A50 /* Weak.swift in Sources */,
 				718BCFEA1FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD61FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE61FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -652,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C78F1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */,
+				712FA2EE1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C78E1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */,
+				712FA2EF1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,6 +946,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -858,6 +956,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -867,6 +966,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -875,6 +976,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 			};

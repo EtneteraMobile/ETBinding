@@ -16,23 +16,17 @@ public class LifecycleBoundObserver<T>: Hashable {
     public private(set) var state: LifecycleState = .active
     public let observer: Observer<T>
     internal var lastVersion: Int = Constants.startVersion
-    private let owner: LifecycleOwner?
+    private weak var owner: LifecycleOwner?
 
     init(owner: LifecycleOwner? = nil, observer: Observer<T>) {
-        self.owner = owner
         self.observer = observer
+        self.owner = owner
 
-        if let owner = owner {
-            owner.on(dealloc: { [unowned self] in
-                self.state = .destroyed
-            })
-        }
+        owner?.on(dealloc: { [weak self] in
+            self?.state = .destroyed
+        })
     }
-
-    deinit {
-        // TODO: Removes DeallocTracker
-    }
-
+    
     public static func ==(lhs: LifecycleBoundObserver<T>, rhs: LifecycleBoundObserver<T>) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }

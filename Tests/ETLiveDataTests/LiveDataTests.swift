@@ -24,6 +24,13 @@ class LiveDataTests: XCTestCase {
     }
 
     func onUpdate(_ input: String?) {
+        onUpdate(queueKey: nil, input)
+    }
+
+    func onUpdate(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
+        if let queueKey = queueKey {
+            expectQueue(withKey: queueKey)
+        }
         guard expectations.isEmpty == false else {
             XCTAssert(expectations.isEmpty == false, "Update called more than expected")
             return
@@ -50,11 +57,25 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testObserveWithLifecycleOwner() {
+    func testObserveWithObserverAndLifecycleOwner() {
         expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
         let observer = Observer<String?>(update: onUpdate)
 
         liveData.observe(owner: owner!, observer: observer)
+
+        let data1 = expectations[0].expectationDescription
+        let data2 = expectations[1].expectationDescription
+
+        liveData.data = data1
+        liveData.data = data2
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testObserveWithOnUpdateAndLifecycleOwner() {
+        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
+
+        liveData.observe(owner: owner!, onUpdate: onUpdate)
 
         let data1 = expectations[0].expectationDescription
         let data2 = expectations[1].expectationDescription
@@ -98,6 +119,14 @@ class LiveDataTests: XCTestCase {
         XCTAssertNil(liveData.data)
     }
 
+    func testObserveOnUpdateDoesntFire() {
+        var wasCalled = false
+        _ = liveData.observeForever(onUpdate: { input in
+            wasCalled = true
+        })
+        XCTAssertFalse(wasCalled)
+    }
+
     func testStartObservingExistingDataAndDispatch() {
         expectations = [expectation(description: "New data 1")]
 
@@ -121,7 +150,7 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testObserverLifecycle() {
+    func testRemoveObserverOnDealloc() {
         expectations = [expectation(description: "New data 1")]
         let observer = Observer<String?>(update: onUpdate)
 
@@ -135,7 +164,7 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testDispatchWithInitiator() {
+    func testDispatchToInitiator() {
         expectations = [expectation(description: "New data 1")]
         let observer1 = Observer<String?>(update: onUpdate)
         let observer2 = Observer<String?>(update: onUpdate)
@@ -149,31 +178,106 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
+    func testDispatchToUnregisteredInitiator() {
+        let observer1 = Observer<String?>(update: onUpdate)
+
+        expectFatalError(withMessage: "Initiator was never registered for observation") {
+            self.liveData.dispatch(initiator: observer1)
+        }
+    }
+
     func testAddObserverMultipleTimes() {
         let observer = Observer<String?>(update: onUpdate)
-        expectFatalError(expectedMessage: "Unable to register same observer multiple time") {
+        expectFatalError(withMessage: "Unable to register same observer multiple time") {
             self.liveData.observeForever(observer: observer)
             self.liveData.observeForever(observer: observer)
         }
     }
 
-    func testRemoveMultipleObservers() {}
-    func testThreadInObserverUpdate() {
+    func testRemoveObserverMultipleTimes() {
+        let observer = Observer<String?>(update: onUpdate)
+        self.liveData.observeForever(observer: observer)
+        XCTAssertTrue(liveData.remove(observer: observer))
+        XCTAssertFalse(liveData.remove(observer: observer))
+    }
 
+    func testAddRemoveAddRemoveObserver() {
+        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
+        let observer = Observer<String?>(update: onUpdate)
+
+        let data1 = expectations[0].expectationDescription
+        let data2 = expectations[1].expectationDescription
+
+        liveData.observeForever(observer: observer)
+        liveData.data = data1
+        XCTAssertTrue(liveData.remove(observer: observer))
+
+        liveData.observeForever(observer: observer)
+        liveData.data = data2
+        XCTAssertTrue(liveData.remove(observer: observer))
+
+        XCTAssertFalse(liveData.remove(observer: observer))
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testQueueWhereValueIsDispatched() {
+        expectations = [expectation(description: "New data 1")]
+        let queue = makeQueueWithKey()
+        let observer = Observer<String?>(update: curry(onUpdate)(queue.0))
+        
+        liveData.observeForever(observer: observer)
+        queue.1.sync {
+            liveData.data = expectations[0].expectationDescription
+        }
+
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testThreadSafety() {
+        let cycles = 1000
 
+        for i in 1...cycles {
+            let exp = expectation(description: "New data \(i)")
+            let observer = Observer<String?>(update: onUpdate)
+            DispatchQueue.global().async {
+                self.liveData.observeForever(observer: observer)
+                DispatchQueue.global().async {
+                    self.liveData.remove(observer: observer)
+                    exp.fulfill()
+                }
+            }
+        }
+
+        waitForExpectations(timeout: 10) { error in
+            self.liveData.data = "without dispatch"
+            XCTAssert(self.liveData.observers.isEmpty, "Observers still registered")
+        }
     }
     
-//    static var allTests = [
-//        ("testExample", testExample),
-//    ]
+    static var allTests = [
+        ("testObserveForever", testObserveForever),
+        ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
+        ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),
+        ("testRemoveObserver", testRemoveObserver),
+        ("testReadData", testReadData),
+        ("testObserveOnUpdateDoesntFire", testObserveOnUpdateDoesntFire),
+        ("testStartObservingExistingDataAndDispatch", testStartObservingExistingDataAndDispatch),
+        ("testDispatchSameDataMultipleTimes", testDispatchSameDataMultipleTimes),
+        ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
+        ("testDispatchToInitiator", testDispatchToInitiator),
+        ("testDispatchToUnregisteredInitiator", testDispatchToUnregisteredInitiator),
+        ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
+        ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
+        ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
+        ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
+        ("testThreadSafety", testThreadSafety),
+    ]
 }
 
 class Owner: LifecycleOwner {
     func on(dealloc: @escaping () -> Void) {
-        ETLiveData.onDealloc(of: self) {
+        onDealloc(of: self) {
             dealloc()
         }
     }

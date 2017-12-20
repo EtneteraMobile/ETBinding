@@ -10,7 +10,10 @@ import Foundation
 import ETObserver
 
 public class LiveData<Value> {
+
+    // MARK: - Variables
     // MARK: public
+
     public typealias DataType = Value?
     public var data: DataType {
         didSet {
@@ -18,9 +21,15 @@ public class LiveData<Value> {
             dispatch()
         }
     }
+
+    // MARK: internal
+
+    internal var observers: Set<LifecycleBoundObserver<DataType>> = []
+
     // MARK: private
+
     private var version: Int = Constants.startVersion
-    private var observers: Set<LifecycleBoundObserver<DataType>> = []
+    private let lock = NSRecursiveLock()
 
     // MARK: - Initialization
 
@@ -32,6 +41,7 @@ public class LiveData<Value> {
 // MARK: - Public
 
 public extension LiveData {
+
     // MARK: - Observe
 
     @discardableResult func observe(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
@@ -57,6 +67,10 @@ public extension LiveData {
     // MARK: - Remove
 
     @discardableResult func remove(observer: Observer<DataType>) -> Bool {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         let existingIdx = observers.index { (rhs) -> Bool in
             return observer.hashValue == rhs.observer.hashValue
         }
@@ -64,14 +78,18 @@ public extension LiveData {
         if let idx = existingIdx {
             observers.remove(at: idx)
             return true
-        } else {
-            return false
         }
+
+        return false
     }
 
     // MARK: - Dispatch
 
     func dispatch(initiator: Observer<DataType>? = nil) {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         // Removes destroyed observers
         observers = observers.filter {
             $0.state != .destroyed
@@ -80,7 +98,7 @@ public extension LiveData {
         if let initiator = initiator {
             // Dispaches only to iniciator
             guard let wrapper = observers.first(where: { $0.hashValue == initiator.hashValue }) else {
-                return
+                fatalError("Initiator was never registered for observation")
             }
             considerNotify(wrapper)
         } else {
@@ -96,6 +114,10 @@ public extension LiveData {
 
 private extension LiveData {
     private func observe(_ wrapper: LifecycleBoundObserver<DataType>) -> Observer<DataType> {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         guard observers.contains(wrapper) == false else {
             fatalError("Unable to register same observer multiple time")
         }
@@ -104,8 +126,6 @@ private extension LiveData {
     }
 
     private func considerNotify(_ wrapper: LifecycleBoundObserver<DataType>) {
-        // TODO: Check queue
-
         guard wrapper.state == .active,
             wrapper.lastVersion < version else {
                 return

@@ -1,5 +1,5 @@
 //
-//  XCTAssertFatalError.swift
+//  ExpectFatalError.swift
 //  ETLiveData
 //
 //  Created by Jan Čislinský on 19. 12. 2017.
@@ -13,7 +13,7 @@ import ETLiveData
 // source: https://stackoverflow.com/a/44140448/3475253
 
 extension XCTestCase {
-    func expectFatalError(expectedMessage: String, testcase: @escaping () -> Void) {
+    func expectFatalError(withMessage message: String, testcase: @escaping () -> Void) {
 
         // arrange
         let expectation = self.expectation(description: "expectingFatalError")
@@ -31,7 +31,7 @@ extension XCTestCase {
 
         waitForExpectations(timeout: 0.1) { _ in
             // assert
-            XCTAssert(assertionMessage == expectedMessage, "Expected fatal error did not occurred (\(expectedMessage)")
+            XCTAssert(assertionMessage == message, "Expected fatal error did not occurred (\(message)")
 
             // clean up
             FatalErrorUtil.restoreFatalError()

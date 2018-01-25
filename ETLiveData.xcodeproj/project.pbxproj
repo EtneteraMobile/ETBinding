@@ -55,10 +55,6 @@
 		718BCFE61FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */; };
 		718BCFE71FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */; };
 		718BCFE81FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */; };
-		718BCFE91FE3A11D008075BD /* LifecycleOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCB1FE3A11D008075BD /* LifecycleOwner.swift */; };
-		718BCFEA1FE3A11D008075BD /* LifecycleOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCB1FE3A11D008075BD /* LifecycleOwner.swift */; };
-		718BCFEB1FE3A11D008075BD /* LifecycleOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCB1FE3A11D008075BD /* LifecycleOwner.swift */; };
-		718BCFEC1FE3A11D008075BD /* LifecycleOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCB1FE3A11D008075BD /* LifecycleOwner.swift */; };
 		718BCFED1FE3A11D008075BD /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCC1FE3A11D008075BD /* LifecycleState.swift */; };
 		718BCFEE1FE3A11D008075BD /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCC1FE3A11D008075BD /* LifecycleState.swift */; };
 		718BCFEF1FE3A11D008075BD /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCC1FE3A11D008075BD /* LifecycleState.swift */; };
@@ -116,7 +112,6 @@
 		718BCFC61FE3A11D008075BD /* StateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
 		718BCFC71FE3A11D008075BD /* LiveStateData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStateData.swift; sourceTree = "<group>"; };
 		718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleBoundObserver.swift; sourceTree = "<group>"; };
-		718BCFCB1FE3A11D008075BD /* LifecycleOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleOwner.swift; sourceTree = "<group>"; };
 		718BCFCC1FE3A11D008075BD /* LifecycleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleState.swift; sourceTree = "<group>"; };
 		718BCFF11FE3A217008075BD /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataTests.swift; sourceTree = "<group>"; };
@@ -296,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */,
-				718BCFCB1FE3A11D008075BD /* LifecycleOwner.swift */,
 				718BCFCC1FE3A11D008075BD /* LifecycleState.swift */,
 			);
 			path = "Owner Lifecycle";
@@ -683,7 +677,6 @@
 				718BCFD91FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD11FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E41FE91DB000969753 /* TestableFatalError.swift in Sources */,
-				718BCFE91FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD51FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE51FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);
@@ -711,7 +704,6 @@
 				718BCFDB1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD31FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E61FE91DB000969753 /* TestableFatalError.swift in Sources */,
-				718BCFEB1FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD71FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE71FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);
@@ -726,7 +718,6 @@
 				718BCFDC1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD41FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E71FE91DB000969753 /* TestableFatalError.swift in Sources */,
-				718BCFEC1FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD81FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE81FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);
@@ -741,7 +732,6 @@
 				718BCFDA1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD21FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E51FE91DB000969753 /* TestableFatalError.swift in Sources */,
-				718BCFEA1FE3A11D008075BD /* LifecycleOwner.swift in Sources */,
 				718BCFD61FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE61FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);

@@ -275,10 +275,4 @@ class LiveDataTests: XCTestCase {
     ]
 }
 
-class Owner: LifecycleOwner {
-    func on(dealloc: @escaping () -> Void) {
-        onDealloc(of: self) {
-            dealloc()
-        }
-    }
-}
+class Owner {}

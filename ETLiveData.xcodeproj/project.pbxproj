@@ -278,32 +278,16 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		718BCFC51FE3A11D008075BD /* LiveStateData */ = {
-			isa = PBXGroup;
-			children = (
-				718BCFC61FE3A11D008075BD /* StateValue.swift */,
-				718BCFC71FE3A11D008075BD /* LiveStateData.swift */,
-			);
-			path = LiveStateData;
-			sourceTree = "<group>";
-		};
-		718BCFC91FE3A11D008075BD /* Owner Lifecycle */ = {
-			isa = PBXGroup;
-			children = (
-				718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */,
-				718BCFCC1FE3A11D008075BD /* LifecycleState.swift */,
-			);
-			path = "Owner Lifecycle";
-			sourceTree = "<group>";
-		};
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				718BCFC41FE3A11C008075BD /* Constants.swift */,
 				713F7DFC1FE3F54100B86A50 /* Helpers */,
+				718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */,
+				718BCFCC1FE3A11D008075BD /* LifecycleState.swift */,
 				718BCFC31FE3A11C008075BD /* LiveData.swift */,
-				718BCFC51FE3A11D008075BD /* LiveStateData */,
-				718BCFC91FE3A11D008075BD /* Owner Lifecycle */,
+				718BCFC71FE3A11D008075BD /* LiveStateData.swift */,
+				718BCFC61FE3A11D008075BD /* StateValue.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

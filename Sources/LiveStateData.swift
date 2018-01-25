@@ -6,4 +6,5 @@
 //  Copyright © 2017 ETLiveData. All rights reserved.
 //
 
+/// 
 public class LiveStateData<Value>: LiveData<StateValue<Value>> {}

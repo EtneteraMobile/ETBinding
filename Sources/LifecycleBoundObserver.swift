@@ -11,17 +11,23 @@ import ETObserver
 
 public typealias LifecycleOwner = AnyObject
 
-public class LifecycleBoundObserver<T>: Hashable {
-    public var hashValue: Int {
+/// Wrapper for `Observer` and `LifecycleOwner` whose state determines that
+/// `Observer` has to be active or not according lifecycle of owner.
+class LifecycleBoundObserver<T>: Hashable {
+    var hashValue: Int {
         return observer.hashValue
     }
-    public var state: LifecycleState {
+    /// Lifecycle state of owner if was set in init otherwise returns forever `.active`
+    var state: LifecycleState {
         get {
             return owner != nil || isActiveForever ? .active : .destroyed
         }
     }
-    public let observer: Observer<T>
-    internal var lastVersion: Int = Constants.startVersion
+    /// Observers that delivers updates
+    let observer: Observer<T>
+    /// Last version of delivered data to observer
+    var lastVersion: Int = Constants.startVersion
+
     private let isActiveForever: Bool
     private weak var owner: LifecycleOwner?
 
@@ -31,7 +37,7 @@ public class LifecycleBoundObserver<T>: Hashable {
         self.isActiveForever = owner == nil
     }
     
-    public static func ==(lhs: LifecycleBoundObserver<T>, rhs: LifecycleBoundObserver<T>) -> Bool {
+    static func ==(lhs: LifecycleBoundObserver<T>, rhs: LifecycleBoundObserver<T>) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
 }

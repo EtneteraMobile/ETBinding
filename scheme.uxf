@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>240</y>
+      <w>580</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>LiveData&lt;Value&gt;
+--
+data: Value?
+--
+- observe(owner: LifecycleOwner, onUpdate: (Value) -&gt; Void) -&gt; Observer&lt;Value&gt;
+- observe(owner: LifecycleOwner, observer: Observer&lt;Value&gt;)
+- observeForever(onUpdate: (Value) -&gt; Void) -&gt; Observer&lt;Value&gt;
+- observeForever(observer: Observer&lt;Value&gt;)
+- remove(observer: Observer&lt;Value&gt;)
+- dispatch(initiator: Observer&lt;Value&gt;?)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>430</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Observer&lt;T&gt;
+--
+update(new: T)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>500</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+StateValue&lt;Value&gt;
+--
+case success(Value)
+case failure(Swift.Error)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>430</y>
+      <w>180</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>LiveStateData&lt;Value&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>450</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>380</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>380</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

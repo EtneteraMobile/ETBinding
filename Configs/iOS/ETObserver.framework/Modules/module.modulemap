@@ -1,0 +1,4 @@
+framework module ETObserver {
+    header "ETObserver-Swift.h"
+    requires objc
+}

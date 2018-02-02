@@ -38,6 +38,10 @@ Add `pod 'ETLiveData'` to your Podfile.
 
 Add `github "EtneteraMobile/ETLiveData"` to your Cartfile.
 
+## Class diagram
+
+![Class diagram](Resources/scheme.pdf)
+
 ## Usage
 
 Follow these steps to work with LiveData objects:

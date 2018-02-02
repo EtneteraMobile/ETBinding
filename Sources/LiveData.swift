@@ -9,7 +9,10 @@
 import Foundation
 import ETObserver
 
-/// `LiveData` dispatches new `data` to all registered observers automatically.
+/// `LiveData` is an observable data holder class. Unlike a regular observable,
+/// `LiveData` is lifecycle-aware, meaning it respects the lifecycle of its owner.
+/// This awareness ensures `LiveData` only updates app component observers that
+/// are in an active lifecycle state.
 ///
 ///     let liveData = LiveData(data: "Initial")
 ///     let observer = liveData.observeForever { (data) in
@@ -28,6 +31,8 @@ public class LiveData<Value> {
     // MARK: public
 
     public typealias DataType = Value?
+
+    /// The current value that is dispatched after assignment.
     public var data: DataType {
         didSet {
             version += 1
@@ -204,19 +209,4 @@ private extension LiveData {
         wrapper.lastVersion = version
         wrapper.observer.update(data)
     }
-}
-
-func hovno() {
-    let vc = NSObject()
-    let liveData = LiveData(data: "Initial")
-    let observer = liveData.observe(owner: vc) { (data) in
-        print("\(String(describing: data))")
-    }
-    liveData.dispatch()
-    // prints Initial
-    liveData.data = "1"
-    // prints 1
-    liveData.remove(observer: observer)
-    liveData.data = "2"
-    // … nothing
 }

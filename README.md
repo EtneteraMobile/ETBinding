@@ -40,7 +40,7 @@ Add `github "EtneteraMobile/ETLiveData"` to your Cartfile.
 
 ## Class diagram
 
-![Class diagram](Resources/scheme.pdf)
+![Class diagram](Resources/scheme.png)
 
 ## Usage
 

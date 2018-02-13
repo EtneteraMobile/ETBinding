@@ -68,7 +68,7 @@ let observer = liveData.observe(owner: self) { data in
 
 
 
-Update closure can be encapsulated inside `Observer` and after then registered. This pattern is used when observation is started in future.
+Update closure can be encapsulated inside `Observer` and after then registered. This pattern could be used when observation will be started in future.
 
 ```swift
 let observer: Observer<String?> = Observer(update: { data in
@@ -82,7 +82,7 @@ liveData.observe(owner: self, observer: observer)
 
 ### Observe forever
 
-Lifecycle owner isn't mandatory all the time. When owner isn't given, unregistration is under your control.
+Lifecycle owner isn't mandatory all the time. When owner isn't given, unregistration is under your control. 
 
 ```swift
 let liveData: LiveData<String> = LiveData()

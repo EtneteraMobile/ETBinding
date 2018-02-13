@@ -11,7 +11,7 @@ import Foundation
 // source: https://stackoverflow.com/a/44140448/3475253
 
 // overrides Swift global `fatalError`
-public func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+internal func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
     FatalErrorUtil.fatalErrorClosure(message(), file, line)
     unreachable()
 }

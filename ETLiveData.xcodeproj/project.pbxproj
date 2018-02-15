@@ -35,6 +35,10 @@
 		713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
+		715FE0C720343BB7001556B3 /* MediatorLiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FE0C620343BB7001556B3 /* MediatorLiveData.swift */; };
+		715FE0C820343BB7001556B3 /* MediatorLiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FE0C620343BB7001556B3 /* MediatorLiveData.swift */; };
+		715FE0C920343BB7001556B3 /* MediatorLiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FE0C620343BB7001556B3 /* MediatorLiveData.swift */; };
+		715FE0CA20343BB7001556B3 /* MediatorLiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FE0C620343BB7001556B3 /* MediatorLiveData.swift */; };
 		718BCFD11FE3A11D008075BD /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC31FE3A11C008075BD /* LiveData.swift */; };
 		718BCFD21FE3A11D008075BD /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC31FE3A11C008075BD /* LiveData.swift */; };
 		718BCFD31FE3A11D008075BD /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC31FE3A11C008075BD /* LiveData.swift */; };
@@ -107,6 +111,7 @@
 		713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/watchOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ETLiveData.podspec; sourceTree = "<group>"; };
 		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
+		715FE0C620343BB7001556B3 /* MediatorLiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediatorLiveData.swift; sourceTree = "<group>"; };
 		718BCFC31FE3A11C008075BD /* LiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
 		718BCFC41FE3A11C008075BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		718BCFC61FE3A11D008075BD /* StateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
@@ -288,6 +293,7 @@
 				718BCFC31FE3A11C008075BD /* LiveData.swift */,
 				718BCFC71FE3A11D008075BD /* LiveStateData.swift */,
 				718BCFC61FE3A11D008075BD /* StateValue.swift */,
+				715FE0C620343BB7001556B3 /* MediatorLiveData.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715FE0C720343BB7001556B3 /* MediatorLiveData.swift in Sources */,
 				718BCFED1FE3A11D008075BD /* LifecycleState.swift in Sources */,
 				718BCFDD1FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFD91FE3A11D008075BD /* StateValue.swift in Sources */,
@@ -683,6 +690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715FE0C920343BB7001556B3 /* MediatorLiveData.swift in Sources */,
 				718BCFEF1FE3A11D008075BD /* LifecycleState.swift in Sources */,
 				718BCFDF1FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFDB1FE3A11D008075BD /* StateValue.swift in Sources */,
@@ -697,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715FE0CA20343BB7001556B3 /* MediatorLiveData.swift in Sources */,
 				718BCFF01FE3A11D008075BD /* LifecycleState.swift in Sources */,
 				718BCFE01FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFDC1FE3A11D008075BD /* StateValue.swift in Sources */,
@@ -711,6 +720,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715FE0C820343BB7001556B3 /* MediatorLiveData.swift in Sources */,
 				718BCFEE1FE3A11D008075BD /* LifecycleState.swift in Sources */,
 				718BCFDE1FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFDA1FE3A11D008075BD /* StateValue.swift in Sources */,

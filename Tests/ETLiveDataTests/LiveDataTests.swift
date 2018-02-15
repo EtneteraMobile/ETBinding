@@ -86,6 +86,88 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
+    func testObserveSingleEventWithObserver() {
+        expectations = [expectation(description: "New data 1")]
+        let observer = Observer<String?>(update: onUpdate)
+
+        XCTAssertTrue(liveData.observers.isEmpty)
+        liveData.observeSingleEventForever(observer: observer)
+        XCTAssertFalse(liveData.observers.isEmpty)
+
+        liveData.data = expectations[0].expectationDescription
+        XCTAssertTrue(liveData.observers.isEmpty)
+
+        liveData.data = "without dispatch"
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testObserveSingleEventWithOnUpdate() {
+        expectations = [expectation(description: "New data 1")]
+
+        XCTAssertTrue(liveData.observers.isEmpty)
+        liveData.observeSingleEventForever(onUpdate: onUpdate)
+        XCTAssertFalse(liveData.observers.isEmpty)
+
+        liveData.data = expectations[0].expectationDescription
+        XCTAssertTrue(liveData.observers.isEmpty)
+
+        liveData.data = "without dispatch"
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testObserveSingleEventWithObserverAndOwner_ownerDealloc() {
+        let observer = Observer<String?>(update: onUpdate)
+
+        XCTAssertTrue(liveData.observers.isEmpty)
+        liveData.observeSingleEvent(owner: owner!, observer: observer)
+        XCTAssertFalse(liveData.observers.isEmpty)
+
+        owner = nil
+        liveData.data = "without dispatch"
+    }
+
+    func testObserveSingleEventWithOnUpdateAndOwner_ownerDealloc() {
+        XCTAssertTrue(liveData.observers.isEmpty)
+        liveData.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+        XCTAssertFalse(liveData.observers.isEmpty)
+
+        owner = nil
+        liveData.data = "without dispatch"
+    }
+
+    func testObserveSingleEventWithObserverAndOwner_removeAfterDispatch() {
+        expectations = [expectation(description: "New data 1")]
+        let observer = Observer<String?>(update: onUpdate)
+
+        XCTAssertTrue(liveData.observers.isEmpty)
+        liveData.observeSingleEvent(owner: owner!, observer: observer)
+        XCTAssertFalse(liveData.observers.isEmpty)
+
+        liveData.data = expectations[0].expectationDescription
+        XCTAssertTrue(liveData.observers.isEmpty)
+
+        liveData.data = "without dispatch"
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testObserveSingleEventWithOnUpdateAndOwner_removeAfterDispatch() {
+        expectations = [expectation(description: "New data 1")]
+
+        XCTAssertTrue(liveData.observers.isEmpty)
+        liveData.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+        XCTAssertFalse(liveData.observers.isEmpty)
+
+        liveData.data = expectations[0].expectationDescription
+        XCTAssertTrue(liveData.observers.isEmpty)
+
+        liveData.data = "without dispatch"
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
     func testRemoveObserver() {
         expectations = [expectation(description: "New data 1")]
         let observer1 = Observer<String?>(update: onUpdate)
@@ -259,6 +341,12 @@ class LiveDataTests: XCTestCase {
         ("testObserveForever", testObserveForever),
         ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
         ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),
+        ("testObserveSingleEventWithObserver", testObserveSingleEventWithObserver),
+        ("testObserveSingleEventWithOnUpdate", testObserveSingleEventWithOnUpdate),
+        ("testObserveSingleEventWithObserverAndOwner_ownerDealloc", testObserveSingleEventWithObserverAndOwner_ownerDealloc),
+        ("testObserveSingleEventWithOnUpdateAndOwner_ownerDealloc", testObserveSingleEventWithOnUpdateAndOwner_ownerDealloc),
+        ("testObserveSingleEventWithObserverAndOwner_removeAfterDispatch", testObserveSingleEventWithObserverAndOwner_removeAfterDispatch),
+        ("testObserveSingleEventWithOnUpdateAndOwner_removeAfterDispatch", testObserveSingleEventWithOnUpdateAndOwner_removeAfterDispatch),
         ("testRemoveObserver", testRemoveObserver),
         ("testReadData", testReadData),
         ("testObserveOnUpdateDoesntFire", testObserveOnUpdateDoesntFire),

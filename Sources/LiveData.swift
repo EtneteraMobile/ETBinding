@@ -100,7 +100,7 @@ public extension LiveData {
         observe(wrapper)
     }
 
-    /// Starts observing changes of `data` until `remove(observer:)` called.
+    /// Starts observing changes of `data` until `remove(observer:)` is called.
     ///
     /// - Attention:
     ///   - Every data change is delivered only once despite of multiple
@@ -115,7 +115,7 @@ public extension LiveData {
         return observe(wrapper)
     }
 
-    /// Starts observing changes of `data` until `remove(observer:)` called.
+    /// Starts observing changes of `data` until `remove(observer:)` is called.
     ///
     /// - Requires: Given `observer` can be registered only once per `LiveData`
     ///
@@ -130,6 +130,86 @@ public extension LiveData {
         return observe(wrapper)
     }
 
+    /// Starts observing changes of `data` until any of these conditions aren't met:
+    /// 1) `remove(observer:)` is called
+    /// 2) the first update occurs
+    /// 3) owner is deallocated
+    ///
+    /// - Attention:
+    ///   - Observer is automatically removed after the first dispatch.
+    ///
+    /// - Parameters:
+    ///   - onUpdate: Closure that is called on `data` change.
+    ///
+    /// - Returns: Observer that represents update block.
+    @discardableResult func observeSingleEvent(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
+        let observer = Observer(update: onUpdate)
+        observeSingleEvent(owner: owner, observer: observer)
+        return observer
+    }
+
+    /// Starts observing changes of `data` until any of these conditions aren't met:
+    /// 1) `remove(observer:)` is called
+    /// 2) the first update occurs
+    /// 3) owner is deallocated
+    ///
+    /// - Requires: Given `observer` can be registered only once per `LiveData`
+    ///
+    /// - Attention:
+    ///   - Observer is automatically removed after the first dispatch.
+    ///
+    /// - Parameters:
+    ///   - observer: Observer that is updated on every `data` change.
+    func observeSingleEvent(owner: LifecycleOwner, observer: Observer<DataType>) {
+        weak var weakOnceObserver: Observer<DataType>?
+        let onceObserver: Observer<DataType> = ETObserver.Observer { [unowned self] data in
+            if let onceObserver = weakOnceObserver {
+                self.remove(observer: onceObserver)
+            }
+            observer.update(data)
+        }
+        weakOnceObserver = onceObserver
+        observe(owner: owner, observer: onceObserver)
+    }
+
+    /// Starts observing changes of `data` until any of these conditions aren't met:
+    /// 1) `remove(observer:)` is called
+    /// 2) the first update occurs
+    ///
+    /// - Attention:
+    ///   - Observer is automatically removed after the first dispatch.
+    ///
+    /// - Parameters:
+    ///   - onUpdate: Closure that is called on `data` change.
+    ///
+    /// - Returns: Observer that represents update block.
+    @discardableResult func observeSingleEventForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
+        let observer = Observer(update: onUpdate)
+        observeSingleEventForever(observer: observer)
+        return observer
+    }
+
+    /// Starts observing changes of `data` until any of these conditions aren't met:
+    /// 1) `remove(observer:)` is called
+    /// 2) the first update occurs
+    ///
+    /// - Attention:
+    ///   - Observer is automatically removed after the first dispatch.
+    ///
+    /// - Parameters:
+    ///   - observer: Observer that is updated on every `data` change.
+    func observeSingleEventForever(observer: Observer<DataType>) {
+        weak var weakOnceObserver: Observer<DataType>?
+        let onceObserver: Observer<DataType> = ETObserver.Observer { [unowned self] data in
+            if let onceObserver = weakOnceObserver {
+                self.remove(observer: onceObserver)
+            }
+            observer.update(data)
+        }
+        weakOnceObserver = onceObserver
+        observeForever(observer: onceObserver)
+    }
+    
     // MARK: - Remove
 
 

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
-               BuildableName = "ETLiveData.framework"
-               BlueprintName = "ETLiveData-tvOS"
-               ReferencedContainer = "container:ETLiveData.xcodeproj">
+               BlueprintIdentifier = "52D6DA0E1BF000BD002C0205"
+               BuildableName = "ETBinding.framework"
+               BlueprintName = "ETBinding-macOS"
+               ReferencedContainer = "container:ETBinding.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,20 +34,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD75028C1C690C7A006590AF"
-               BuildableName = "ETLiveData-tvOS Tests.xctest"
-               BlueprintName = "ETLiveData-tvOS Tests"
-               ReferencedContainer = "container:ETLiveData.xcodeproj">
+               BlueprintIdentifier = "DD7502791C68FCFC006590AF"
+               BuildableName = "ETBinding-macOS Tests.xctest"
+               BlueprintName = "ETBinding-macOS Tests"
+               ReferencedContainer = "container:ETBinding.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-tvOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BlueprintIdentifier = "52D6DA0E1BF000BD002C0205"
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-macOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,10 +67,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-tvOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BlueprintIdentifier = "52D6DA0E1BF000BD002C0205"
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-macOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -85,10 +85,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-tvOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BlueprintIdentifier = "52D6DA0E1BF000BD002C0205"
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-macOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

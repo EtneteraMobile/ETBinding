@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
-               BuildableName = "ETLiveData.framework"
-               BlueprintName = "ETLiveData-iOS"
-               ReferencedContainer = "container:ETLiveData.xcodeproj">
+               BuildableName = "ETBinding.framework"
+               BlueprintName = "ETBinding-iOS"
+               ReferencedContainer = "container:ETBinding.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-               BuildableName = "ETLiveData-iOS Tests.xctest"
-               BlueprintName = "ETLiveData-iOS Tests"
-               ReferencedContainer = "container:ETLiveData.xcodeproj">
+               BuildableName = "ETBinding-iOS Tests.xctest"
+               BlueprintName = "ETBinding-iOS Tests"
+               ReferencedContainer = "container:ETBinding.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-iOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-iOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-iOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-iOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-iOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-iOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

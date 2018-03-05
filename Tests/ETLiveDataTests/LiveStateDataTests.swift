@@ -1,15 +1,13 @@
 //
 //  LiveStateDataTests.swift
-//  ETLiveData
 //
 //  Created by Jan Cislinsky on 15. 12. 2017.
-//  Copyright © 2017 ETLiveData. All rights reserved.
+//  Copyright © 2017 ETBinding. All rights reserved.
 //
 
 import Foundation
 import XCTest
-import ETObserver
-import ETLiveData
+import ETBinding
 
 class LiveStateDataTests: XCTestCase {
 

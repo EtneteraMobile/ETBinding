@@ -2,13 +2,13 @@
 //  DeallocTracker.swift
 //  ETBinding
 //
-//  Created by Jan Čislinský on 20. 12. 2017.
-//  Copyright © 2017 ETBinding. All rights reserved.
+//  Created by Jan Čislinský on 05. 03. 2018.
+//  Copyright © 2018 Etnetera. All rights reserved.
 //
 
 import Foundation
 
-fileprivate final class DeallocTracker {
+final class DeallocTracker {
     let onDealloc: () -> Void
 
     init(onDealloc: @escaping () -> Void) {
@@ -25,7 +25,7 @@ fileprivate final class DeallocTracker {
 /// - Parameters:
 ///   - owner: Owner to track.
 ///   - closure: Closure to execute.
-internal func onDealloc(of owner: Any, closure: @escaping () -> Void) {
+func onDealloc(of owner: Any, closure: @escaping () -> Void) {
     var tracker = DeallocTracker(onDealloc: closure)
     objc_setAssociatedObject(owner, &tracker, tracker, .OBJC_ASSOCIATION_RETAIN)
 }

@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* ETLiveData.framework */; };
+		52D6D9871BEFF229002C0205 /* ETBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* ETBinding.framework */; };
+		71209057204D7C7800033EC1 /* SingleEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127093D204D7B2800291656 /* SingleEventTests.swift */; };
+		71209058204D7C7800033EC1 /* SingleEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127093D204D7B2800291656 /* SingleEventTests.swift */; };
+		71209059204D7C7800033EC1 /* SingleEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127093D204D7B2800291656 /* SingleEventTests.swift */; };
+		71270939204D795C00291656 /* SingleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71270938204D795C00291656 /* SingleEvent.swift */; };
+		7127093A204D795C00291656 /* SingleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71270938204D795C00291656 /* SingleEvent.swift */; };
+		7127093B204D795C00291656 /* SingleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71270938204D795C00291656 /* SingleEvent.swift */; };
+		7127093C204D795C00291656 /* SingleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71270938204D795C00291656 /* SingleEvent.swift */; };
 		712FA2E41FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
 		712FA2E51FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
 		712FA2E61FE91DB000969753 /* TestableFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E31FE91DB000969753 /* TestableFatalError.swift */; };
@@ -24,17 +31,29 @@
 		712FA2FE1FEA288000969753 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2FD1FEA288000969753 /* Curry.swift */; };
 		712FA2FF1FEA288000969753 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2FD1FEA288000969753 /* Curry.swift */; };
 		712FA3001FEA288000969753 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2FD1FEA288000969753 /* Curry.swift */; };
-		713F7DC31FE3AAB100B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC01FE3AA2900B86A50 /* ETObserver.framework */; };
-		713F7DC71FE3AAD500B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC51FE3AAD200B86A50 /* ETObserver.framework */; };
-		713F7DE61FE3AB6500B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */; };
-		713F7DE71FE3AB6900B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */; };
-		713F7DE91FE3AD0200B86A50 /* ETLiveData.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */; };
 		713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC01FE3AA2900B86A50 /* ETObserver.framework */; };
 		713F7DEB1FE3D3ED00B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC51FE3AAD200B86A50 /* ETObserver.framework */; };
 		713F7DEC1FE3D3F100B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */; };
 		713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
+		7169D9ED204C2383006CAACA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9EC204C2383006CAACA /* Observable.swift */; };
+		7169D9EE204C2383006CAACA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9EC204C2383006CAACA /* Observable.swift */; };
+		7169D9EF204C2383006CAACA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9EC204C2383006CAACA /* Observable.swift */; };
+		7169D9F0204C2383006CAACA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9EC204C2383006CAACA /* Observable.swift */; };
+		7169D9FC204C23E6006CAACA /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9FB204C23E6006CAACA /* Observer.swift */; };
+		7169D9FD204C23E6006CAACA /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9FB204C23E6006CAACA /* Observer.swift */; };
+		7169D9FE204C23E6006CAACA /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9FB204C23E6006CAACA /* Observer.swift */; };
+		7169D9FF204C23E6006CAACA /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9FB204C23E6006CAACA /* Observer.swift */; };
+		7169DA01204C24C8006CAACA /* ETBinding.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7169DA00204C24C8006CAACA /* ETBinding.podspec */; };
+		7169DA03204C2556006CAACA /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA02204C2556006CAACA /* SingleEventObservable.swift */; };
+		7169DA04204C2556006CAACA /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA02204C2556006CAACA /* SingleEventObservable.swift */; };
+		7169DA05204C2556006CAACA /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA02204C2556006CAACA /* SingleEventObservable.swift */; };
+		7169DA06204C2556006CAACA /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA02204C2556006CAACA /* SingleEventObservable.swift */; };
+		7169DA08204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA07204C261B006CAACA /* AssociatedObjectWrapper.swift */; };
+		7169DA09204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA07204C261B006CAACA /* AssociatedObjectWrapper.swift */; };
+		7169DA0A204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA07204C261B006CAACA /* AssociatedObjectWrapper.swift */; };
+		7169DA0B204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DA07204C261B006CAACA /* AssociatedObjectWrapper.swift */; };
 		718BCFD11FE3A11D008075BD /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC31FE3A11C008075BD /* LiveData.swift */; };
 		718BCFD21FE3A11D008075BD /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC31FE3A11C008075BD /* LiveData.swift */; };
 		718BCFD31FE3A11D008075BD /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFC31FE3A11C008075BD /* LiveData.swift */; };
@@ -59,11 +78,32 @@
 		718BCFEE1FE3A11D008075BD /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCC1FE3A11D008075BD /* LifecycleState.swift */; };
 		718BCFEF1FE3A11D008075BD /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCC1FE3A11D008075BD /* LifecycleState.swift */; };
 		718BCFF01FE3A11D008075BD /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BCFCC1FE3A11D008075BD /* LifecycleState.swift */; };
-		8933C78E1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */; };
-		8933C78F1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */; };
-		8933C7901EB5B82D000D00A4 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */; };
-		DD7502881C68FEDE006590AF /* ETLiveData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* ETLiveData.framework */; };
-		DD7502921C690C7A006590AF /* ETLiveData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* ETLiveData.framework */; };
+		71A48A48204D212B004A2CD3 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A47204D212B004A2CD3 /* LiveDataTests.swift */; };
+		71A48A49204D212B004A2CD3 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A47204D212B004A2CD3 /* LiveDataTests.swift */; };
+		71A48A4A204D212B004A2CD3 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A47204D212B004A2CD3 /* LiveDataTests.swift */; };
+		71A48A4D204D28DC004A2CD3 /* FutureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */; };
+		71A48A4E204D28DC004A2CD3 /* FutureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */; };
+		71A48A4F204D28DC004A2CD3 /* FutureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */; };
+		71A48A50204D28DC004A2CD3 /* FutureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */; };
+		71A48A52204D2E15004A2CD3 /* FutureEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */; };
+		71A48A53204D2E15004A2CD3 /* FutureEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */; };
+		71A48A54204D2E15004A2CD3 /* FutureEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */; };
+		71A48A56204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
+		71A48A57204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
+		71A48A58204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
+		71A48A59204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
+		71A48A60204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A5F204D3F3B004A2CD3 /* ObservableAssociatedValues.swift */; };
+		71A48A61204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A5F204D3F3B004A2CD3 /* ObservableAssociatedValues.swift */; };
+		71A48A62204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A5F204D3F3B004A2CD3 /* ObservableAssociatedValues.swift */; };
+		71A48A63204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A5F204D3F3B004A2CD3 /* ObservableAssociatedValues.swift */; };
+		71E05DE3204D8295006A9341 /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E05DE2204D8295006A9341 /* SingleEventObservable.swift */; };
+		71E05DE4204D8295006A9341 /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E05DE2204D8295006A9341 /* SingleEventObservable.swift */; };
+		71E05DE5204D8295006A9341 /* SingleEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E05DE2204D8295006A9341 /* SingleEventObservable.swift */; };
+		8933C78E1EB5B82C000D00A4 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ObservableTests.swift */; };
+		8933C78F1EB5B82C000D00A4 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ObservableTests.swift */; };
+		8933C7901EB5B82D000D00A4 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ObservableTests.swift */; };
+		DD7502881C68FEDE006590AF /* ETBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* ETBinding.framework */; };
+		DD7502921C690C7A006590AF /* ETBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* ETBinding.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,11 +131,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		52D6D97C1BEFF229002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52D6D9861BEFF229002C0205 /* ETLiveData-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ETLiveData-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		52D6D9E21BEFFF6E002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52D6D9F01BEFFFBE002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52D6DA0F1BF000BD002C0205 /* ETLiveData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETLiveData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6D97C1BEFF229002C0205 /* ETBinding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETBinding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6D9861BEFF229002C0205 /* ETBinding-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ETBinding-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6D9E21BEFFF6E002C0205 /* ETBinding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETBinding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6D9F01BEFFFBE002C0205 /* ETBinding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETBinding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6DA0F1BF000BD002C0205 /* ETBinding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETBinding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71270938204D795C00291656 /* SingleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEvent.swift; sourceTree = "<group>"; };
+		7127093D204D7B2800291656 /* SingleEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventTests.swift; sourceTree = "<group>"; };
 		712FA2E31FE91DB000969753 /* TestableFatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableFatalError.swift; sourceTree = "<group>"; };
 		712FA2E81FE91DE300969753 /* ExpectFatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectFatalError.swift; sourceTree = "<group>"; };
 		712FA2F11FEA20A200969753 /* DeallocTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
@@ -105,20 +147,29 @@
 		713F7DC51FE3AAD200B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/tvOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/Mac/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/watchOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ETLiveData.podspec; sourceTree = "<group>"; };
 		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
+		7169D9EC204C2383006CAACA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7169D9FB204C23E6006CAACA /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		7169DA00204C24C8006CAACA /* ETBinding.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ETBinding.podspec; sourceTree = "<group>"; };
+		7169DA02204C2556006CAACA /* SingleEventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventObservable.swift; sourceTree = "<group>"; };
+		7169DA07204C261B006CAACA /* AssociatedObjectWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectWrapper.swift; sourceTree = "<group>"; };
 		718BCFC31FE3A11C008075BD /* LiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
 		718BCFC41FE3A11C008075BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		718BCFC61FE3A11D008075BD /* StateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
 		718BCFC71FE3A11D008075BD /* LiveStateData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStateData.swift; sourceTree = "<group>"; };
 		718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleBoundObserver.swift; sourceTree = "<group>"; };
 		718BCFCC1FE3A11D008075BD /* LifecycleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleState.swift; sourceTree = "<group>"; };
-		718BCFF11FE3A217008075BD /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataTests.swift; sourceTree = "<group>"; };
-		AD2FAA261CD0B6D800659CF4 /* ETLiveData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETLiveData.plist; sourceTree = "<group>"; };
-		AD2FAA281CD0B6E100659CF4 /* ETLiveDataTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETLiveDataTests.plist; sourceTree = "<group>"; };
-		DD75027A1C68FCFC006590AF /* ETLiveData-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ETLiveData-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD75028D1C690C7A006590AF /* ETLiveData-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ETLiveData-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A48A47204D212B004A2CD3 /* LiveDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataTests.swift; sourceTree = "<group>"; };
+		71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureEvent.swift; sourceTree = "<group>"; };
+		71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureEventTests.swift; sourceTree = "<group>"; };
+		71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
+		71A48A5F204D3F3B004A2CD3 /* ObservableAssociatedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableAssociatedValues.swift; sourceTree = "<group>"; };
+		71E05DE2204D8295006A9341 /* SingleEventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventObservable.swift; sourceTree = "<group>"; };
+		8933C7891EB5B82A000D00A4 /* ObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
+		AD2FAA261CD0B6D800659CF4 /* ETBinding.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETBinding.plist; sourceTree = "<group>"; };
+		AD2FAA281CD0B6E100659CF4 /* ETBindingTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETBindingTests.plist; sourceTree = "<group>"; };
+		DD75027A1C68FCFC006590AF /* ETBinding-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ETBinding-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD75028D1C690C7A006590AF /* ETBinding-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ETBinding-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +177,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				713F7DC31FE3AAB100B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */,
-				52D6D9871BEFF229002C0205 /* ETLiveData.framework in Frameworks */,
+				52D6D9871BEFF229002C0205 /* ETBinding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +193,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				713F7DE61FE3AB6500B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +200,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				713F7DC71FE3AAD500B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +207,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				713F7DE71FE3AB6900B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD7502881C68FEDE006590AF /* ETLiveData.framework in Frameworks */,
+				DD7502881C68FEDE006590AF /* ETBinding.framework in Frameworks */,
 				713F7DEC1FE3D3F100B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,7 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD7502921C690C7A006590AF /* ETLiveData.framework in Frameworks */,
+				DD7502921C690C7A006590AF /* ETBinding.framework in Frameworks */,
 				713F7DEB1FE3D3ED00B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,8 +234,7 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
-				713F7DE81FE3AD0200B86A50 /* ETLiveData.podspec */,
-				718BCFF11FE3A217008075BD /* Cartfile */,
+				7169DA00204C24C8006CAACA /* ETBinding.podspec */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -200,13 +246,13 @@
 		52D6D97D1BEFF229002C0205 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52D6D97C1BEFF229002C0205 /* ETLiveData.framework */,
-				52D6D9861BEFF229002C0205 /* ETLiveData-iOS Tests.xctest */,
-				52D6D9E21BEFFF6E002C0205 /* ETLiveData.framework */,
-				52D6D9F01BEFFFBE002C0205 /* ETLiveData.framework */,
-				52D6DA0F1BF000BD002C0205 /* ETLiveData.framework */,
-				DD75027A1C68FCFC006590AF /* ETLiveData-macOS Tests.xctest */,
-				DD75028D1C690C7A006590AF /* ETLiveData-tvOS Tests.xctest */,
+				52D6D97C1BEFF229002C0205 /* ETBinding.framework */,
+				52D6D9861BEFF229002C0205 /* ETBinding-iOS Tests.xctest */,
+				52D6D9E21BEFFF6E002C0205 /* ETBinding.framework */,
+				52D6D9F01BEFFFBE002C0205 /* ETBinding.framework */,
+				52D6DA0F1BF000BD002C0205 /* ETBinding.framework */,
+				DD75027A1C68FCFC006590AF /* ETBinding-macOS Tests.xctest */,
+				DD75028D1C690C7A006590AF /* ETBinding-tvOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +264,14 @@
 				DD7502731C68FC20006590AF /* Tests */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		71270937204D794700291656 /* SingleEvent */ = {
+			isa = PBXGroup;
+			children = (
+				71270938204D795C00291656 /* SingleEvent.swift */,
+			);
+			path = SingleEvent;
 			sourceTree = "<group>";
 		};
 		712FA2F01FEA209300969753 /* Helpers */ = {
@@ -266,8 +320,33 @@
 			isa = PBXGroup;
 			children = (
 				712FA2E31FE91DB000969753 /* TestableFatalError.swift */,
+				7169DA07204C261B006CAACA /* AssociatedObjectWrapper.swift */,
+				71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7169D9EB204C2372006CAACA /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				7169D9EC204C2383006CAACA /* Observable.swift */,
+				7169DA02204C2556006CAACA /* SingleEventObservable.swift */,
+				718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */,
+				7169D9FB204C23E6006CAACA /* Observer.swift */,
+				718BCFCC1FE3A11D008075BD /* LifecycleState.swift */,
+				71A48A5F204D3F3B004A2CD3 /* ObservableAssociatedValues.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		7169DA0C204C2D60006CAACA /* LiveData */ = {
+			isa = PBXGroup;
+			children = (
+				718BCFC31FE3A11C008075BD /* LiveData.swift */,
+				718BCFC71FE3A11D008075BD /* LiveStateData.swift */,
+				718BCFC61FE3A11D008075BD /* StateValue.swift */,
+			);
+			path = LiveData;
 			sourceTree = "<group>";
 		};
 		71712A6C1FE3A8350070AC9B /* iOS */ = {
@@ -278,16 +357,23 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		71A48A4B204D28BD004A2CD3 /* FutureEvent */ = {
+			isa = PBXGroup;
+			children = (
+				71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */,
+			);
+			path = FutureEvent;
+			sourceTree = "<group>";
+		};
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				718BCFC41FE3A11C008075BD /* Constants.swift */,
+				7169D9EB204C2372006CAACA /* Observable */,
+				7169DA0C204C2D60006CAACA /* LiveData */,
+				71A48A4B204D28BD004A2CD3 /* FutureEvent */,
+				71270937204D794700291656 /* SingleEvent */,
 				713F7DFC1FE3F54100B86A50 /* Helpers */,
-				718BCFCA1FE3A11D008075BD /* LifecycleBoundObserver.swift */,
-				718BCFCC1FE3A11D008075BD /* LifecycleState.swift */,
-				718BCFC31FE3A11C008075BD /* LiveData.swift */,
-				718BCFC71FE3A11D008075BD /* LiveStateData.swift */,
-				718BCFC61FE3A11D008075BD /* StateValue.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -296,8 +382,12 @@
 			isa = PBXGroup;
 			children = (
 				712FA2F01FEA209300969753 /* Helpers */,
-				8933C7891EB5B82A000D00A4 /* LiveDataTests.swift */,
+				8933C7891EB5B82A000D00A4 /* ObservableTests.swift */,
+				71E05DE2204D8295006A9341 /* SingleEventObservable.swift */,
+				71A48A47204D212B004A2CD3 /* LiveDataTests.swift */,
 				713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */,
+				71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */,
+				7127093D204D7B2800291656 /* SingleEventTests.swift */,
 			);
 			name = Tests;
 			path = Tests/ETLiveDataTests;
@@ -310,7 +400,7 @@
 				713F7DC81FE3AAE800B86A50 /* macOS */,
 				713F7DC41FE3AAC000B86A50 /* tvOS */,
 				71712A6C1FE3A8350070AC9B /* iOS */,
-				AD2FAA261CD0B6D800659CF4 /* ETLiveData.plist */,
+				AD2FAA261CD0B6D800659CF4 /* ETBinding.plist */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -318,7 +408,7 @@
 		DD7502731C68FC20006590AF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AD2FAA281CD0B6E100659CF4 /* ETLiveDataTests.plist */,
+				AD2FAA281CD0B6E100659CF4 /* ETBindingTests.plist */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -357,9 +447,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		52D6D97B1BEFF229002C0205 /* ETLiveData-iOS */ = {
+		52D6D97B1BEFF229002C0205 /* ETBinding-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-iOS" */;
+			buildConfigurationList = 52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-iOS" */;
 			buildPhases = (
 				52D6D9771BEFF229002C0205 /* Sources */,
 				52D6D9781BEFF229002C0205 /* Frameworks */,
@@ -370,14 +460,14 @@
 			);
 			dependencies = (
 			);
-			name = "ETLiveData-iOS";
+			name = "ETBinding-iOS";
 			productName = ETLiveData;
-			productReference = 52D6D97C1BEFF229002C0205 /* ETLiveData.framework */;
+			productReference = 52D6D97C1BEFF229002C0205 /* ETBinding.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		52D6D9851BEFF229002C0205 /* ETLiveData-iOS Tests */ = {
+		52D6D9851BEFF229002C0205 /* ETBinding-iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-iOS Tests" */;
+			buildConfigurationList = 52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-iOS Tests" */;
 			buildPhases = (
 				52D6D9821BEFF229002C0205 /* Sources */,
 				52D6D9831BEFF229002C0205 /* Frameworks */,
@@ -389,14 +479,14 @@
 			dependencies = (
 				52D6D9891BEFF229002C0205 /* PBXTargetDependency */,
 			);
-			name = "ETLiveData-iOS Tests";
+			name = "ETBinding-iOS Tests";
 			productName = ETLiveDataTests;
-			productReference = 52D6D9861BEFF229002C0205 /* ETLiveData-iOS Tests.xctest */;
+			productReference = 52D6D9861BEFF229002C0205 /* ETBinding-iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		52D6D9E11BEFFF6E002C0205 /* ETLiveData-watchOS */ = {
+		52D6D9E11BEFFF6E002C0205 /* ETBinding-watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6D9E71BEFFF6E002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-watchOS" */;
+			buildConfigurationList = 52D6D9E71BEFFF6E002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-watchOS" */;
 			buildPhases = (
 				52D6D9DD1BEFFF6E002C0205 /* Sources */,
 				52D6D9DE1BEFFF6E002C0205 /* Frameworks */,
@@ -407,14 +497,14 @@
 			);
 			dependencies = (
 			);
-			name = "ETLiveData-watchOS";
+			name = "ETBinding-watchOS";
 			productName = "ETLiveData-watchOS";
-			productReference = 52D6D9E21BEFFF6E002C0205 /* ETLiveData.framework */;
+			productReference = 52D6D9E21BEFFF6E002C0205 /* ETBinding.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		52D6D9EF1BEFFFBE002C0205 /* ETLiveData-tvOS */ = {
+		52D6D9EF1BEFFFBE002C0205 /* ETBinding-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6DA011BEFFFBE002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-tvOS" */;
+			buildConfigurationList = 52D6DA011BEFFFBE002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-tvOS" */;
 			buildPhases = (
 				52D6D9EB1BEFFFBE002C0205 /* Sources */,
 				52D6D9EC1BEFFFBE002C0205 /* Frameworks */,
@@ -425,14 +515,14 @@
 			);
 			dependencies = (
 			);
-			name = "ETLiveData-tvOS";
+			name = "ETBinding-tvOS";
 			productName = "ETLiveData-tvOS";
-			productReference = 52D6D9F01BEFFFBE002C0205 /* ETLiveData.framework */;
+			productReference = 52D6D9F01BEFFFBE002C0205 /* ETBinding.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		52D6DA0E1BF000BD002C0205 /* ETLiveData-macOS */ = {
+		52D6DA0E1BF000BD002C0205 /* ETBinding-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6DA201BF000BD002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-macOS" */;
+			buildConfigurationList = 52D6DA201BF000BD002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-macOS" */;
 			buildPhases = (
 				52D6DA0A1BF000BD002C0205 /* Sources */,
 				52D6DA0B1BF000BD002C0205 /* Frameworks */,
@@ -443,14 +533,14 @@
 			);
 			dependencies = (
 			);
-			name = "ETLiveData-macOS";
+			name = "ETBinding-macOS";
 			productName = "ETLiveData-macOS";
-			productReference = 52D6DA0F1BF000BD002C0205 /* ETLiveData.framework */;
+			productReference = 52D6DA0F1BF000BD002C0205 /* ETBinding.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DD7502791C68FCFC006590AF /* ETLiveData-macOS Tests */ = {
+		DD7502791C68FCFC006590AF /* ETBinding-macOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD7502821C68FCFC006590AF /* Build configuration list for PBXNativeTarget "ETLiveData-macOS Tests" */;
+			buildConfigurationList = DD7502821C68FCFC006590AF /* Build configuration list for PBXNativeTarget "ETBinding-macOS Tests" */;
 			buildPhases = (
 				DD7502761C68FCFC006590AF /* Sources */,
 				DD7502771C68FCFC006590AF /* Frameworks */,
@@ -462,14 +552,14 @@
 			dependencies = (
 				DD7502811C68FCFC006590AF /* PBXTargetDependency */,
 			);
-			name = "ETLiveData-macOS Tests";
+			name = "ETBinding-macOS Tests";
 			productName = "ETLiveData-OS Tests";
-			productReference = DD75027A1C68FCFC006590AF /* ETLiveData-macOS Tests.xctest */;
+			productReference = DD75027A1C68FCFC006590AF /* ETBinding-macOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DD75028C1C690C7A006590AF /* ETLiveData-tvOS Tests */ = {
+		DD75028C1C690C7A006590AF /* ETBinding-tvOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD7502951C690C7A006590AF /* Build configuration list for PBXNativeTarget "ETLiveData-tvOS Tests" */;
+			buildConfigurationList = DD7502951C690C7A006590AF /* Build configuration list for PBXNativeTarget "ETBinding-tvOS Tests" */;
 			buildPhases = (
 				DD7502891C690C7A006590AF /* Sources */,
 				DD75028A1C690C7A006590AF /* Frameworks */,
@@ -481,9 +571,9 @@
 			dependencies = (
 				DD7502941C690C7A006590AF /* PBXTargetDependency */,
 			);
-			name = "ETLiveData-tvOS Tests";
+			name = "ETBinding-tvOS Tests";
 			productName = "ETLiveData-tvOS Tests";
-			productReference = DD75028D1C690C7A006590AF /* ETLiveData-tvOS Tests.xctest */;
+			productReference = DD75028D1C690C7A006590AF /* ETBinding-tvOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -494,7 +584,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = ETLiveData;
+				ORGANIZATIONNAME = Etnetera;
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
 						CreatedOnToolsVersion = 7.1;
@@ -527,7 +617,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "ETLiveData" */;
+			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "ETBinding" */;
 			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -539,13 +629,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52D6D97B1BEFF229002C0205 /* ETLiveData-iOS */,
-				52D6DA0E1BF000BD002C0205 /* ETLiveData-macOS */,
-				52D6D9E11BEFFF6E002C0205 /* ETLiveData-watchOS */,
-				52D6D9EF1BEFFFBE002C0205 /* ETLiveData-tvOS */,
-				52D6D9851BEFF229002C0205 /* ETLiveData-iOS Tests */,
-				DD7502791C68FCFC006590AF /* ETLiveData-macOS Tests */,
-				DD75028C1C690C7A006590AF /* ETLiveData-tvOS Tests */,
+				52D6D97B1BEFF229002C0205 /* ETBinding-iOS */,
+				52D6DA0E1BF000BD002C0205 /* ETBinding-macOS */,
+				52D6D9E11BEFFF6E002C0205 /* ETBinding-watchOS */,
+				52D6D9EF1BEFFFBE002C0205 /* ETBinding-tvOS */,
+				52D6D9851BEFF229002C0205 /* ETBinding-iOS Tests */,
+				DD7502791C68FCFC006590AF /* ETBinding-macOS Tests */,
+				DD75028C1C690C7A006590AF /* ETBinding-tvOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -555,7 +645,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				713F7DE91FE3AD0200B86A50 /* ETLiveData.podspec in Resources */,
+				7169DA01204C24C8006CAACA /* ETBinding.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,10 +746,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7169D9ED204C2383006CAACA /* Observable.swift in Sources */,
+				71A48A4D204D28DC004A2CD3 /* FutureEvent.swift in Sources */,
+				7169D9FC204C23E6006CAACA /* Observer.swift in Sources */,
+				71A48A56204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFED1FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				71270939204D795C00291656 /* SingleEvent.swift in Sources */,
 				718BCFDD1FE3A11D008075BD /* LiveStateData.swift in Sources */,
+				7169DA08204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */,
 				718BCFD91FE3A11D008075BD /* StateValue.swift in Sources */,
+				7169DA03204C2556006CAACA /* SingleEventObservable.swift in Sources */,
 				718BCFD11FE3A11D008075BD /* LiveData.swift in Sources */,
+				71A48A60204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */,
 				712FA2E41FE91DB000969753 /* TestableFatalError.swift in Sources */,
 				718BCFD51FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE51FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -670,8 +768,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7901EB5B82D000D00A4 /* LiveDataTests.swift in Sources */,
+				71209057204D7C7800033EC1 /* SingleEventTests.swift in Sources */,
+				71A48A48204D212B004A2CD3 /* LiveDataTests.swift in Sources */,
+				71A48A52204D2E15004A2CD3 /* FutureEventTests.swift in Sources */,
+				8933C7901EB5B82D000D00A4 /* ObservableTests.swift in Sources */,
 				712FA2FE1FEA288000969753 /* Curry.swift in Sources */,
+				71E05DE3204D8295006A9341 /* SingleEventObservable.swift in Sources */,
 				712FA2ED1FE91DF300969753 /* ExpectFatalError.swift in Sources */,
 				713F7DEE1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 				712FA2FA1FEA243300969753 /* ExpectQueue.swift in Sources */,
@@ -683,10 +785,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7169D9EF204C2383006CAACA /* Observable.swift in Sources */,
+				71A48A4F204D28DC004A2CD3 /* FutureEvent.swift in Sources */,
+				7169D9FE204C23E6006CAACA /* Observer.swift in Sources */,
+				71A48A58204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFEF1FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				7127093B204D795C00291656 /* SingleEvent.swift in Sources */,
 				718BCFDF1FE3A11D008075BD /* LiveStateData.swift in Sources */,
+				7169DA0A204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */,
 				718BCFDB1FE3A11D008075BD /* StateValue.swift in Sources */,
+				7169DA05204C2556006CAACA /* SingleEventObservable.swift in Sources */,
 				718BCFD31FE3A11D008075BD /* LiveData.swift in Sources */,
+				71A48A62204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */,
 				712FA2E61FE91DB000969753 /* TestableFatalError.swift in Sources */,
 				718BCFD71FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE71FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -697,10 +807,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7169D9F0204C2383006CAACA /* Observable.swift in Sources */,
+				71A48A50204D28DC004A2CD3 /* FutureEvent.swift in Sources */,
+				7169D9FF204C23E6006CAACA /* Observer.swift in Sources */,
+				71A48A59204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFF01FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				7127093C204D795C00291656 /* SingleEvent.swift in Sources */,
 				718BCFE01FE3A11D008075BD /* LiveStateData.swift in Sources */,
+				7169DA0B204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */,
 				718BCFDC1FE3A11D008075BD /* StateValue.swift in Sources */,
+				7169DA06204C2556006CAACA /* SingleEventObservable.swift in Sources */,
 				718BCFD41FE3A11D008075BD /* LiveData.swift in Sources */,
+				71A48A63204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */,
 				712FA2E71FE91DB000969753 /* TestableFatalError.swift in Sources */,
 				718BCFD81FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE81FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -711,10 +829,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7169D9EE204C2383006CAACA /* Observable.swift in Sources */,
+				71A48A4E204D28DC004A2CD3 /* FutureEvent.swift in Sources */,
+				7169D9FD204C23E6006CAACA /* Observer.swift in Sources */,
+				71A48A57204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFEE1FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				7127093A204D795C00291656 /* SingleEvent.swift in Sources */,
 				718BCFDE1FE3A11D008075BD /* LiveStateData.swift in Sources */,
+				7169DA09204C261B006CAACA /* AssociatedObjectWrapper.swift in Sources */,
 				718BCFDA1FE3A11D008075BD /* StateValue.swift in Sources */,
+				7169DA04204C2556006CAACA /* SingleEventObservable.swift in Sources */,
 				718BCFD21FE3A11D008075BD /* LiveData.swift in Sources */,
+				71A48A61204D3F3B004A2CD3 /* ObservableAssociatedValues.swift in Sources */,
 				712FA2E51FE91DB000969753 /* TestableFatalError.swift in Sources */,
 				718BCFD61FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE61FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
@@ -725,8 +851,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C78F1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */,
+				71209058204D7C7800033EC1 /* SingleEventTests.swift in Sources */,
+				71A48A49204D212B004A2CD3 /* LiveDataTests.swift in Sources */,
+				71A48A53204D2E15004A2CD3 /* FutureEventTests.swift in Sources */,
+				8933C78F1EB5B82C000D00A4 /* ObservableTests.swift in Sources */,
 				712FA2FF1FEA288000969753 /* Curry.swift in Sources */,
+				71E05DE4204D8295006A9341 /* SingleEventObservable.swift in Sources */,
 				712FA2EE1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				713F7DEF1FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 				712FA2FB1FEA243300969753 /* ExpectQueue.swift in Sources */,
@@ -738,8 +868,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C78E1EB5B82C000D00A4 /* LiveDataTests.swift in Sources */,
+				71209059204D7C7800033EC1 /* SingleEventTests.swift in Sources */,
+				71A48A4A204D212B004A2CD3 /* LiveDataTests.swift in Sources */,
+				71A48A54204D2E15004A2CD3 /* FutureEventTests.swift in Sources */,
+				8933C78E1EB5B82C000D00A4 /* ObservableTests.swift in Sources */,
 				712FA3001FEA288000969753 /* Curry.swift in Sources */,
+				71E05DE5204D8295006A9341 /* SingleEventObservable.swift in Sources */,
 				712FA2EF1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 				712FA2FC1FEA243300969753 /* ExpectQueue.swift in Sources */,
@@ -752,17 +886,17 @@
 /* Begin PBXTargetDependency section */
 		52D6D9891BEFF229002C0205 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52D6D97B1BEFF229002C0205 /* ETLiveData-iOS */;
+			target = 52D6D97B1BEFF229002C0205 /* ETBinding-iOS */;
 			targetProxy = 52D6D9881BEFF229002C0205 /* PBXContainerItemProxy */;
 		};
 		DD7502811C68FCFC006590AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52D6DA0E1BF000BD002C0205 /* ETLiveData-macOS */;
+			target = 52D6DA0E1BF000BD002C0205 /* ETBinding-macOS */;
 			targetProxy = DD7502801C68FCFC006590AF /* PBXContainerItemProxy */;
 		};
 		DD7502941C690C7A006590AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52D6D9EF1BEFFFBE002C0205 /* ETLiveData-tvOS */;
+			target = 52D6D9EF1BEFFFBE002C0205 /* ETBinding-tvOS */;
 			targetProxy = DD7502931C690C7A006590AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -891,13 +1025,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding-iOS";
+				PRODUCT_NAME = ETBinding;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -918,12 +1052,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding-iOS";
+				PRODUCT_NAME = ETBinding;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
@@ -940,7 +1074,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
+				INFOPLIST_FILE = Configs/ETBindingTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -960,7 +1094,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
+				INFOPLIST_FILE = Configs/ETBindingTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -983,11 +1117,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-watchOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding-watchOS";
+				PRODUCT_NAME = ETBinding;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1009,11 +1143,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-watchOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding-watchOS";
+				PRODUCT_NAME = ETBinding;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1036,11 +1170,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-tvOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding--tvOS";
+				PRODUCT_NAME = ETBinding;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1062,11 +1196,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-tvOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding--tvOS";
+				PRODUCT_NAME = ETBinding;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1091,12 +1225,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-macOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding-macOS";
+				PRODUCT_NAME = ETBinding;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1118,12 +1252,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Configs/ETLiveData.plist;
+				INFOPLIST_FILE = Configs/ETBinding.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-macOS";
-				PRODUCT_NAME = ETLiveData;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.etnetera.ETBinding-macOS";
+				PRODUCT_NAME = ETBinding;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1140,7 +1274,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
+				INFOPLIST_FILE = Configs/ETBindingTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-macOS-Tests";
@@ -1159,7 +1293,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
+				INFOPLIST_FILE = Configs/ETBindingTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-macOS-Tests";
@@ -1177,7 +1311,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
+				INFOPLIST_FILE = Configs/ETBindingTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1194,7 +1328,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = Configs/ETLiveDataTests.plist;
+				INFOPLIST_FILE = Configs/ETBindingTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ETLiveData.ETLiveData-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1208,7 +1342,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "ETLiveData" */ = {
+		52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "ETBinding" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D98E1BEFF229002C0205 /* Debug */,
@@ -1217,7 +1351,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-iOS" */ = {
+		52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D9911BEFF229002C0205 /* Debug */,
@@ -1226,7 +1360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-iOS Tests" */ = {
+		52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D9941BEFF229002C0205 /* Debug */,
@@ -1235,7 +1369,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6D9E71BEFFF6E002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-watchOS" */ = {
+		52D6D9E71BEFFF6E002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D9E81BEFFF6E002C0205 /* Debug */,
@@ -1244,7 +1378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6DA011BEFFFBE002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-tvOS" */ = {
+		52D6DA011BEFFFBE002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6DA021BEFFFBE002C0205 /* Debug */,
@@ -1253,7 +1387,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6DA201BF000BD002C0205 /* Build configuration list for PBXNativeTarget "ETLiveData-macOS" */ = {
+		52D6DA201BF000BD002C0205 /* Build configuration list for PBXNativeTarget "ETBinding-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6DA211BF000BD002C0205 /* Debug */,
@@ -1262,7 +1396,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD7502821C68FCFC006590AF /* Build configuration list for PBXNativeTarget "ETLiveData-macOS Tests" */ = {
+		DD7502821C68FCFC006590AF /* Build configuration list for PBXNativeTarget "ETBinding-macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD7502831C68FCFC006590AF /* Debug */,
@@ -1271,7 +1405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD7502951C690C7A006590AF /* Build configuration list for PBXNativeTarget "ETLiveData-tvOS Tests" */ = {
+		DD7502951C690C7A006590AF /* Build configuration list for PBXNativeTarget "ETBinding-tvOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD7502961C690C7A006590AF /* Debug */,

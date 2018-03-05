@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/jancislinsky/Repos/iOS/ETLiveData/ETBinding.xcodeproj">
    </FileRef>
 </Workspace>

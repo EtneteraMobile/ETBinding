@@ -1,13 +1,11 @@
 //
 //  LifecycleBoundObserver.swift
-//  ETLiveData
 //
 //  Created by Jan Čislinský on 15. 12. 2017.
-//  Copyright © 2017 ETLiveData. All rights reserved.
+//  Copyright © 2017 Etnetera. All rights reserved.
 //
 
 import Foundation
-import ETObserver
 
 public typealias LifecycleOwner = AnyObject
 
@@ -28,8 +26,8 @@ class LifecycleBoundObserver<T>: Hashable {
     /// Last version of delivered data to observer
     var lastVersion: Int = Constants.startVersion
 
+    weak var owner: LifecycleOwner?
     private let isActiveForever: Bool
-    private weak var owner: LifecycleOwner?
 
     init(owner: LifecycleOwner? = nil, observer: Observer<T>) {
         self.owner = owner

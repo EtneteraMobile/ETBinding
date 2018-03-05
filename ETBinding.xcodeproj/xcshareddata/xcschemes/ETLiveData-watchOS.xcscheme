@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52D6D9E11BEFFF6E002C0205"
-               BuildableName = "ETLiveData.framework"
-               BlueprintName = "ETLiveData-watchOS"
-               ReferencedContainer = "container:ETLiveData.xcodeproj">
+               BuildableName = "ETBinding.framework"
+               BlueprintName = "ETBinding-watchOS"
+               ReferencedContainer = "container:ETBinding.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,9 +49,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52D6D9E11BEFFF6E002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-watchOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-watchOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52D6D9E11BEFFF6E002C0205"
-            BuildableName = "ETLiveData.framework"
-            BlueprintName = "ETLiveData-watchOS"
-            ReferencedContainer = "container:ETLiveData.xcodeproj">
+            BuildableName = "ETBinding.framework"
+            BlueprintName = "ETBinding-watchOS"
+            ReferencedContainer = "container:ETBinding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

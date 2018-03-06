@@ -29,9 +29,6 @@
 		712FA2FE1FEA288000969753 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2FD1FEA288000969753 /* Curry.swift */; };
 		712FA2FF1FEA288000969753 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2FD1FEA288000969753 /* Curry.swift */; };
 		712FA3001FEA288000969753 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2FD1FEA288000969753 /* Curry.swift */; };
-		713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC01FE3AA2900B86A50 /* ETObserver.framework */; };
-		713F7DEB1FE3D3ED00B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DC51FE3AAD200B86A50 /* ETObserver.framework */; };
-		713F7DEC1FE3D3F100B86A50 /* ETObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */; };
 		713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		7169D9ED204C2383006CAACA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9EC204C2383006CAACA /* Observable.swift */; };
 		7169D9EE204C2383006CAACA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169D9EC204C2383006CAACA /* Observable.swift */; };
@@ -129,10 +126,6 @@
 		712FA2F11FEA20A200969753 /* DeallocTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
 		712FA2F91FEA243300969753 /* ExpectQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectQueue.swift; sourceTree = "<group>"; };
 		712FA2FD1FEA288000969753 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
-		713F7DC01FE3AA2900B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/iOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		713F7DC51FE3AAD200B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/tvOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/Mac/ETObserver.framework; sourceTree = SOURCE_ROOT; };
-		713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ETObserver.framework; path = Carthage/Build/watchOS/ETObserver.framework; sourceTree = SOURCE_ROOT; };
 		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
 		7169D9EC204C2383006CAACA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		7169D9FB204C23E6006CAACA /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
@@ -167,7 +160,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				713F7DEA1FE3D3EA00B86A50 /* ETObserver.framework in Frameworks */,
 				52D6D9871BEFF229002C0205 /* ETBinding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7502881C68FEDE006590AF /* ETBinding.framework in Frameworks */,
-				713F7DEC1FE3D3F100B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7502921C690C7A006590AF /* ETBinding.framework in Frameworks */,
-				713F7DEB1FE3D3ED00B86A50 /* ETObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,30 +258,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		713F7DC41FE3AAC000B86A50 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				713F7DC51FE3AAD200B86A50 /* ETObserver.framework */,
-			);
-			path = tvOS;
-			sourceTree = "<group>";
-		};
-		713F7DC81FE3AAE800B86A50 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				713F7DE11FE3AB0A00B86A50 /* ETObserver.framework */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		713F7DE31FE3AB1100B86A50 /* watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				713F7DE41FE3AB1F00B86A50 /* ETObserver.framework */,
-			);
-			path = watchOS;
-			sourceTree = "<group>";
-		};
 		713F7DF31FE3DA2400B86A50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,14 +294,6 @@
 				718BCFC61FE3A11D008075BD /* StateValue.swift */,
 			);
 			path = LiveData;
-			sourceTree = "<group>";
-		};
-		71712A6C1FE3A8350070AC9B /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				713F7DC01FE3AA2900B86A50 /* ETObserver.framework */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		71A48A4B204D28BD004A2CD3 /* FutureEvent */ = {
@@ -376,10 +334,6 @@
 		DD7502721C68FC1B006590AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				713F7DE31FE3AB1100B86A50 /* watchOS */,
-				713F7DC81FE3AAE800B86A50 /* macOS */,
-				713F7DC41FE3AAC000B86A50 /* tvOS */,
-				71712A6C1FE3A8350070AC9B /* iOS */,
 				AD2FAA261CD0B6D800659CF4 /* ETBinding.plist */,
 			);
 			name = Frameworks;

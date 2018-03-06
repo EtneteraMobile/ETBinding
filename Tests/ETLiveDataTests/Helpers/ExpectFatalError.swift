@@ -1,14 +1,14 @@
 //
 //  ExpectFatalError.swift
-//  ETLiveData
+//  ETBinding
 //
 //  Created by Jan Čislinský on 19. 12. 2017.
-//  Copyright © 2017 ETLiveData. All rights reserved.
+//  Copyright © 2017 ETBinding. All rights reserved.
 //
 
 import Foundation
 import XCTest
-import ETLiveData
+import ETBinding
 
 // source: https://stackoverflow.com/a/44140448/3475253
 
@@ -29,7 +29,7 @@ extension XCTestCase {
         // act, perform on separate thead because a call to fatalError pauses forever
         DispatchQueue.global(qos: .userInitiated).async(execute: testcase)
 
-        waitForExpectations(timeout: 0.1) { _ in
+        waitForExpectations(timeout: 1.0) { _ in
             // assert
             XCTAssert(assertionMessage == message, "Expected fatal error did not occurred (\(message)")
 

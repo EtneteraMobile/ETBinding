@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FutureEvent Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FutureEvent" class="dashAnchor"></a>
+    <a title="FutureEvent Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ETBinding Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ETBinding Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FutureEvent Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FutureEvent.html">FutureEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LiveData.html">LiveData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:9ETBinding13LiveStateDataC">LiveStateData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Observer.html">Observer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SingleEvent.html">SingleEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/LifecycleState.html">LifecycleState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StateValue.html">StateValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SingleEventObservable.html">SingleEventObservable</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FutureEvent</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FutureEvent</span><span class="o">&lt;</span><span class="kt">Action</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Observable.html">Observable</a></span></code></pre>
+
+                </div>
+              </div>
+            <p><code>FutureEvent</code> is an observable event handler class. Unlike a regular observable,
+<code>FutureEvent</code> is lifecycle-aware, meaning it respects the lifecycle of its owner.
+This awareness ensures <code>FutureEvent</code> only triggers app component observers that
+are in an active lifecycle state.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">onPress</span> <span class="o">=</span> <span class="kt">FutureEvent</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">observer</span> <span class="o">=</span> <span class="n">onPress</span><span class="o">.</span><span class="n">observeForever</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Button pressed"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">onPress</span><span class="o">.</span><span class="nf">trigger</span><span class="p">()</span>
+<span class="c1">// prints Button pressed</span>
+
+<span class="n">onPress</span><span class="o">.</span><span class="nf">remove</span><span class="p">(</span><span class="nv">observer</span><span class="p">:</span> <span class="n">observer</span><span class="p">)</span>
+
+<span class="n">onPress</span><span class="o">.</span><span class="nf">trigger</span><span class="p">()</span>
+<span class="c1">// … nothing</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Observe"></a>
+                <a name="//apple_ref/swift/Section/Observe" class="dashAnchor"></a>
+                <a href="#/Observe">
+                  <h3 class="section-name">Observe</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventC7observeAA8ObserverCyxGyXl5owner_yxc8onUpdatetF"></a>
+                    <a name="//apple_ref/swift/Method/observe(owner:onUpdate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventC7observeAA8ObserverCyxGyXl5owner_yxc8onUpdatetF">observe(owner:onUpdate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts observation until given owner is alive or <code><a href="../Classes/FutureEvent.html#/s:9ETBinding11FutureEventC6removeSbAA8ObserverCyxG8observer_tF">remove(observer:)</a></code> is called.</p>
+<div class="aside aside-attention">
+    <p class="aside-title">Attention</p>
+    <p>Attention:</p>
+
+<ul>
+<li>After deallocation of owner <code>onUpdate</code> will be never called.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">observe</span><span class="p">(</span><span class="nv">owner</span><span class="p">:</span> <span class="kt">LifecycleOwner</span><span class="p">,</span> <span class="nv">onUpdate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">DataType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Observer.html">Observer</a></span><span class="o">&lt;</span><span class="kt">DataType</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>owner</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>LifecycleOwner of newly created observation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onUpdate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that is called on change.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Observer that represents update block.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventC7observeyyXl5owner_AA8ObserverCyxG8observertF"></a>
+                    <a name="//apple_ref/swift/Method/observe(owner:observer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventC7observeyyXl5owner_AA8ObserverCyxG8observertF">observe(owner:observer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts observation until given owner is alive or <code><a href="../Classes/FutureEvent.html#/s:9ETBinding11FutureEventC6removeSbAA8ObserverCyxG8observer_tF">remove(observer:)</a></code> is called.</p>
+<div class="aside aside-requires">
+    <p class="aside-title">Requires</p>
+    <p>Given <code>observer</code> can be registered only once.</p>
+
+</div>
+<div class="aside aside-attention">
+    <p class="aside-title">Attention</p>
+    <p>Attention:</p>
+
+<ul>
+<li>After deallocation of owner <code>observer.update</code> will be never called.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">observe</span><span class="p">(</span><span class="nv">owner</span><span class="p">:</span> <span class="kt">LifecycleOwner</span><span class="p">,</span> <span class="nv">observer</span><span class="p">:</span> <span class="kt"><a href="../Classes/Observer.html">Observer</a></span><span class="o">&lt;</span><span class="kt">DataType</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>owner</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>LifecycleOwner of newly created observation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>observer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Observer that is updated on every <code>data</code> change.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventC14observeForeverAA8ObserverCyxGyxc8onUpdate_tF"></a>
+                    <a name="//apple_ref/swift/Method/observeForever(onUpdate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventC14observeForeverAA8ObserverCyxGyxc8onUpdate_tF">observeForever(onUpdate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts observation until <code><a href="../Classes/FutureEvent.html#/s:9ETBinding11FutureEventC6removeSbAA8ObserverCyxG8observer_tF">remove(observer:)</a></code> called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">observeForever</span><span class="p">(</span><span class="nv">onUpdate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">DataType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Observer.html">Observer</a></span><span class="o">&lt;</span><span class="kt">DataType</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onUpdate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that is called on <code>data</code> change.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Observer that represents update block.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventC14observeForeveryAA8ObserverCyxG8observer_tF"></a>
+                    <a name="//apple_ref/swift/Method/observeForever(observer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventC14observeForeveryAA8ObserverCyxG8observer_tF">observeForever(observer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts observation until <code><a href="../Classes/FutureEvent.html#/s:9ETBinding11FutureEventC6removeSbAA8ObserverCyxG8observer_tF">remove(observer:)</a></code> called.</p>
+<div class="aside aside-requires">
+    <p class="aside-title">Requires</p>
+    <p>Given <code>observer</code> can be registered only once.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">observeForever</span><span class="p">(</span><span class="nv">observer</span><span class="p">:</span> <span class="kt"><a href="../Classes/Observer.html">Observer</a></span><span class="o">&lt;</span><span class="kt">DataType</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>observer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Observer that is updated on every <code>data</code> change.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Remove"></a>
+                <a name="//apple_ref/swift/Section/Remove" class="dashAnchor"></a>
+                <a href="#/Remove">
+                  <h3 class="section-name">Remove</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventC6removeSbAA8ObserverCyxG8observer_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(observer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventC6removeSbAA8ObserverCyxG8observer_tF">remove(observer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unregister given <code>observer</code> from observation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">observer</span><span class="p">:</span> <span class="kt"><a href="../Classes/Observer.html">Observer</a></span><span class="o">&lt;</span><span class="kt">DataType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>observer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Observer that has to be removed</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>True</code> if observer was unregistered or <code>false</code> if observer
+       wasn&rsquo;t never registered.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventCAAytRszlE7triggeryyF"></a>
+                    <a name="//apple_ref/swift/Method/trigger()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventCAAytRszlE7triggeryyF">trigger()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Triggers observers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">trigger</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding11FutureEventC7triggeryxF"></a>
+                    <a name="//apple_ref/swift/Method/trigger(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding11FutureEventC7triggeryxF">trigger(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Triggers observers with given argument.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">trigger</span><span class="p">(</span><span class="n">_</span> <span class="nv">arg</span><span class="p">:</span> <span class="kt">DataType</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>arg</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Argument that is passed to observers.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://github.com/EtneteraMobile/ETBinding" target="_blank" rel="external">Jan Cislinsky</a>. All rights reserved. (Last updated: 2018-03-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

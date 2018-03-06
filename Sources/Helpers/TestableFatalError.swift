@@ -1,9 +1,9 @@
 //
 //  TestableFatalError.swift
-//  ETLiveData
+//  ETBinding
 //
 //  Created by Jan Čislinský on 19. 12. 2017.
-//  Copyright © 2017 ETLiveData. All rights reserved.
+//  Copyright © 2017 ETBinding. All rights reserved.
 //
 
 import Foundation

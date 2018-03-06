@@ -1,6 +1,5 @@
 //
 //  LiveDataTests.swift
-//  ETLiveData
 //
 //  Created by Jan Cislinsky on 15. 12. 2017.
 //  Copyright © 2017 ETLiveData. All rights reserved.
@@ -8,14 +7,12 @@
 
 import Foundation
 import XCTest
-import ETObserver
-@testable import ETLiveData
+@testable import ETBinding
 
 class LiveDataTests: XCTestCase {
-
-    var owner: LifecycleOwner? = Owner()
-    var expectations: [XCTestExpectation]!
-    var liveData: LiveData<String>!
+    private var expectations: [XCTestExpectation]!
+    private var owner: Owner!
+    private var liveData: LiveData<String>!
 
     override func setUp() {
         super.setUp()
@@ -24,10 +21,10 @@ class LiveDataTests: XCTestCase {
     }
 
     func onUpdate(_ input: String?) {
-        onUpdate(queueKey: nil, input)
+        update(queueKey: nil, input)
     }
 
-    func onUpdate(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
+    func update(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
         if let queueKey = queueKey {
             expectQueue(withKey: queueKey)
         }
@@ -40,67 +37,134 @@ class LiveDataTests: XCTestCase {
         expectations.removeFirst()
     }
 
-    // MARK: -
-
-    func testObserveForever() {
-        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
-        let observer = Observer<String?>(update: onUpdate)
-
-        liveData.observeForever(observer: observer)
-
-        let data1 = expectations[0].expectationDescription
-        let data2 = expectations[1].expectationDescription
-
-        liveData.data = data1
-        liveData.data = data2
-
-        waitForExpectations(timeout: 1, handler: nil)
-    }
+    // MARK: - Observable tests
 
     func testObserveWithObserverAndLifecycleOwner() {
-        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
-        let observer = Observer<String?>(update: onUpdate)
-
+        let observer = Observer(update: onUpdate)
         liveData.observe(owner: owner!, observer: observer)
-
-        let data1 = expectations[0].expectationDescription
-        let data2 = expectations[1].expectationDescription
-
-        liveData.data = data1
-        liveData.data = data2
-
-        waitForExpectations(timeout: 1, handler: nil)
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssert(liveData.contains(observer))
     }
 
     func testObserveWithOnUpdateAndLifecycleOwner() {
-        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
+        let observer = liveData.observe(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssert(liveData.contains(observer))
+    }
 
-        liveData.observe(owner: owner!, onUpdate: onUpdate)
+    func testObserveForeverWithObserver() {
+        let observer = Observer(update: onUpdate)
+        liveData.observeForever(observer: observer)
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssert(liveData.contains(observer))
+    }
 
-        let data1 = expectations[0].expectationDescription
-        let data2 = expectations[1].expectationDescription
-
-        liveData.data = data1
-        liveData.data = data2
-
-        waitForExpectations(timeout: 1, handler: nil)
+    func testObserveForeverWithOnUpdate() {
+        let observer = liveData.observeForever(onUpdate: onUpdate)
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssert(liveData.contains(observer))
     }
 
     func testRemoveObserver() {
-        expectations = [expectation(description: "New data 1")]
-        let observer1 = Observer<String?>(update: onUpdate)
-        let observer2 = Observer<String?>(update: onUpdate)
+        let observer1 = Observer(update: onUpdate)
+        let observer2 = Observer(update: onUpdate)
 
         liveData.observeForever(observer: observer1)
+        XCTAssert(liveData.observers.count == 1)
+
         liveData.observeForever(observer: observer2)
+        XCTAssert(liveData.observers.count == 2)
+
+        XCTAssert(liveData.contains(observer1))
+        XCTAssert(liveData.contains(observer2))
 
         liveData.remove(observer: observer1)
-        liveData.data = expectations[0].expectationDescription
-        liveData.remove(observer: observer2)
-        liveData.data = "without dispatch"
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssertFalse(liveData.contains(observer1))
+        XCTAssert(liveData.contains(observer2))
 
-        waitForExpectations(timeout: 1, handler: nil)
+        liveData.remove(observer: observer2)
+        XCTAssert(liveData.observers.isEmpty)
     }
+
+    func testRemoveObserverOnDealloc() {
+        let observer = liveData.observe(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssert(liveData.contains(observer))
+
+        // Deallocs owner
+        owner = nil
+
+        XCTAssertFalse(liveData.remove(observer: observer))
+        XCTAssert(liveData.observers.isEmpty)
+        XCTAssertFalse(liveData.contains(observer))
+    }
+
+    func testAddObserverMultipleTimes() {
+        let observer = Observer(update: onUpdate)
+        expectFatalError(withMessage: "Unable to register same observer multiple time") {
+            self.liveData.observeForever(observer: observer)
+            self.liveData.observeForever(observer: observer)
+        }
+    }
+
+    func testRemoveObserverMultipleTimes() {
+        let observer = Observer(update: onUpdate)
+        self.liveData.observeForever(observer: observer)
+        XCTAssertTrue(liveData.remove(observer: observer))
+        XCTAssertFalse(liveData.remove(observer: observer))
+    }
+
+    func testAddRemoveAddRemoveObserver() {
+        let observer = Observer(update: onUpdate)
+
+        liveData.observeForever(observer: observer)
+
+        XCTAssert(liveData.contains(observer))
+        XCTAssertTrue(liveData.remove(observer: observer))
+        XCTAssertFalse(liveData.contains(observer))
+
+        liveData.observeForever(observer: observer)
+
+        XCTAssert(liveData.contains(observer))
+        XCTAssertTrue(liveData.remove(observer: observer))
+        XCTAssertFalse(liveData.contains(observer))
+        XCTAssertFalse(liveData.remove(observer: observer))
+        XCTAssert(liveData.observers.isEmpty)
+    }
+
+    func testObserveDoesntFire() {
+        var wasCalled = false
+        _ = liveData.observeForever(onUpdate: { input in
+            wasCalled = true
+        })
+        XCTAssertFalse(wasCalled)
+    }
+
+    func testThreadSafety() {
+        let cycles = 1000
+
+        for i in 1...cycles {
+            let exp = expectation(description: "New data \(i)")
+            let observer = Observer(update: onUpdate)
+            DispatchQueue.global().async {
+                self.liveData.observeForever(observer: observer)
+                DispatchQueue.global().async {
+                    self.liveData.remove(observer: observer)
+                    exp.fulfill()
+                }
+            }
+        }
+
+        waitForExpectations(timeout: 10) { error in
+            XCTAssert(self.liveData.observers.isEmpty)
+            XCTAssert(self.liveData.observers.isEmpty, "Observers still registered")
+        }
+    }
+
+    // MARK: - Live data tests
 
     func testReadData() {
         let data1 = "test1"
@@ -119,12 +183,13 @@ class LiveDataTests: XCTestCase {
         XCTAssertNil(liveData.data)
     }
 
-    func testObserveOnUpdateDoesntFire() {
-        var wasCalled = false
-        _ = liveData.observeForever(onUpdate: { input in
-            wasCalled = true
-        })
-        XCTAssertFalse(wasCalled)
+    func testDispatchAfterDataAssignment() {
+        expectations = [expectation(description: "New data 1")]
+
+        _ = liveData.observeForever(onUpdate: onUpdate)
+        liveData.data = expectations[0].expectationDescription
+
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testStartObservingExistingDataAndDispatch() {
@@ -150,24 +215,10 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testRemoveObserverOnDealloc() {
-        expectations = [expectation(description: "New data 1")]
-        let observer = Observer<String?>(update: onUpdate)
-
-        liveData.observe(owner: owner!, observer: observer)
-        liveData.data = expectations[0].expectationDescription
-
-        // Deallocs owner
-        owner = nil
-        liveData.data = "without dispatch"
-
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-
     func testDispatchToInitiator() {
         expectations = [expectation(description: "New data 1")]
-        let observer1 = Observer<String?>(update: onUpdate)
-        let observer2 = Observer<String?>(update: onUpdate)
+        let observer1 = Observer(update: onUpdate)
+        let observer2 = Observer(update: onUpdate)
 
         liveData.data = expectations[0].expectationDescription
         liveData.observeForever(observer: observer1)
@@ -179,53 +230,18 @@ class LiveDataTests: XCTestCase {
     }
 
     func testDispatchToUnregisteredInitiator() {
-        let observer1 = Observer<String?>(update: onUpdate)
+        let observer1 = Observer(update: onUpdate)
 
         expectFatalError(withMessage: "Initiator was never registered for observation") {
             self.liveData.dispatch(initiator: observer1)
         }
     }
 
-    func testAddObserverMultipleTimes() {
-        let observer = Observer<String?>(update: onUpdate)
-        expectFatalError(withMessage: "Unable to register same observer multiple time") {
-            self.liveData.observeForever(observer: observer)
-            self.liveData.observeForever(observer: observer)
-        }
-    }
-
-    func testRemoveObserverMultipleTimes() {
-        let observer = Observer<String?>(update: onUpdate)
-        self.liveData.observeForever(observer: observer)
-        XCTAssertTrue(liveData.remove(observer: observer))
-        XCTAssertFalse(liveData.remove(observer: observer))
-    }
-
-    func testAddRemoveAddRemoveObserver() {
-        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
-        let observer = Observer<String?>(update: onUpdate)
-
-        let data1 = expectations[0].expectationDescription
-        let data2 = expectations[1].expectationDescription
-
-        liveData.observeForever(observer: observer)
-        liveData.data = data1
-        XCTAssertTrue(liveData.remove(observer: observer))
-
-        liveData.observeForever(observer: observer)
-        liveData.data = data2
-        XCTAssertTrue(liveData.remove(observer: observer))
-
-        XCTAssertFalse(liveData.remove(observer: observer))
-
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-
     func testQueueWhereValueIsDispatched() {
         expectations = [expectation(description: "New data 1")]
         let queue = makeQueueWithKey()
-        let observer = Observer<String?>(update: curry(onUpdate)(queue.0))
-        
+        let observer = Observer(update: curry(update)(queue.0))
+
         liveData.observeForever(observer: observer)
         queue.1.sync {
             liveData.data = expectations[0].expectationDescription
@@ -234,45 +250,32 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testThreadSafety() {
-        let cycles = 1000
-
-        for i in 1...cycles {
-            let exp = expectation(description: "New data \(i)")
-            let observer = Observer<String?>(update: onUpdate)
-            DispatchQueue.global().async {
-                self.liveData.observeForever(observer: observer)
-                DispatchQueue.global().async {
-                    self.liveData.remove(observer: observer)
-                    exp.fulfill()
-                }
-            }
-        }
-
-        waitForExpectations(timeout: 10) { error in
-            self.liveData.data = "without dispatch"
-            XCTAssert(self.liveData.observers.isEmpty, "Observers still registered")
-        }
-    }
-    
     static var allTests = [
-        ("testObserveForever", testObserveForever),
         ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
         ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),
+        ("testObserveForeverWithObserver", testObserveForeverWithObserver),
+        ("testObserveForeverWithOnUpdate", testObserveForeverWithOnUpdate),
         ("testRemoveObserver", testRemoveObserver),
-        ("testReadData", testReadData),
-        ("testObserveOnUpdateDoesntFire", testObserveOnUpdateDoesntFire),
-        ("testStartObservingExistingDataAndDispatch", testStartObservingExistingDataAndDispatch),
-        ("testDispatchSameDataMultipleTimes", testDispatchSameDataMultipleTimes),
         ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
-        ("testDispatchToInitiator", testDispatchToInitiator),
-        ("testDispatchToUnregisteredInitiator", testDispatchToUnregisteredInitiator),
         ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
         ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
         ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
-        ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
+        ("testObserveDoesntFire", testObserveDoesntFire),
         ("testThreadSafety", testThreadSafety),
+        ("testReadData", testReadData),
+        ("testDispatchAfterDataAssignment", testDispatchAfterDataAssignment),
+        ("testStartObservingExistingDataAndDispatch", testStartObservingExistingDataAndDispatch),
+        ("testDispatchSameDataMultipleTimes", testDispatchSameDataMultipleTimes),
+        ("testDispatchToInitiator", testDispatchToInitiator),
+        ("testDispatchToUnregisteredInitiator", testDispatchToUnregisteredInitiator),
+        ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
     ]
 }
 
-class Owner {}
+private class Owner {}
+
+extension LiveData {
+    func contains(_ observer: Observer<DataType>) -> Bool {
+        return observers.lazy.filter { $0.observer == observer }.first != nil
+    }
+}

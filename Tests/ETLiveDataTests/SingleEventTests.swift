@@ -233,9 +233,10 @@ class SingleEventTests: XCTestCase {
         ("testThreadSafety", testThreadSafety),
         ("testTrigger", testTrigger),
         ("testTriggerVoid", testTriggerVoid),
+        ("testObserveAfterTrigger", testObserveAfterTrigger),
         ("testTriggerMultipleTimes", testTriggerMultipleTimes),
         ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
-        ]
+    ]
 }
 
 private class Owner {}

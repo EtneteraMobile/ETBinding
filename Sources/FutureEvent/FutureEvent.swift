@@ -7,6 +7,22 @@
 
 import Foundation
 
+/// `FutureEvent` is an observable event handler class. Unlike a regular observable,
+/// `FutureEvent` is lifecycle-aware, meaning it respects the lifecycle of its owner.
+/// This awareness ensures `FutureEvent` only triggers app component observers that
+/// are in an active lifecycle state.
+///
+///     let onPress = FutureEvent<Void>()
+///     let observer = onPress.observeForever {
+///         print("Button pressed")
+///     }
+///     onPress.trigger()
+///     // prints Button pressed
+///
+///     onPress.remove(observer: observer)
+///
+///     onPress.trigger()
+///     // … nothing
 public class FutureEvent<Action>: Observable {
     public typealias DataType = Action
 
@@ -20,22 +36,53 @@ public class FutureEvent<Action>: Observable {
 public extension FutureEvent {
     // MARK: - Observe
 
+    /// Starts observation until given owner is alive or `remove(observer:)` is called.
+    ///
+    /// - Attention:
+    ///   - After deallocation of owner `onUpdate` will be never called.
+    ///
+    /// - Parameters:
+    ///   - owner: LifecycleOwner of newly created observation.
+    ///   - onUpdate: Closure that is called on change.
+    ///
+    /// - Returns: Observer that represents update block.
     @discardableResult func observe(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
         let wrapper = LifecycleBoundObserver(owner: owner, observer: Observer(update: onUpdate))
         return observe(wrapper)
     }
 
+    /// Starts observation until given owner is alive or `remove(observer:)` is called.
+    ///
+    /// - Requires: Given `observer` can be registered only once.
+    ///
+    /// - Attention:
+    ///   - After deallocation of owner `observer.update` will be never called.
+    ///
+    /// - Parameters:
+    ///   - owner: LifecycleOwner of newly created observation.
+    ///   - observer: Observer that is updated on every `data` change.
     func observe(owner: LifecycleOwner, observer: Observer<DataType>) {
         let wrapper = LifecycleBoundObserver(owner: owner, observer: observer)
         observe(wrapper)
     }
 
+    /// Starts observation until `remove(observer:)` called.
+    ///
+    /// - Parameters:
+    ///   - onUpdate: Closure that is called on `data` change.
+    ///
+    /// - Returns: Observer that represents update block.
     func observeForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
         let wrapper = LifecycleBoundObserver(observer: Observer(update: onUpdate))
         return observe(wrapper)
     }
 
-
+    /// Starts observation until `remove(observer:)` called.
+    ///
+    /// - Requires: Given `observer` can be registered only once.
+    ///
+    /// - Parameters:
+    ///   - observer: Observer that is updated on every `data` change.
     func observeForever(observer: Observer<DataType>) {
         let wrapper = LifecycleBoundObserver(observer: observer)
         observe(wrapper)
@@ -43,6 +90,11 @@ public extension FutureEvent {
 
     // MARK: - Remove
 
+    /// Unregister given `observer` from observation.
+    ///
+    /// - Parameter observer: Observer that has to be removed
+    /// - Returns: `True` if observer was unregistered or `false` if observer
+    ///            wasn't never registered.
     @discardableResult func remove(observer: Observer<DataType>) -> Bool {
         lock.lock()
         defer {
@@ -58,13 +110,21 @@ public extension FutureEvent {
         return false
     }
 }
+
+// MARK: - Trigger
+
 public extension FutureEvent where DataType == Void {
+    /// Triggers observers.
     public func trigger() {
         triggerObservers(())
     }
 }
 
 public extension FutureEvent where DataType: Any {
+    /// Triggers observers with given argument.
+    ///
+    /// - Parameters:
+    ///   - arg: Argument that is passed to observers.
     public func trigger(_ arg: DataType) {
         triggerObservers(arg)
     }

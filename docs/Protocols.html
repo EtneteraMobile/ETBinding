@@ -1,71 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LifecycleState Enumeration Reference</title>
-    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
-    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <title>Protocols  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
-    <script src="../js/jquery.min.js" defer></script>
-    <script src="../js/jazzy.js" defer></script>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/LifecycleState" class="dashAnchor"></a>
-    <a title="LifecycleState Enumeration Reference"></a>
+    <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">ETBinding Docs</a> (100% documented)</p>
+        <p><a href="index.html">ETBinding Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html">ETBinding Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        LifecycleState Enumeration Reference
+        <a href="index.html">ETBinding Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Protocols  Reference
       </p>
     </div>
     <div class="content-wrapper">
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
+            <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/FutureEvent.html">FutureEvent</a>
+                <a href="Classes/FutureEvent.html">FutureEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/LiveData.html">LiveData</a>
+                <a href="Classes/LiveData.html">LiveData</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes.html#/s:9ETBinding13LiveStateDataC">LiveStateData</a>
+                <a href="Classes.html#/s:9ETBinding13LiveStateDataC">LiveStateData</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Observer.html">Observer</a>
+                <a href="Classes/Observer.html">Observer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SingleEvent.html">SingleEvent</a>
+                <a href="Classes/SingleEvent.html">SingleEvent</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Enums.html">Enumerations</a>
+            <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/LifecycleState.html">LifecycleState</a>
+                <a href="Enums/LifecycleState.html">LifecycleState</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/StateValue.html">StateValue</a>
+                <a href="Enums/StateValue.html">StateValue</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/Observable.html">Observable</a>
+                <a href="Protocols/Observable.html">Observable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/SingleEventObservable.html">SingleEventObservable</a>
+                <a href="Protocols/SingleEventObservable.html">SingleEventObservable</a>
               </li>
             </ul>
           </li>
@@ -74,14 +73,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LifecycleState</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LifecycleState</span></code></pre>
-
-                </div>
-              </div>
-            <p>Valid states of <code>LifecycleOwner</code></p>
+            <h1>Protocols</h1>
+            <p>The following protocols are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -90,9 +83,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9ETBinding14LifecycleStateO6activeA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/active" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding14LifecycleStateO6activeA2CmF">active</a>
+                    <a name="/s:9ETBinding10ObservableP"></a>
+                    <a name="//apple_ref/swift/Protocol/Observable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding10ObservableP">Observable</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -100,14 +93,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates that <code>LifecycleOwner</code> is still alive</p>
+                        <p>Declares methods for observation.</p>
 
+                        <a href="Protocols/Observable.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">active</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Observable</span><span class="p">:</span> <span class="kd">class</span></code></pre>
 
                         </div>
                       </div>
@@ -121,9 +115,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9ETBinding14LifecycleStateO9destroyedA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/destroyed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding14LifecycleStateO9destroyedA2CmF">destroyed</a>
+                    <a name="/s:9ETBinding21SingleEventObservableP"></a>
+                    <a name="//apple_ref/swift/Protocol/SingleEventObservable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding21SingleEventObservableP">SingleEventObservable</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -131,14 +125,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates that <code>LifecycleOwner</code> is already deallocated</p>
+                        <p>Declares methods for observation.</p>
 
+                        <a href="Protocols/SingleEventObservable.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">destroyed</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SingleEventObservable</span><span class="p">:</span> <span class="kd">class</span></code></pre>
 
                         </div>
                       </div>

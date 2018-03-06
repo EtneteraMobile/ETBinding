@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode9.2
+xcode_project: ETBinding.xcodeproj
+xcode_scheme: ETBinding-iOS
+xcode_sdk: iphonesimulator11.2

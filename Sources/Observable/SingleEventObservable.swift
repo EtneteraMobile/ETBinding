@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Declares methods for observation.
 public protocol SingleEventObservable: class {
     associatedtype DataType
 
@@ -17,6 +18,8 @@ public protocol SingleEventObservable: class {
     /// - Attention:
     ///   - After deallocation of owner `onUpdate` will be never called.
     ///   - `onUpdate` is called only once.
+    ///
+    /// - Warning: Raises fatalError if event was already triggered.
     ///
     /// - Parameters:
     ///   - owner: LifecycleOwner of newly created observation.
@@ -35,6 +38,8 @@ public protocol SingleEventObservable: class {
     ///   - After deallocation of owner `observer.update` will be never called.
     ///   - `onUpdate` is called only once.
     ///
+    /// - Warning: Raises fatalError if event was already triggered.
+    ///
     /// - Parameters:
     ///   - owner: LifecycleOwner of newly created observation.
     ///   - observer: Observer that is updated on every `data` change.
@@ -46,6 +51,8 @@ public protocol SingleEventObservable: class {
     ///
     /// - Attention:
     ///   - `onUpdate` is called only once.
+    ///
+    /// - Warning: Raises fatalError if event was already triggered.
     ///
     /// - Parameters:
     ///   - onUpdate: Closure that is called on `data` change.
@@ -61,6 +68,8 @@ public protocol SingleEventObservable: class {
     ///
     /// - Attention:
     ///   - `onUpdate` is called only once.
+    ///
+    /// - Warning: Raises fatalError if event was already triggered.
     ///
     /// - Parameters:
     ///   - observer: Observer that is updated on every `data` change.

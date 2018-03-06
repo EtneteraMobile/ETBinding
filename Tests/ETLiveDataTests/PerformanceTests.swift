@@ -45,6 +45,10 @@ class PerformanceTests: XCTestCase {
             group.wait()
         }
     }
+
+    static var allTests = [
+        ("testPerformanceExample", testPerformanceExample),
+    ]
 }
 
 private class Owner {}

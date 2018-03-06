@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enumerations  Reference</title>
+    <title>Functions  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,17 +10,17 @@
     
   </head>
   <body>
-    <a title="Enumerations  Reference"></a>
+    <a title="Functions  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">ETBinding Docs</a> (100% documented)</p>
+        <p><a href="index.html">ETLiveData Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html">ETBinding Reference</a>
+        <a href="index.html">ETLiveData Reference</a>
         <img id="carat" src="img/carat.png" />
-        Enumerations  Reference
+        Functions  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -30,19 +30,10 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/FutureEvent.html">FutureEvent</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/LiveData.html">LiveData</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes.html#/s:9ETBinding13LiveStateDataC">LiveStateData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/Observer.html">Observer</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SingleEvent.html">SingleEvent</a>
+                <a href="Classes.html#/s:10ETLiveData09LiveStateB0C">LiveStateData</a>
               </li>
             </ul>
           </li>
@@ -58,13 +49,21 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Protocols.html">Protocols</a>
+            <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/Observable.html">Observable</a>
+                <a href="Functions.html#/s:10ETLiveData10fatalErrors5NeverOSSyXK_s12StaticStringV4fileSu4linetF">fatalError(_:file:line:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/SingleEventObservable.html">SingleEventObservable</a>
+                <a href="Functions.html#/s:10ETLiveData11unreachables5NeverOyF">unreachable()</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/FatalErrorUtil.html">FatalErrorUtil</a>
               </li>
             </ul>
           </li>
@@ -73,8 +72,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Enumerations</h1>
-            <p>The following enumerations are available globally.</p>
+            <h1>Functions</h1>
+            <p>The following functions are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -83,9 +82,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9ETBinding14LifecycleStateO"></a>
-                    <a name="//apple_ref/swift/Enum/LifecycleState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding14LifecycleStateO">LifecycleState</a>
+                    <a name="/s:10ETLiveData10fatalErrors5NeverOSSyXK_s12StaticStringV4fileSu4linetF"></a>
+                    <a name="//apple_ref/swift/Function/fatalError(_:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10ETLiveData10fatalErrors5NeverOSSyXK_s12StaticStringV4fileSu4linetF">fatalError(_:file:line:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -93,31 +92,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Valid states of <code>LifecycleOwner</code></p>
+                        <p>Undocumented</p>
 
-                        <a href="Enums/LifecycleState.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LifecycleState</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fatalError</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Never</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9ETBinding10StateValueO"></a>
-                    <a name="//apple_ref/swift/Enum/StateValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding10StateValueO">StateValue</a>
+                    <a name="/s:10ETLiveData11unreachables5NeverOyF"></a>
+                    <a name="//apple_ref/swift/Function/unreachable()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10ETLiveData11unreachables5NeverOyF">unreachable()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -125,15 +119,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Value with state added</p>
+                        <p>This is a <code>noreturn</code> function that pauses forever</p>
 
-                        <a href="Enums/StateValue.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">StateValue</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unreachable</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Never</span></code></pre>
 
                         </div>
                       </div>
@@ -145,7 +138,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/EtneteraMobile/ETBinding" target="_blank" rel="external">Jan Cislinsky</a>. All rights reserved. (Last updated: 2018-03-06)</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/EtneteraMobile/ETLiveData" target="_blank" rel="external">Jan Cislinsky</a>. All rights reserved. (Last updated: 2018-02-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

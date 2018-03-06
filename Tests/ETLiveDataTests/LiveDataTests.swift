@@ -263,12 +263,13 @@ class LiveDataTests: XCTestCase {
         ("testObserveDoesntFire", testObserveDoesntFire),
         ("testThreadSafety", testThreadSafety),
         ("testReadData", testReadData),
+        ("testDispatchAfterDataAssignment", testDispatchAfterDataAssignment),
         ("testStartObservingExistingDataAndDispatch", testStartObservingExistingDataAndDispatch),
         ("testDispatchSameDataMultipleTimes", testDispatchSameDataMultipleTimes),
         ("testDispatchToInitiator", testDispatchToInitiator),
         ("testDispatchToUnregisteredInitiator", testDispatchToUnregisteredInitiator),
         ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
-        ]
+    ]
 }
 
 private class Owner {}

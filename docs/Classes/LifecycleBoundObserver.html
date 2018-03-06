@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LifecycleState Enumeration Reference</title>
+    <title>LifecycleBoundObserver Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,18 +10,18 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/LifecycleState" class="dashAnchor"></a>
-    <a title="LifecycleState Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Class/LifecycleBoundObserver" class="dashAnchor"></a>
+    <a title="LifecycleBoundObserver Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">ETBinding Docs</a> (100% documented)</p>
+        <p><a href="../index.html">ETBinding Docs</a> (71% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">ETBinding Reference</a>
         <img id="carat" src="../img/carat.png" />
-        LifecycleState Enumeration Reference
+        LifecycleBoundObserver Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -32,6 +32,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/FutureEvent.html">FutureEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LifecycleBoundObserver.html">LifecycleBoundObserver</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/LiveData.html">LiveData</a>
@@ -74,14 +77,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LifecycleState</h1>
+            <h1>LifecycleBoundObserver</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LifecycleState</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LifecycleBoundObserver</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
-            <p>Valid states of <code>LifecycleOwner</code></p>
+            <p>Wrapper for <code><a href="../Classes/Observer.html">Observer</a></code> and <code>LifecycleOwner</code> whose state determines that
+<code><a href="../Classes/Observer.html">Observer</a></code> has to be active or not according lifecycle of owner.</p>
 
           </section>
           <section class="section task-group-section">
@@ -90,9 +94,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9ETBinding14LifecycleStateO6activeA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/active" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding14LifecycleStateO6activeA2CmF">active</a>
+                    <a name="/s:s8HashableP9hashValueSiv"></a>
+                    <a name="//apple_ref/swift/Property/hashValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s8HashableP9hashValueSiv">hashValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -100,30 +104,25 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates that <code>LifecycleOwner</code> is still alive</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">active</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hashValue</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9ETBinding14LifecycleStateO9destroyedA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/destroyed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding14LifecycleStateO9destroyedA2CmF">destroyed</a>
+                    <a name="/s:s9EquatableP2eeoiSbx_xtFZ"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s9EquatableP2eeoiSbx_xtFZ">==(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -131,14 +130,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates that <code>LifecycleOwner</code> is already deallocated</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">destroyed</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">LifecycleBoundObserver</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">LifecycleBoundObserver</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>

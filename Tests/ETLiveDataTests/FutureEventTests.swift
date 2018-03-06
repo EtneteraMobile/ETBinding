@@ -228,7 +228,7 @@ class FutureEventTests: XCTestCase {
         ("testTriggerVoid", testTriggerVoid),
         ("testTriggerMultipleTimes", testTriggerMultipleTimes),
         ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
-        ]
+    ]
 }
 
 private class Owner {}

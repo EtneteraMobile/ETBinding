@@ -11,8 +11,8 @@ public typealias LifecycleOwner = AnyObject
 
 /// Wrapper for `Observer` and `LifecycleOwner` whose state determines that
 /// `Observer` has to be active or not according lifecycle of owner.
-public class LifecycleBoundObserver<T>: Hashable {
-    public var hashValue: Int {
+class LifecycleBoundObserver<T>: Hashable {
+    var hashValue: Int {
         return observer.hashValue
     }
     /// Lifecycle state of owner if was set in init otherwise returns forever `.active`
@@ -35,7 +35,7 @@ public class LifecycleBoundObserver<T>: Hashable {
         self.isActiveForever = owner == nil
     }
     
-    public static func ==(lhs: LifecycleBoundObserver<T>, rhs: LifecycleBoundObserver<T>) -> Bool {
+    static func ==(lhs: LifecycleBoundObserver<T>, rhs: LifecycleBoundObserver<T>) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
 }

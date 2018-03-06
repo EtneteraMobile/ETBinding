@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Declares methods for observation.
 public protocol Observable: class {
     associatedtype DataType
 

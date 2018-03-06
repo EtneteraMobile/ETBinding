@@ -1,9 +1,6 @@
 language: objective-c
 osx_image: xcode9.2
 
-before_install:
-  - gem install xcpretty -N
-
 script:
- - xcodebuild build -project ETBinding.xcodeproj -scheme ETBinding-iOS -configuration "Release" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
- - xcodebuild test -project ETBinding.xcodeproj -scheme ETBinding-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X' | xcpretty -t -c
+ - xcodebuild build -project ETBinding.xcodeproj -scheme ETBinding-iOS -configuration "Release" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+ - xcodebuild test -project ETBinding.xcodeproj -scheme ETBinding-iOS -configuration "Debug" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X'

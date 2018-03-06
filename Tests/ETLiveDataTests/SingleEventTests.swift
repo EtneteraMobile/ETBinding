@@ -201,6 +201,8 @@ class SingleEventTests: XCTestCase {
         let arg1 = expectations[0].expectationDescription
         singleEvent.trigger(arg1)
 
+        waitForExpectations(timeout: 1, handler: nil)
+
         expectFatalError(withMessage: "Unable to trigger SingleEvent multiple times.") {
             self.singleEvent.trigger(arg1)
         }

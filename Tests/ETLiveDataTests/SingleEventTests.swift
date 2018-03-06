@@ -175,7 +175,7 @@ class SingleEventTests: XCTestCase {
         _ = singleEvent.observeSingleEventForever(onUpdate: onUpdate)
         singleEvent.trigger(expectations[0].expectationDescription)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testTriggerVoid() {
@@ -201,7 +201,7 @@ class SingleEventTests: XCTestCase {
         let arg1 = expectations[0].expectationDescription
         singleEvent.trigger(arg1)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
 
         expectFatalError(withMessage: "Unable to trigger SingleEvent multiple times.") {
             self.singleEvent.trigger(arg1)
@@ -218,7 +218,7 @@ class SingleEventTests: XCTestCase {
             singleEvent.trigger(expectations[0].expectationDescription)
         }
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     static var allTests = [

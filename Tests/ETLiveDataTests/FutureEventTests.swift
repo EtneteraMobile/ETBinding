@@ -175,7 +175,7 @@ class FutureEventTests: XCTestCase {
         _ = futureEvent.observeForever(onUpdate: onUpdate)
         futureEvent.trigger(expectations[0].expectationDescription)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testTriggerVoid() {
@@ -196,7 +196,7 @@ class FutureEventTests: XCTestCase {
         futureEvent.trigger(arg1)
         futureEvent.trigger(arg2)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testQueueWhereValueIsDispatched() {
@@ -209,7 +209,7 @@ class FutureEventTests: XCTestCase {
             futureEvent.trigger(expectations[0].expectationDescription)
         }
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     static var allTests = [

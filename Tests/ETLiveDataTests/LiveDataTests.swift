@@ -189,7 +189,7 @@ class LiveDataTests: XCTestCase {
         _ = liveData.observeForever(onUpdate: onUpdate)
         liveData.data = expectations[0].expectationDescription
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testStartObservingExistingDataAndDispatch() {
@@ -200,7 +200,7 @@ class LiveDataTests: XCTestCase {
         _ = liveData.observeForever(onUpdate: onUpdate)
         liveData.dispatch()
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testDispatchSameDataMultipleTimes() {
@@ -212,7 +212,7 @@ class LiveDataTests: XCTestCase {
         liveData.dispatch()
         liveData.dispatch()
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testDispatchToInitiator() {
@@ -226,7 +226,7 @@ class LiveDataTests: XCTestCase {
 
         liveData.dispatch(initiator: observer1)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testDispatchToUnregisteredInitiator() {
@@ -247,7 +247,7 @@ class LiveDataTests: XCTestCase {
             liveData.data = expectations[0].expectationDescription
         }
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     static var allTests = [

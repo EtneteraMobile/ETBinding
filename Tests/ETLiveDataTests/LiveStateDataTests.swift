@@ -47,7 +47,7 @@ class LiveStateDataTests: XCTestCase {
         liveData.observeForever(observer: observer)
         liveData.data = .success(str)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testFailureState() {
@@ -70,7 +70,7 @@ class LiveStateDataTests: XCTestCase {
         liveData.observeForever(observer: observer)
         liveData.data = .failure(TestError.test)
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
 
     }
 

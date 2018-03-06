@@ -1,8 +1,13 @@
+# Outdated – updates for new Binding concept
+
+
+
 # LiveData for iOS
 
 [![Version](https://img.shields.io/cocoapods/v/ETLiveData.svg?style=flat)](http://cocoapods.org/pods/ETLiveData)
 [![License](https://img.shields.io/cocoapods/l/ETLiveData.svg?style=flat)](http://cocoapods.org/pods/ETLiveData)
 [![Platform](https://img.shields.io/cocoapods/p/ETLiveData.svg?style=flat)](http://cocoapods.org/pods/ETLiveData)
+[![Build Status](https://travis-ci.org/EtneteraMobile/ETBinding.svg?branch=master)](https://travis-ci.org/EtneteraMobile/ETBinding)
 
 
 

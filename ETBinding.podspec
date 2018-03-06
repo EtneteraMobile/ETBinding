@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.1"
   s.summary      = "ETBinding"
   s.description  = <<-DESC
-    LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of its owner. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
+    ETBinding is set of observable classes. Unlike a regular observable is lifecycle-aware, meaning it respects the lifecycle of its owner.
   DESC
   s.homepage     = "https://github.com/EtneteraMobile/ETBinding"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -16,5 +16,4 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/EtneteraMobile/ETBinding.git", :tag => s.version.to_s }
   s.source_files  = "Sources/**/*"
   s.frameworks  = "Foundation"
-  s.dependency 'ETObserver'
 end

@@ -20,9 +20,6 @@
 		712FA2ED1FE91DF300969753 /* ExpectFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E81FE91DE300969753 /* ExpectFatalError.swift */; };
 		712FA2EE1FE91DF400969753 /* ExpectFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E81FE91DE300969753 /* ExpectFatalError.swift */; };
 		712FA2EF1FE91DF400969753 /* ExpectFatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2E81FE91DE300969753 /* ExpectFatalError.swift */; };
-		712FA2F61FEA20AE00969753 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2F11FEA20A200969753 /* DeallocTracker.swift */; };
-		712FA2F71FEA20AE00969753 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2F11FEA20A200969753 /* DeallocTracker.swift */; };
-		712FA2F81FEA20AF00969753 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2F11FEA20A200969753 /* DeallocTracker.swift */; };
 		712FA2FA1FEA243300969753 /* ExpectQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2F91FEA243300969753 /* ExpectQueue.swift */; };
 		712FA2FB1FEA243300969753 /* ExpectQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2F91FEA243300969753 /* ExpectQueue.swift */; };
 		712FA2FC1FEA243300969753 /* ExpectQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712FA2F91FEA243300969753 /* ExpectQueue.swift */; };
@@ -123,7 +120,6 @@
 		7127093D204D7B2800291656 /* SingleEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventTests.swift; sourceTree = "<group>"; };
 		712FA2E31FE91DB000969753 /* TestableFatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableFatalError.swift; sourceTree = "<group>"; };
 		712FA2E81FE91DE300969753 /* ExpectFatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectFatalError.swift; sourceTree = "<group>"; };
-		712FA2F11FEA20A200969753 /* DeallocTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
 		712FA2F91FEA243300969753 /* ExpectQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectQueue.swift; sourceTree = "<group>"; };
 		712FA2FD1FEA288000969753 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
@@ -251,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				712FA2FD1FEA288000969753 /* Curry.swift */,
-				712FA2F11FEA20A200969753 /* DeallocTracker.swift */,
 				712FA2E81FE91DE300969753 /* ExpectFatalError.swift */,
 				712FA2F91FEA243300969753 /* ExpectQueue.swift */,
 			);
@@ -656,7 +651,6 @@
 				712FA2ED1FE91DF300969753 /* ExpectFatalError.swift in Sources */,
 				71E05DF3204E7D3E006A9341 /* LiveStateDataTests.swift in Sources */,
 				712FA2FA1FEA243300969753 /* ExpectQueue.swift in Sources */,
-				712FA2F61FEA20AE00969753 /* DeallocTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +725,6 @@
 				712FA2FF1FEA288000969753 /* Curry.swift in Sources */,
 				712FA2EE1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				712FA2FB1FEA243300969753 /* ExpectQueue.swift in Sources */,
-				712FA2F71FEA20AE00969753 /* DeallocTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,7 +739,6 @@
 				712FA2EF1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,
 				712FA2FC1FEA243300969753 /* ExpectQueue.swift in Sources */,
-				712FA2F81FEA20AF00969753 /* DeallocTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

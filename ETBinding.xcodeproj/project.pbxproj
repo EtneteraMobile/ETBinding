@@ -84,13 +84,10 @@
 		71E05DF3204E7D3E006A9341 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		71E05DF4204E7D3E006A9341 /* FutureEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */; };
 		71E05DF5204E7D3E006A9341 /* SingleEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127093D204D7B2800291656 /* SingleEventTests.swift */; };
-		71E05DF6204E7D3E006A9341 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E05DE6204E6165006A9341 /* PerformanceTests.swift */; };
 		71E05DF9204E7D3F006A9341 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A47204D212B004A2CD3 /* LiveDataTests.swift */; };
 		71E05DFA204E7D3F006A9341 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
 		71E05DFB204E7D3F006A9341 /* FutureEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */; };
 		71E05DFC204E7D3F006A9341 /* SingleEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127093D204D7B2800291656 /* SingleEventTests.swift */; };
-		71E05DFD204E7D3F006A9341 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E05DE6204E6165006A9341 /* PerformanceTests.swift */; };
-		71E05DFE204E7D3F006A9341 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E05DE6204E6165006A9341 /* PerformanceTests.swift */; };
 		DD7502881C68FEDE006590AF /* ETBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* ETBinding.framework */; };
 		DD7502921C690C7A006590AF /* ETBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* ETBinding.framework */; };
 /* End PBXBuildFile section */
@@ -756,7 +753,6 @@
 				712FA2ED1FE91DF300969753 /* ExpectFatalError.swift in Sources */,
 				71E05DF3204E7D3E006A9341 /* LiveStateDataTests.swift in Sources */,
 				712FA2FA1FEA243300969753 /* ExpectQueue.swift in Sources */,
-				71E05DF6204E7D3E006A9341 /* PerformanceTests.swift in Sources */,
 				712FA2F61FEA20AE00969753 /* DeallocTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,7 +824,6 @@
 				71E05DF9204E7D3F006A9341 /* LiveDataTests.swift in Sources */,
 				71E05DFB204E7D3F006A9341 /* FutureEventTests.swift in Sources */,
 				71E05DFA204E7D3F006A9341 /* LiveStateDataTests.swift in Sources */,
-				71E05DFD204E7D3F006A9341 /* PerformanceTests.swift in Sources */,
 				71E05DFC204E7D3F006A9341 /* SingleEventTests.swift in Sources */,
 				712FA2FF1FEA288000969753 /* Curry.swift in Sources */,
 				712FA2EE1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
@@ -844,7 +839,6 @@
 				71209059204D7C7800033EC1 /* SingleEventTests.swift in Sources */,
 				71A48A4A204D212B004A2CD3 /* LiveDataTests.swift in Sources */,
 				71A48A54204D2E15004A2CD3 /* FutureEventTests.swift in Sources */,
-				71E05DFE204E7D3F006A9341 /* PerformanceTests.swift in Sources */,
 				712FA3001FEA288000969753 /* Curry.swift in Sources */,
 				712FA2EF1FE91DF400969753 /* ExpectFatalError.swift in Sources */,
 				713F7DF01FE3D5E200B86A50 /* LiveStateDataTests.swift in Sources */,

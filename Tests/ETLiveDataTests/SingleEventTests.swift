@@ -12,20 +12,22 @@ import XCTest
 class SingleEventTests: XCTestCase {
 
     private var expectations: [XCTestExpectation]!
+    private var owner: Owner!
     private var singleEvent: SingleEvent<String>!
     private var singleEventVoid: SingleEvent<Void>!
 
     override func setUp() {
         super.setUp()
+        owner = Owner()
         singleEvent = SingleEvent<String>()
         singleEventVoid = SingleEvent<Void>()
     }
 
     func onUpdate(_ input: String?) {
-        onUpdate(queueKey: nil, input)
+        update(queueKey: nil, input)
     }
 
-    func onUpdate(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
+    func update(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
         if let queueKey = queueKey {
             expectQueue(withKey: queueKey)
         }
@@ -38,36 +40,33 @@ class SingleEventTests: XCTestCase {
         expectations.removeFirst()
     }
 
-    // MARK: -
+    // MARK: - Single event observable tests
 
-    func testTrigger() {
-        expectations = [expectation(description: "New data 1")]
-
-        _ = singleEvent.observeSingleEventForever(onUpdate: onUpdate)
-        singleEvent.trigger(expectations[0].expectationDescription)
-
-        waitForExpectations(timeout: 1, handler: nil)
+    func testObserveWithObserverAndLifecycleOwner() {
+        let observer = Observer<String>(update: onUpdate)
+        singleEvent.observeSingleEvent(owner: owner!, observer: observer)
+        XCTAssert(singleEvent.observers.count == 1)
+        XCTAssert(singleEvent.contains(observer))
     }
 
-    func testTriggerVoid() {
-        var triggered = false
-        _ = singleEventVoid.observeSingleEventForever(onUpdate: {
-            triggered = true
-        })
-        singleEventVoid.trigger()
-        XCTAssertTrue(triggered)
+    func testObserveWithOnUpdateAndLifecycleOwner() {
+        let observer = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(singleEvent.observers.count == 1)
+        XCTAssert(singleEvent.contains(observer))
     }
 
-    func testTriggerMultipleTimes() {
-        expectations = [expectation(description: "New data 1")]
+    func testObserveForeverWithObserver() {
+        let observer = Observer<String>(update: onUpdate)
+        singleEvent.observeSingleEventForever(observer: observer)
+        XCTAssert(singleEvent.observers.count == 1)
+        XCTAssert(singleEvent.contains(observer))
+    }
 
-        _ = singleEvent.observeSingleEventForever(onUpdate: onUpdate)
-        let arg1 = expectations[0].expectationDescription
-        singleEvent.trigger(arg1)
-
-        expectFatalError(withMessage: "Unable to trigger SingleEvent multiple times.") {
-            self.singleEvent.trigger(arg1)
-        }
+    func testObserveForeverWithOnUpdate() {
+        let observer = singleEvent.observeSingleEventForever(onUpdate: onUpdate)
+        XCTAssert(singleEvent.observers.count == 1)
+        XCTAssert(singleEvent.contains(observer))
     }
 
     func testRemoveObserver() {
@@ -92,10 +91,125 @@ class SingleEventTests: XCTestCase {
         XCTAssert(singleEvent.observers.isEmpty)
     }
 
+    func testRemoveObserverOnDealloc() {
+        let observer = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(singleEvent.observers.count == 1)
+        XCTAssert(singleEvent.contains(observer))
+
+        // Deallocs owner
+        owner = nil
+
+        XCTAssertFalse(singleEvent.remove(observer: observer))
+        XCTAssert(singleEvent.observers.isEmpty)
+        XCTAssertFalse(singleEvent.contains(observer))
+    }
+
+    func testAddObserverMultipleTimes() {
+        let observer = Observer<String>(update: onUpdate)
+        expectFatalError(withMessage: "Unable to register same observer multiple time") {
+            self.singleEvent.observeSingleEventForever(observer: observer)
+            self.singleEvent.observeSingleEventForever(observer: observer)
+        }
+    }
+
+    func testRemoveObserverMultipleTimes() {
+        let observer = Observer<String>(update: onUpdate)
+        self.singleEvent.observeSingleEventForever(observer: observer)
+        XCTAssertTrue(singleEvent.remove(observer: observer))
+        XCTAssertFalse(singleEvent.remove(observer: observer))
+    }
+
+    func testAddRemoveAddRemoveObserver() {
+        let observer = Observer<String>(update: onUpdate)
+
+        singleEvent.observeSingleEventForever(observer: observer)
+
+        XCTAssert(singleEvent.contains(observer))
+        XCTAssertTrue(singleEvent.remove(observer: observer))
+        XCTAssertFalse(singleEvent.contains(observer))
+
+        singleEvent.observeSingleEventForever(observer: observer)
+
+        XCTAssert(singleEvent.contains(observer))
+        XCTAssertTrue(singleEvent.remove(observer: observer))
+        XCTAssertFalse(singleEvent.contains(observer))
+        XCTAssertFalse(singleEvent.remove(observer: observer))
+        XCTAssert(singleEvent.observers.isEmpty)
+    }
+
+    func testObserveDoesntFire() {
+        var wasCalled = false
+        _ = singleEvent.observeSingleEventForever(onUpdate: { input in
+            wasCalled = true
+        })
+        XCTAssertFalse(wasCalled)
+    }
+
+    func testThreadSafety() {
+        let cycles = 1000
+
+        for i in 1...cycles {
+            let exp = expectation(description: "New data \(i)")
+            let observer = Observer<String>(update: onUpdate)
+            DispatchQueue.global().async {
+                self.singleEvent.observeSingleEventForever(observer: observer)
+                DispatchQueue.global().async {
+                    self.singleEvent.remove(observer: observer)
+                    exp.fulfill()
+                }
+            }
+        }
+
+        waitForExpectations(timeout: 10) { error in
+            XCTAssert(self.singleEvent.observers.isEmpty)
+            XCTAssert(self.singleEvent.observers.isEmpty, "Observers still registered")
+        }
+    }
+
+    // MARK: - Single event tests
+
+    func testTrigger() {
+        expectations = [expectation(description: "New data 1")]
+
+        _ = singleEvent.observeSingleEventForever(onUpdate: onUpdate)
+        singleEvent.trigger(expectations[0].expectationDescription)
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testTriggerVoid() {
+        var triggered = false
+        _ = singleEventVoid.observeSingleEventForever(onUpdate: {
+            triggered = true
+        })
+        singleEventVoid.trigger()
+        XCTAssertTrue(triggered)
+    }
+
+    func testObserveAfterTrigger() {
+        singleEvent.trigger("Test")
+        expectFatalError(withMessage: "Unable to observe SingleEvent thas was already triggered.") {
+            _ = self.singleEvent.observeSingleEventForever(onUpdate: self.onUpdate)
+        }
+    }
+
+    func testTriggerMultipleTimes() {
+        expectations = [expectation(description: "New data 1")]
+
+        _ = singleEvent.observeSingleEventForever(onUpdate: onUpdate)
+        let arg1 = expectations[0].expectationDescription
+        singleEvent.trigger(arg1)
+
+        expectFatalError(withMessage: "Unable to trigger SingleEvent multiple times.") {
+            self.singleEvent.trigger(arg1)
+        }
+    }
+
     func testQueueWhereValueIsDispatched() {
         expectations = [expectation(description: "New data 1")]
         let queue = makeQueueWithKey()
-        let observer = Observer<String>(update: curry(onUpdate)(queue.0))
+        let observer = Observer<String>(update: curry(update)(queue.0))
 
         singleEvent.observeSingleEventForever(observer: observer)
         queue.1.sync {
@@ -106,6 +220,17 @@ class SingleEventTests: XCTestCase {
     }
 
     static var allTests = [
+        ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
+        ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),
+        ("testObserveForeverWithObserver", testObserveForeverWithObserver),
+        ("testObserveForeverWithOnUpdate", testObserveForeverWithOnUpdate),
+        ("testRemoveObserver", testRemoveObserver),
+        ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
+        ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
+        ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
+        ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
+        ("testObserveDoesntFire", testObserveDoesntFire),
+        ("testThreadSafety", testThreadSafety),
         ("testTrigger", testTrigger),
         ("testTriggerVoid", testTriggerVoid),
         ("testTriggerMultipleTimes", testTriggerMultipleTimes),
@@ -114,3 +239,9 @@ class SingleEventTests: XCTestCase {
 }
 
 private class Owner {}
+
+extension SingleEvent {
+    func contains(_ observer: Observer<DataType>) -> Bool {
+        return observers.lazy.filter { $0.observer == observer }.first != nil
+    }
+}

@@ -12,20 +12,22 @@ import XCTest
 class FutureEventTests: XCTestCase {
 
     private var expectations: [XCTestExpectation]!
+    private var owner: Owner!
     private var futureEvent: FutureEvent<String>!
     private var futureEventVoid: FutureEvent<Void>!
 
     override func setUp() {
         super.setUp()
+        owner = Owner()
         futureEvent = FutureEvent<String>()
         futureEventVoid = FutureEvent<Void>()
     }
 
-    func onUpdate(_ input: String?) {
-        onUpdate(queueKey: nil, input)
+    func onUpdate(_ input: String) {
+        update(queueKey: nil, input)
     }
 
-    func onUpdate(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
+    func update(queueKey: DispatchSpecificKey<Void>?, _ input: String) {
         if let queueKey = queueKey {
             expectQueue(withKey: queueKey)
         }
@@ -38,7 +40,134 @@ class FutureEventTests: XCTestCase {
         expectations.removeFirst()
     }
 
-    // MARK: -
+    // MARK: - Observable tests
+
+    func testObserveWithObserverAndLifecycleOwner() {
+        let observer = Observer(update: onUpdate)
+        futureEvent.observe(owner: owner!, observer: observer)
+        XCTAssert(futureEvent.observers.count == 1)
+        XCTAssert(futureEvent.contains(observer))
+    }
+
+    func testObserveWithOnUpdateAndLifecycleOwner() {
+        let observer = futureEvent.observe(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(futureEvent.observers.count == 1)
+        XCTAssert(futureEvent.contains(observer))
+    }
+
+    func testObserveForeverWithObserver() {
+        let observer = Observer(update: onUpdate)
+        futureEvent.observeForever(observer: observer)
+        XCTAssert(futureEvent.observers.count == 1)
+        XCTAssert(futureEvent.contains(observer))
+    }
+
+    func testObserveForeverWithOnUpdate() {
+        let observer = futureEvent.observeForever(onUpdate: onUpdate)
+        XCTAssert(futureEvent.observers.count == 1)
+        XCTAssert(futureEvent.contains(observer))
+    }
+
+    func testRemoveObserver() {
+        let observer1 = Observer(update: onUpdate)
+        let observer2 = Observer(update: onUpdate)
+
+        futureEvent.observeForever(observer: observer1)
+        XCTAssert(futureEvent.observers.count == 1)
+
+        futureEvent.observeForever(observer: observer2)
+        XCTAssert(futureEvent.observers.count == 2)
+
+        XCTAssert(futureEvent.contains(observer1))
+        XCTAssert(futureEvent.contains(observer2))
+
+        futureEvent.remove(observer: observer1)
+        XCTAssert(futureEvent.observers.count == 1)
+        XCTAssertFalse(futureEvent.contains(observer1))
+        XCTAssert(futureEvent.contains(observer2))
+
+        futureEvent.remove(observer: observer2)
+        XCTAssert(futureEvent.observers.isEmpty)
+    }
+
+    func testRemoveObserverOnDealloc() {
+        let observer = futureEvent.observe(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(futureEvent.observers.count == 1)
+        XCTAssert(futureEvent.contains(observer))
+
+        // Deallocs owner
+        owner = nil
+
+        XCTAssertFalse(futureEvent.remove(observer: observer))
+        XCTAssert(futureEvent.observers.isEmpty)
+        XCTAssertFalse(futureEvent.contains(observer))
+    }
+
+    func testAddObserverMultipleTimes() {
+        let observer = Observer(update: onUpdate)
+        expectFatalError(withMessage: "Unable to register same observer multiple time") {
+            self.futureEvent.observeForever(observer: observer)
+            self.futureEvent.observeForever(observer: observer)
+        }
+    }
+
+    func testRemoveObserverMultipleTimes() {
+        let observer = Observer(update: onUpdate)
+        self.futureEvent.observeForever(observer: observer)
+        XCTAssertTrue(futureEvent.remove(observer: observer))
+        XCTAssertFalse(futureEvent.remove(observer: observer))
+    }
+
+    func testAddRemoveAddRemoveObserver() {
+        let observer = Observer(update: onUpdate)
+
+        futureEvent.observeForever(observer: observer)
+
+        XCTAssert(futureEvent.contains(observer))
+        XCTAssertTrue(futureEvent.remove(observer: observer))
+        XCTAssertFalse(futureEvent.contains(observer))
+
+        futureEvent.observeForever(observer: observer)
+
+        XCTAssert(futureEvent.contains(observer))
+        XCTAssertTrue(futureEvent.remove(observer: observer))
+        XCTAssertFalse(futureEvent.contains(observer))
+        XCTAssertFalse(futureEvent.remove(observer: observer))
+        XCTAssert(futureEvent.observers.isEmpty)
+    }
+
+    func testObserveDoesntFire() {
+        var wasCalled = false
+        _ = futureEvent.observeForever(onUpdate: { input in
+            wasCalled = true
+        })
+        XCTAssertFalse(wasCalled)
+    }
+
+    func testThreadSafety() {
+        let cycles = 1000
+
+        for i in 1...cycles {
+            let exp = expectation(description: "New data \(i)")
+            let observer = Observer(update: onUpdate)
+            DispatchQueue.global().async {
+                self.futureEvent.observeForever(observer: observer)
+                DispatchQueue.global().async {
+                    self.futureEvent.remove(observer: observer)
+                    exp.fulfill()
+                }
+            }
+        }
+
+        waitForExpectations(timeout: 10) { error in
+            XCTAssert(self.futureEvent.observers.isEmpty)
+            XCTAssert(self.futureEvent.observers.isEmpty, "Observers still registered")
+        }
+    }
+
+    // MARK: - Future event tests
 
     func testTrigger() {
         expectations = [expectation(description: "New data 1")]
@@ -73,7 +202,7 @@ class FutureEventTests: XCTestCase {
     func testQueueWhereValueIsDispatched() {
         expectations = [expectation(description: "New data 1")]
         let queue = makeQueueWithKey()
-        let observer = Observer<String>(update: curry(onUpdate)(queue.0))
+        let observer = Observer<String>(update: curry(update)(queue.0))
 
         futureEvent.observeForever(observer: observer)
         queue.1.sync {
@@ -84,6 +213,17 @@ class FutureEventTests: XCTestCase {
     }
 
     static var allTests = [
+        ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
+        ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),
+        ("testObserveForeverWithObserver", testObserveForeverWithObserver),
+        ("testObserveForeverWithOnUpdate", testObserveForeverWithOnUpdate),
+        ("testRemoveObserver", testRemoveObserver),
+        ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
+        ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
+        ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
+        ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
+        ("testObserveDoesntFire", testObserveDoesntFire),
+        ("testThreadSafety", testThreadSafety),
         ("testTrigger", testTrigger),
         ("testTriggerVoid", testTriggerVoid),
         ("testTriggerMultipleTimes", testTriggerMultipleTimes),
@@ -92,4 +232,10 @@ class FutureEventTests: XCTestCase {
 }
 
 private class Owner {}
+
+extension FutureEvent {
+    func contains(_ observer: Observer<DataType>) -> Bool {
+        return observers.lazy.filter { $0.observer == observer }.first != nil
+    }
+}
 

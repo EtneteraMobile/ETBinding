@@ -25,11 +25,10 @@ import Foundation
 ///     liveData.data = "2"
 ///     // … nothing
 public class LiveData<Value>: Observable {
+    public typealias DataType = Value?
 
     // MARK: - Variables
     // MARK: public
-
-    public typealias DataType = Value?
 
     /// The current value that is dispatched after assignment.
     /// Every data change is delivered to observers only once despite of
@@ -40,6 +39,11 @@ public class LiveData<Value>: Observable {
             dispatch()
         }
     }
+
+    // MARK: internal
+
+    var observers: Set<LifecycleBoundObserver<DataType>> = []
+    var lock: NSRecursiveLock = NSRecursiveLock()
 
     // MARK: private
 
@@ -56,6 +60,46 @@ public class LiveData<Value>: Observable {
 // MARK: - Public
 
 public extension LiveData {
+    // MARK: - Observe
+
+    @discardableResult func observe(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
+        let wrapper = LifecycleBoundObserver(owner: owner, observer: Observer(update: onUpdate))
+        return observe(wrapper)
+    }
+
+    func observe(owner: LifecycleOwner, observer: Observer<DataType>) {
+        let wrapper = LifecycleBoundObserver(owner: owner, observer: observer)
+        observe(wrapper)
+    }
+
+    func observeForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
+        let wrapper = LifecycleBoundObserver(observer: Observer(update: onUpdate))
+        return observe(wrapper)
+    }
+
+
+    func observeForever(observer: Observer<DataType>) {
+        let wrapper = LifecycleBoundObserver(observer: observer)
+        observe(wrapper)
+    }
+
+    // MARK: - Remove
+
+    @discardableResult func remove(observer: Observer<DataType>) -> Bool {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
+        let existingIdx = observers.index { (rhs) -> Bool in
+            observer.hashValue == rhs.observer.hashValue
+        }
+        if let idx = existingIdx {
+            observers.remove(at: idx)
+            return true
+        }
+        return false
+    }
+    
     // MARK: - Dispatch
 
     /// Dispatches current value to observers.
@@ -96,6 +140,28 @@ public extension LiveData {
 // MARK: - Private
 
 private extension LiveData {
+    @discardableResult func observe(_ wrapper: LifecycleBoundObserver<DataType>) -> Observer<DataType> {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
+        guard observers.contains(wrapper) == false else {
+            fatalError("Unable to register same observer multiple time")
+        }
+        observers.insert(wrapper)
+
+        // Removes observer on owner dealloc
+        if let owner = wrapper.owner {
+            onDealloc(of: owner) { [weak self, weak wrapper] in
+                if let wrapper = wrapper {
+                    self?.remove(observer: wrapper.observer)
+                }
+            }
+        }
+
+        return wrapper.observer
+    }
+
     func considerNotify(_ wrapper: LifecycleBoundObserver<DataType>) {
         guard wrapper.state == .active,
             wrapper.lastVersion < version else {

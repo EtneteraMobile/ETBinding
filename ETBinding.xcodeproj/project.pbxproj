@@ -123,6 +123,7 @@
 		712FA2F91FEA243300969753 /* ExpectQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectQueue.swift; sourceTree = "<group>"; };
 		712FA2FD1FEA288000969753 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 		713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStateDataTests.swift; sourceTree = "<group>"; };
+		71520710205165CD00A2FBBB /* Example MVVM+C.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Example MVVM+C.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7169D9EC204C2383006CAACA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		7169D9FB204C23E6006CAACA /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		7169DA00204C24C8006CAACA /* ETBinding.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ETBinding.podspec; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				7169DA00204C24C8006CAACA /* ETBinding.podspec */,
+				71520710205165CD00A2FBBB /* Example MVVM+C.playground */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,

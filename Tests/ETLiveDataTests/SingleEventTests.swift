@@ -106,23 +106,25 @@ class SingleEventTests: XCTestCase {
     }
 
     func testMultipleObserversForLifecycleOwner() {
-        let observer = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
-        XCTAssertNotNil(observer)
-        XCTAssert(singleEvent.observers.count == 1)
-        XCTAssert(singleEvent.contains(observer))
-
-        let observer2 = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
-        XCTAssertNotNil(observer2)
-        XCTAssert(singleEvent.observers.count == 2)
-        XCTAssert(singleEvent.contains(observer2))
+        let numberOfObservers = 1000
+        let observers = Array(1...numberOfObservers).map { (counter) -> (Observer<String>) in
+            let observer = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+            XCTAssert(singleEvent.observers.count == counter)
+            XCTAssertNotNil(observer)
+            XCTAssert(singleEvent.contains(observer))
+            return observer
+        }
 
         // Deallocs owner
         owner = nil
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            XCTAssertFalse(self.singleEvent.contains(observer))
+            observers.forEach {
+                XCTAssertFalse(self.singleEvent.contains($0))
+                XCTAssertFalse(self.singleEvent.remove(observer: $0))
+            }
+
             XCTAssert(self.singleEvent.observers.isEmpty)
-            XCTAssertFalse(self.singleEvent.remove(observer: observer))
         }
     }
 

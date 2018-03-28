@@ -25,7 +25,13 @@ final class DeallocTracker {
 /// - Parameters:
 ///   - owner: Owner to track.
 ///   - closure: Closure to execute.
-func onDealloc(of owner: Any, closure: @escaping () -> Void) {
-    var tracker = DeallocTracker(onDealloc: closure)
-    objc_setAssociatedObject(owner, &tracker, tracker, .OBJC_ASSOCIATION_RETAIN)
+public func onDealloc(of owner: Any, closure: @escaping () -> Void) {
+    while true {
+        // Generates random key for association and checks that it wasn't used already
+        if let key = UnsafeRawPointer(bitPattern: UInt(arc4random())), objc_getAssociatedObject(owner, key) == nil {
+            let tracker = DeallocTracker(onDealloc: closure)
+            objc_setAssociatedObject(owner, key, tracker, .OBJC_ASSOCIATION_RETAIN)
+            break
+        }
+    }
 }

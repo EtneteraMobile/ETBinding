@@ -242,6 +242,7 @@ class FutureEventTests: XCTestCase {
         ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
         ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
         ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
+        ("testMultipleObserversForLifecycleOwner", testMultipleObserversForLifecycleOwner),
         ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
         ("testObserveDoesntFire", testObserveDoesntFire),
         ("testThreadSafety", testThreadSafety),

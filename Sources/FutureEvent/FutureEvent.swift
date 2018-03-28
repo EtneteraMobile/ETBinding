@@ -23,14 +23,30 @@ import Foundation
 ///
 ///     onPress.trigger()
 ///     // … nothing
-public class FutureEvent<Action>: Observable {
+public class FutureEvent<Action>: Observable, CustomStringConvertible {
     public typealias DataType = Action
 
     // MARK: - Variables
+    // MARK: public
+
+    public var description: String {
+        let observersDesc = observers.reduce("") { accum, current in
+            let desc = "\tid: \(current.hashValue), ownerState: \(current.state), owner: \(String(describing: current.owner))\n"
+            return accum + desc
+        }
+        return """
+        observers:\n\(observersDesc))
+        """
+    }
+
     // MARK: internal
 
     var observers: Set<LifecycleBoundObserver<DataType>> = []
     var lock: NSRecursiveLock = NSRecursiveLock()
+
+    // MARK: - Initialization
+
+    public init() {}
 }
 
 public extension FutureEvent {

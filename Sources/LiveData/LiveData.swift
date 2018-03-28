@@ -24,7 +24,7 @@ import Foundation
 ///     liveData.remove(observer: observer)
 ///     liveData.data = "2"
 ///     // … nothing
-public class LiveData<Value>: Observable {
+public class LiveData<Value>: Observable, CustomStringConvertible {
     public typealias DataType = Value?
 
     // MARK: - Variables
@@ -38,6 +38,18 @@ public class LiveData<Value>: Observable {
             version += 1
             dispatch()
         }
+    }
+
+    public var description: String {
+        let observersDesc = observers.reduce("") { accum, current in
+            let desc = "\tid: \(current.hashValue), deliveredDataVersion: \(current.lastVersion), ownerState: \(current.state), owner: \(String(describing: current.owner))\n"
+            return accum + desc
+        }
+        return """
+        data: \(String(describing: data))
+        dataVersion: \(version)
+        observers:\n\(observersDesc)
+        """
     }
 
     // MARK: internal

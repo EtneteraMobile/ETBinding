@@ -105,6 +105,29 @@ class FutureEventTests: XCTestCase {
         XCTAssertFalse(futureEvent.contains(observer))
     }
 
+    func testMultipleObserversForLifecycleOwner() {
+        let numberOfObservers = 1000
+        let observers = Array(1...numberOfObservers).map { (counter) -> (Observer<String>) in
+            let observer = futureEvent.observe(owner: owner!, onUpdate: onUpdate)
+            XCTAssert(futureEvent.observers.count == counter)
+            XCTAssertNotNil(observer)
+            XCTAssert(futureEvent.contains(observer))
+            return observer
+        }
+
+        // Deallocs owner
+        owner = nil
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            observers.forEach {
+                XCTAssertFalse(self.futureEvent.contains($0))
+                XCTAssertFalse(self.futureEvent.remove(observer: $0))
+            }
+
+            XCTAssert(self.futureEvent.observers.isEmpty)
+        }
+    }
+
     func testAddObserverMultipleTimes() {
         let observer = Observer(update: onUpdate)
         expectFatalError(withMessage: "Unable to register same observer multiple time") {
@@ -221,6 +244,7 @@ class FutureEventTests: XCTestCase {
         ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
         ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
         ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
+        ("testMultipleObserversForLifecycleOwner", testMultipleObserversForLifecycleOwner),
         ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
         ("testObserveDoesntFire", testObserveDoesntFire),
         ("testThreadSafety", testThreadSafety),

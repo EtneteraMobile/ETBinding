@@ -97,9 +97,32 @@ class LiveDataTests: XCTestCase {
         // Deallocs owner
         owner = nil
 
-        XCTAssertFalse(liveData.remove(observer: observer))
-        XCTAssert(liveData.observers.isEmpty)
         XCTAssertFalse(liveData.contains(observer))
+        XCTAssert(liveData.observers.isEmpty)
+        XCTAssertFalse(liveData.remove(observer: observer))
+    }
+
+    func testMultipleObserversForLifecycleOwner() {
+        let numberOfObservers = 1000
+        let observers = Array(1...numberOfObservers).map { (counter) -> (Observer<String?>) in
+            let observer = liveData.observe(owner: owner!, onUpdate: onUpdate)
+            XCTAssert(liveData.observers.count == counter)
+            XCTAssertNotNil(observer)
+            XCTAssert(liveData.contains(observer))
+            return observer
+        }
+
+        // Deallocs owner
+        owner = nil
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            observers.forEach {
+                XCTAssertFalse(self.liveData.contains($0))
+                XCTAssertFalse(self.liveData.remove(observer: $0))
+            }
+
+            XCTAssert(self.liveData.observers.isEmpty)
+        }
     }
 
     func testAddObserverMultipleTimes() {
@@ -259,6 +282,7 @@ class LiveDataTests: XCTestCase {
         ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
         ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
         ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
+        ("testMultipleObserversForLifecycleOwner", testMultipleObserversForLifecycleOwner),
         ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
         ("testObserveDoesntFire", testObserveDoesntFire),
         ("testThreadSafety", testThreadSafety),

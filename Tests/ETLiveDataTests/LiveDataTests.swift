@@ -97,9 +97,30 @@ class LiveDataTests: XCTestCase {
         // Deallocs owner
         owner = nil
 
-        XCTAssertFalse(liveData.remove(observer: observer))
-        XCTAssert(liveData.observers.isEmpty)
         XCTAssertFalse(liveData.contains(observer))
+        XCTAssert(liveData.observers.isEmpty)
+        XCTAssertFalse(liveData.remove(observer: observer))
+    }
+
+    func testMultipleObserversForLifecycleOwner() {
+        let observer = liveData.observe(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(liveData.observers.count == 1)
+        XCTAssert(liveData.contains(observer))
+
+        let observer2 = liveData.observe(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer2)
+        XCTAssert(liveData.observers.count == 2)
+        XCTAssert(liveData.contains(observer2))
+
+        // Deallocs owner
+        owner = nil
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            XCTAssertFalse(self.liveData.contains(observer))
+            XCTAssert(self.liveData.observers.isEmpty)
+            XCTAssertFalse(self.liveData.remove(observer: observer))
+        }
     }
 
     func testAddObserverMultipleTimes() {

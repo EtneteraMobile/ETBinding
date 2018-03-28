@@ -105,6 +105,27 @@ class SingleEventTests: XCTestCase {
         XCTAssertFalse(singleEvent.contains(observer))
     }
 
+    func testMultipleObserversForLifecycleOwner() {
+        let observer = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer)
+        XCTAssert(singleEvent.observers.count == 1)
+        XCTAssert(singleEvent.contains(observer))
+
+        let observer2 = singleEvent.observeSingleEvent(owner: owner!, onUpdate: onUpdate)
+        XCTAssertNotNil(observer2)
+        XCTAssert(singleEvent.observers.count == 2)
+        XCTAssert(singleEvent.contains(observer2))
+
+        // Deallocs owner
+        owner = nil
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            XCTAssertFalse(self.singleEvent.contains(observer))
+            XCTAssert(self.singleEvent.observers.isEmpty)
+            XCTAssertFalse(self.singleEvent.remove(observer: observer))
+        }
+    }
+
     func testAddObserverMultipleTimes() {
         let observer = Observer<String>(update: onUpdate)
         expectFatalError(withMessage: "Unable to register same observer multiple time") {

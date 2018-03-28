@@ -25,10 +25,23 @@ import Foundation
 ///
 ///     // Second trigger raises fatalError
 ///     onPress.trigger()
-public class SingleEvent<Action>: SingleEventObservable {
+public class SingleEvent<Action>: SingleEventObservable, CustomStringConvertible {
     public typealias DataType = Action
 
     // MARK: - Variables
+    // MARK: public
+
+    public var description: String {
+        let observersDesc = observers.reduce("") { accum, current in
+            let desc = "\tid: \(current.hashValue), ownerState: \(current.state), owner: \(String(describing: current.owner))\n"
+            return accum + desc
+        }
+        return """
+        triggered: \(triggered)
+        observers:\n\(observersDesc))
+        """
+    }
+
     // MARK: internal
 
     var observers: Set<LifecycleBoundObserver<DataType>> = []
@@ -37,6 +50,10 @@ public class SingleEvent<Action>: SingleEventObservable {
     // MARK: private
 
     fileprivate var triggered = false
+
+    // MARK: - Initialization
+
+    public init() {}
 }
 
 public extension SingleEvent {

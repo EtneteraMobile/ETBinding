@@ -10,10 +10,11 @@
     
   </head>
   <body>
+    <a name="//apple_ref/swift/Section/Classes" class="dashAnchor"></a>
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">ETBinding Docs</a> (100% documented)</p>
+        <p><a href="index.html">ETBinding Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -58,6 +59,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:9ETBinding9onDeallocyyp2of_yyc7closuretF">onDealloc(of:closure:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -65,6 +74,14 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/SingleEventObservable.html">SingleEventObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:9ETBinding14LifecycleOwnera">LifecycleOwner</a>
               </li>
             </ul>
           </li>
@@ -78,40 +95,6 @@
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9ETBinding8ObserverC"></a>
-                    <a name="//apple_ref/swift/Class/Observer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding8ObserverC">Observer</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>Observer</code> wrapps update closure.</p>
-
-<p>Class adds identity to closure. Implements <code>Hashable</code> that uses generated or injected <code>hashValue</code> as identifier.</p>
-
-                        <a href="Classes/Observer.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Observer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Hashable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -150,7 +133,120 @@ are in an active lifecycle state.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FutureEvent</span><span class="o">&lt;</span><span class="kt">Action</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Observable.html">Observable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FutureEvent</span><span class="o">&lt;</span><span class="kt">Action</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Observable.html">Observable</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding8LiveDataC"></a>
+                    <a name="//apple_ref/swift/Class/LiveData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding8LiveDataC">LiveData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>LiveData</code> is an observable data holder class. Unlike a regular observable,
+<code>LiveData</code> is lifecycle-aware, meaning it respects the lifecycle of its owner.
+This awareness ensures <code>LiveData</code> only updates app component observers that
+are in an active lifecycle state.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">liveData</span> <span class="o">=</span> <span class="kt">LiveData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="s">"Initial"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">observer</span> <span class="o">=</span> <span class="n">liveData</span><span class="o">.</span><span class="n">observeForever</span> <span class="p">{</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">liveData</span><span class="o">.</span><span class="nf">dispatch</span><span class="p">()</span>
+<span class="c1">// prints Initial</span>
+<span class="n">liveData</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">"1"</span>
+<span class="c1">// prints 1</span>
+<span class="n">liveData</span><span class="o">.</span><span class="nf">remove</span><span class="p">(</span><span class="nv">observer</span><span class="p">:</span> <span class="n">observer</span><span class="p">)</span>
+<span class="n">liveData</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">"2"</span>
+<span class="c1">// … nothing</span>
+</code></pre>
+
+                        <a href="Classes/LiveData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LiveData</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Observable.html">Observable</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding13LiveStateDataC"></a>
+                    <a name="//apple_ref/swift/Class/LiveStateData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding13LiveStateDataC">LiveStateData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Wraps generic value from <code><a href="Classes/LiveData.html">LiveData</a></code> into <code><a href="Enums/StateValue.html">StateValue</a></code> that adds success and
+failure states.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LiveStateData</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Classes/LiveData.html">LiveData</a></span><span class="o">&lt;</span><span class="kt"><a href="Enums/StateValue.html">StateValue</a></span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9ETBinding8ObserverC"></a>
+                    <a name="//apple_ref/swift/Class/Observer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9ETBinding8ObserverC">Observer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Observer</code> wrapps update closure.</p>
+
+<p>Class adds identity to closure. Implements <code>Hashable</code> that uses generated or injected <code>hashValue</code> as identifier.</p>
+
+                        <a href="Classes/Observer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Observer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
@@ -199,86 +295,7 @@ are in an active lifecycle state.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SingleEvent</span><span class="o">&lt;</span><span class="kt">Action</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/SingleEventObservable.html">SingleEventObservable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9ETBinding13LiveStateDataC"></a>
-                    <a name="//apple_ref/swift/Class/LiveStateData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding13LiveStateDataC">LiveStateData</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Wraps generic value from <code><a href="Classes/LiveData.html">LiveData</a></code> into <code><a href="Enums/StateValue.html">StateValue</a></code> that adds success and
-failure states.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LiveStateData</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/LiveData.html">LiveData</a></span><span class="o">&lt;</span><span class="kt"><a href="Enums/StateValue.html">StateValue</a></span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9ETBinding8LiveDataC"></a>
-                    <a name="//apple_ref/swift/Class/LiveData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9ETBinding8LiveDataC">LiveData</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>LiveData</code> is an observable data holder class. Unlike a regular observable,
-<code>LiveData</code> is lifecycle-aware, meaning it respects the lifecycle of its owner.
-This awareness ensures <code>LiveData</code> only updates app component observers that
-are in an active lifecycle state.</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">liveData</span> <span class="o">=</span> <span class="kt">LiveData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="s">"Initial"</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">observer</span> <span class="o">=</span> <span class="n">liveData</span><span class="o">.</span><span class="n">observeForever</span> <span class="p">{</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">in</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="n">liveData</span><span class="o">.</span><span class="nf">dispatch</span><span class="p">()</span>
-<span class="c1">// prints Initial</span>
-<span class="n">liveData</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">"1"</span>
-<span class="c1">// prints 1</span>
-<span class="n">liveData</span><span class="o">.</span><span class="nf">remove</span><span class="p">(</span><span class="nv">observer</span><span class="p">:</span> <span class="n">observer</span><span class="p">)</span>
-<span class="n">liveData</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">"2"</span>
-<span class="c1">// … nothing</span>
-</code></pre>
-
-                        <a href="Classes/LiveData.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LiveData</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Observable.html">Observable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SingleEvent</span><span class="o">&lt;</span><span class="kt">Action</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SingleEventObservable.html">SingleEventObservable</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                         </div>
                       </div>
@@ -290,8 +307,8 @@ are in an active lifecycle state.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/EtneteraMobile/ETBinding" target="_blank" rel="external">Jan Cislinsky</a>. All rights reserved. (Last updated: 2018-03-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/EtneteraMobile/ETBinding" target="_blank" rel="external">Jan Cislinsky</a>. All rights reserved. (Last updated: 2018-08-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

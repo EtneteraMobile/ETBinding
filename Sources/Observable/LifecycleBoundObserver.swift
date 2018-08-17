@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Lifecycle object for which is observer bound to
 public typealias LifecycleOwner = AnyObject
 
 /// Wrapper for `Observer` and `LifecycleOwner` whose state determines that

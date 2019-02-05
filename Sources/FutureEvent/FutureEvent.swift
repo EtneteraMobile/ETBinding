@@ -88,7 +88,7 @@ public extension FutureEvent {
     ///   - onUpdate: Closure that is called on `data` change.
     ///
     /// - Returns: Observer that represents update block.
-    func observeForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
+    @discardableResult func observeForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
         let wrapper = LifecycleBoundObserver(observer: Observer(update: onUpdate))
         return observe(wrapper)
     }

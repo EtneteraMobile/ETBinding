@@ -1,23 +1,23 @@
 //
-//  LiveDataTests.swift
+//  LiveOptionalDataTests.swift
 //
 //  Created by Jan Cislinsky on 15. 12. 2017.
-//  Copyright © 2017 ETLiveData. All rights reserved.
+//  Copyright © 2017 ETLiveOptionalData. All rights reserved.
 //
 
 import Foundation
 import XCTest
 @testable import ETBinding
 
-class LiveDataTests: XCTestCase {
+class LiveOptionalDataTests: XCTestCase {
     private var expectations: [XCTestExpectation]!
     private var owner: Owner!
-    private var liveData: LiveData<String>!
+    private var liveData: LiveOptionalData<String>!
 
     override func setUp() {
         super.setUp()
         owner = Owner()
-        liveData = LiveData<String>()
+        liveData = LiveOptionalData<String>()
     }
 
     func onUpdate(_ input: String?) {
@@ -282,7 +282,7 @@ class LiveDataTests: XCTestCase {
     func testDispatchWhenInitWithData() {
         expectations = [expectation(description: "New data 1")]
 
-        let liveData = LiveData(data: "doesn't matter")
+        let liveData = LiveOptionalData(data: "doesn't matter")
 
         liveData.observeForever { input in
             self.expectations[0].fulfill()
@@ -316,7 +316,7 @@ class LiveDataTests: XCTestCase {
 
 private class Owner {}
 
-extension LiveData {
+extension LiveOptionalData {
     func contains(_ observer: Observer<DataType>) -> Bool {
         return observers.lazy.filter { $0.observer == observer }.first != nil
     }

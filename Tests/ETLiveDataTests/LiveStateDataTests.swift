@@ -1,5 +1,5 @@
 //
-//  LiveStateDataTests.swift
+//  LiveOptionalStateDataTests.swift
 //
 //  Created by Jan Cislinsky on 15. 12. 2017.
 //  Copyright © 2017 ETBinding. All rights reserved.
@@ -9,14 +9,14 @@ import Foundation
 import XCTest
 import ETBinding
 
-class LiveStateDataTests: XCTestCase {
+class LiveOptionalStateDataTests: XCTestCase {
 
     var expectations: [XCTestExpectation]!
-    var liveData: LiveStateData<String>!
+    var liveData: LiveOptionalStateData<String>!
 
     override func setUp() {
         super.setUp()
-        liveData = LiveStateData<String>()
+        liveData = LiveOptionalStateData<String>()
     }
 
     func onUpdate(_ input: String?) {

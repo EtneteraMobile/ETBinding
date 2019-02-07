@@ -25,7 +25,7 @@ import Foundation
 ///     liveData.data = "2"
 ///     // … nothing
 public class LiveData<Value>: Observable, CustomStringConvertible {
-    public typealias DataType = Value?
+    public typealias DataType = Value
 
     // MARK: - Variables
     // MARK: public
@@ -62,7 +62,7 @@ public class LiveData<Value>: Observable, CustomStringConvertible {
     // MARK: - Initialization
 
     /// Initializes `LiveData` with given data.
-    public init(data: DataType = nil) {
+    public init(data: DataType) {
         self.data = data
         self.version += 1
     }

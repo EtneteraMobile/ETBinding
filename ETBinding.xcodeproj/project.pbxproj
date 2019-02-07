@@ -58,6 +58,14 @@
 		71A48A57204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
 		71A48A58204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
 		71A48A59204D3D89004A2CD3 /* DeallocTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */; };
+		71B7A41F220C1AE80074B868 /* LiveOptionalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A41E220C1AE80074B868 /* LiveOptionalData.swift */; };
+		71B7A420220C1AE80074B868 /* LiveOptionalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A41E220C1AE80074B868 /* LiveOptionalData.swift */; };
+		71B7A421220C1AE80074B868 /* LiveOptionalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A41E220C1AE80074B868 /* LiveOptionalData.swift */; };
+		71B7A422220C1AE80074B868 /* LiveOptionalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A41E220C1AE80074B868 /* LiveOptionalData.swift */; };
+		71B7A424220C1B080074B868 /* LiveOptionalStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A423220C1B080074B868 /* LiveOptionalStateData.swift */; };
+		71B7A425220C1B080074B868 /* LiveOptionalStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A423220C1B080074B868 /* LiveOptionalStateData.swift */; };
+		71B7A426220C1B080074B868 /* LiveOptionalStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A423220C1B080074B868 /* LiveOptionalStateData.swift */; };
+		71B7A427220C1B080074B868 /* LiveOptionalStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7A423220C1B080074B868 /* LiveOptionalStateData.swift */; };
 		71E05DED204E7C29006A9341 /* FutureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */; };
 		71E05DF2204E7D3E006A9341 /* LiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A48A47204D212B004A2CD3 /* LiveDataTests.swift */; };
 		71E05DF3204E7D3E006A9341 /* LiveStateDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F7DED1FE3D5E200B86A50 /* LiveStateDataTests.swift */; };
@@ -115,6 +123,8 @@
 		71A48A4C204D28DC004A2CD3 /* FutureEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureEvent.swift; sourceTree = "<group>"; };
 		71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureEventTests.swift; sourceTree = "<group>"; };
 		71A48A55204D3D89004A2CD3 /* DeallocTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocTracker.swift; sourceTree = "<group>"; };
+		71B7A41E220C1AE80074B868 /* LiveOptionalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveOptionalData.swift; sourceTree = "<group>"; };
+		71B7A423220C1B080074B868 /* LiveOptionalStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveOptionalStateData.swift; sourceTree = "<group>"; };
 		71E05DE6204E6165006A9341 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* ETBinding.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETBinding.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* ETBindingTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETBindingTests.plist; sourceTree = "<group>"; };
@@ -252,7 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				718BCFC31FE3A11C008075BD /* LiveData.swift */,
+				71B7A41E220C1AE80074B868 /* LiveOptionalData.swift */,
 				718BCFC71FE3A11D008075BD /* LiveStateData.swift */,
+				71B7A423220C1B080074B868 /* LiveOptionalStateData.swift */,
 				718BCFC61FE3A11D008075BD /* StateValue.swift */,
 			);
 			path = LiveData;
@@ -594,10 +606,12 @@
 				71A48A56204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFED1FE3A11D008075BD /* LifecycleState.swift in Sources */,
 				71E05DED204E7C29006A9341 /* FutureEvent.swift in Sources */,
+				71B7A424220C1B080074B868 /* LiveOptionalStateData.swift in Sources */,
 				718BCFDD1FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFD91FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD11FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E41FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				71B7A41F220C1AE80074B868 /* LiveOptionalData.swift in Sources */,
 				718BCFD51FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE51FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);
@@ -623,10 +637,12 @@
 				7169D9FE204C23E6006CAACA /* Observer.swift in Sources */,
 				71A48A58204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFEF1FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				71B7A426220C1B080074B868 /* LiveOptionalStateData.swift in Sources */,
 				718BCFDF1FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFDB1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD31FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E61FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				71B7A421220C1AE80074B868 /* LiveOptionalData.swift in Sources */,
 				718BCFD71FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE71FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);
@@ -641,10 +657,12 @@
 				7169D9FF204C23E6006CAACA /* Observer.swift in Sources */,
 				71A48A59204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFF01FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				71B7A427220C1B080074B868 /* LiveOptionalStateData.swift in Sources */,
 				718BCFE01FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFDC1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD41FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E71FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				71B7A422220C1AE80074B868 /* LiveOptionalData.swift in Sources */,
 				718BCFD81FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE81FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);
@@ -659,10 +677,12 @@
 				7169D9FD204C23E6006CAACA /* Observer.swift in Sources */,
 				71A48A57204D3D89004A2CD3 /* DeallocTracker.swift in Sources */,
 				718BCFEE1FE3A11D008075BD /* LifecycleState.swift in Sources */,
+				71B7A425220C1B080074B868 /* LiveOptionalStateData.swift in Sources */,
 				718BCFDE1FE3A11D008075BD /* LiveStateData.swift in Sources */,
 				718BCFDA1FE3A11D008075BD /* StateValue.swift in Sources */,
 				718BCFD21FE3A11D008075BD /* LiveData.swift in Sources */,
 				712FA2E51FE91DB000969753 /* TestableFatalError.swift in Sources */,
+				71B7A420220C1AE80074B868 /* LiveOptionalData.swift in Sources */,
 				718BCFD61FE3A11D008075BD /* Constants.swift in Sources */,
 				718BCFE61FE3A11D008075BD /* LifecycleBoundObserver.swift in Sources */,
 			);

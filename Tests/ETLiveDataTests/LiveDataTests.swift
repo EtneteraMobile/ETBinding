@@ -279,6 +279,18 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 2, handler: nil)
     }
 
+    func testDispatchWhenInitWithData() {
+        expectations = [expectation(description: "New data 1")]
+
+        let liveData = LiveData(data: "doesn't matter")
+
+        liveData.observeForever { input in
+            self.expectations[0].fulfill()
+        }
+        liveData.dispatch()
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
     static var allTests = [
         ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
         ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),
@@ -298,6 +310,7 @@ class LiveDataTests: XCTestCase {
         ("testDispatchToInitiator", testDispatchToInitiator),
         ("testIsOnMainThreadInObserveClosureWhenTriggerFromGlobalQueue", testIsOnMainThreadInObserveClosureWhenTriggerFromGlobalQueue),
         ("testMainThreadIsntBlockedWhenEnterItSynchronousllyInObserveClosure", testMainThreadIsntBlockedWhenEnterItSynchronousllyInObserveClosure),
+        ("testDispatchWhenInitWithData", testDispatchWhenInitWithData),
     ]
 }
 

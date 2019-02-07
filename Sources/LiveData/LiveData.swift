@@ -64,6 +64,7 @@ public class LiveData<Value>: Observable, CustomStringConvertible {
     /// Initializes `LiveData` with given data.
     public init(data: DataType = nil) {
         self.data = data
+        self.version += 1
     }
 }
 

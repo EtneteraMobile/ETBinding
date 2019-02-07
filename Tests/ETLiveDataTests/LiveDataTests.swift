@@ -21,13 +21,11 @@ class LiveDataTests: XCTestCase {
     }
 
     func onUpdate(_ input: String?) {
-        update(queueKey: nil, input)
+        update(input)
     }
 
-    func update(queueKey: DispatchSpecificKey<Void>?, _ input: String?) {
-        if let queueKey = queueKey {
-            expectQueue(withKey: queueKey)
-        }
+    func update(_ input: String?) {
+        XCTAssertTrue(Thread.isMainThread)
         guard expectations.isEmpty == false else {
             XCTAssert(expectations.isEmpty == false, "Update called more than expected")
             return
@@ -122,14 +120,6 @@ class LiveDataTests: XCTestCase {
             }
 
             XCTAssert(self.liveData.observers.isEmpty)
-        }
-    }
-
-    func testAddObserverMultipleTimes() {
-        let observer = Observer(update: onUpdate)
-        expectFatalError(withMessage: "Unable to register same observer multiple time") {
-            self.liveData.observeForever(observer: observer)
-            self.liveData.observeForever(observer: observer)
         }
     }
 
@@ -252,25 +242,41 @@ class LiveDataTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
 
-    func testDispatchToUnregisteredInitiator() {
-        let observer1 = Observer(update: onUpdate)
+    func testIsOnMainThreadInObserveClosureWhenTriggerFromGlobalQueue() {
+        expectations = [expectation(description: "New data 1")]
 
-        expectFatalError(withMessage: "Initiator was never registered for observation") {
-            self.liveData.dispatch(initiator: observer1)
+        liveData.observeForever { input in
+            XCTAssertTrue(Thread.isMainThread)
+            self.expectations[0].fulfill()
         }
+        DispatchQueue.global().async {
+            self.liveData.data = self.expectations[0].expectationDescription
+        }
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testQueueWhereValueIsDispatched() {
-        expectations = [expectation(description: "New data 1")]
-        let queue = makeQueueWithKey()
-        let observer = Observer(update: curry(update)(queue.0))
+    func testMainThreadIsntBlockedWhenEnterItSynchronousllyInObserveClosure() {
+        expectations = [expectation(description: "New data 1"), expectation(description: "New data 2")]
 
-        liveData.observeForever(observer: observer)
-        queue.1.sync {
-            liveData.data = expectations[0].expectationDescription
+        liveData.observeForever { input in
+            func test() {
+                self.expectations.first!.fulfill()
+                self.expectations.removeFirst()
+            }
+            // Note: always on Main but developer couldn't know
+            if Thread.isMainThread {
+                test()
+            } else {
+                DispatchQueue.main.sync(execute: test)
+            }
         }
-
-        waitForExpectations(timeout: 10, handler: nil)
+        let exp1 = expectations[0]
+        let exp2 = expectations[1]
+        DispatchQueue.global().async {
+            self.liveData.data = exp1.expectationDescription
+        }
+        self.liveData.data = exp2.expectationDescription
+        waitForExpectations(timeout: 2, handler: nil)
     }
 
     static var allTests = [
@@ -280,7 +286,6 @@ class LiveDataTests: XCTestCase {
         ("testObserveForeverWithOnUpdate", testObserveForeverWithOnUpdate),
         ("testRemoveObserver", testRemoveObserver),
         ("testRemoveObserverOnDealloc", testRemoveObserverOnDealloc),
-        ("testAddObserverMultipleTimes", testAddObserverMultipleTimes),
         ("testRemoveObserverMultipleTimes", testRemoveObserverMultipleTimes),
         ("testMultipleObserversForLifecycleOwner", testMultipleObserversForLifecycleOwner),
         ("testAddRemoveAddRemoveObserver", testAddRemoveAddRemoveObserver),
@@ -291,8 +296,8 @@ class LiveDataTests: XCTestCase {
         ("testStartObservingExistingDataAndDispatch", testStartObservingExistingDataAndDispatch),
         ("testDispatchSameDataMultipleTimes", testDispatchSameDataMultipleTimes),
         ("testDispatchToInitiator", testDispatchToInitiator),
-        ("testDispatchToUnregisteredInitiator", testDispatchToUnregisteredInitiator),
-        ("testQueueWhereValueIsDispatched", testQueueWhereValueIsDispatched),
+        ("testIsOnMainThreadInObserveClosureWhenTriggerFromGlobalQueue", testIsOnMainThreadInObserveClosureWhenTriggerFromGlobalQueue),
+        ("testMainThreadIsntBlockedWhenEnterItSynchronousllyInObserveClosure", testMainThreadIsntBlockedWhenEnterItSynchronousllyInObserveClosure),
     ]
 }
 

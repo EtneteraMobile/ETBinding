@@ -42,7 +42,6 @@ public class FutureEvent<Action>: Observable, CustomStringConvertible {
     // MARK: internal
 
     var observers: Set<LifecycleBoundObserver<DataType>> = []
-    var lock: NSRecursiveLock = NSRecursiveLock()
 
     // MARK: - Initialization
 
@@ -56,6 +55,7 @@ public extension FutureEvent {
     ///
     /// - Attention:
     ///   - After deallocation of owner `onUpdate` will be never called.
+    ///   - Inside of `onUpdate` closure you are alway on main thread.
     ///
     /// - Parameters:
     ///   - owner: LifecycleOwner of newly created observation.
@@ -73,6 +73,7 @@ public extension FutureEvent {
     ///
     /// - Attention:
     ///   - After deallocation of owner `observer.update` will be never called.
+    ///   - Inside of `observer.update` closure you are alway on main thread.
     ///
     /// - Parameters:
     ///   - owner: LifecycleOwner of newly created observation.
@@ -86,6 +87,7 @@ public extension FutureEvent {
     ///
     /// - Parameters:
     ///   - onUpdate: Closure that is called on `data` change.
+    ///   - Inside of `onUpdate` closure you are alway on main thread.
     ///
     /// - Returns: Observer that represents update block.
     @discardableResult func observeForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
@@ -96,6 +98,9 @@ public extension FutureEvent {
     /// Starts observation until `remove(observer:)` called.
     ///
     /// - Requires: Given `observer` can be registered only once.
+    ///
+    /// - Attention:
+    ///   - Inside of `observer.update` closure you are alway on main thread.
     ///
     /// - Parameters:
     ///   - observer: Observer that is updated on every `data` change.
@@ -112,18 +117,17 @@ public extension FutureEvent {
     /// - Returns: `True` if observer was unregistered or `false` if observer
     ///            wasn't never registered.
     @discardableResult func remove(observer: Observer<DataType>) -> Bool {
-        lock.lock()
-        defer {
-            lock.unlock()
+        func onMainQueue() -> Bool {
+            let existingIdx = observers.index { (rhs) -> Bool in
+                observer.hashValue == rhs.observer.hashValue
+            }
+            if let idx = existingIdx {
+                observers.remove(at: idx)
+                return true
+            }
+            return false
         }
-        let existingIdx = observers.index { (rhs) -> Bool in
-            observer.hashValue == rhs.observer.hashValue
-        }
-        if let idx = existingIdx {
-            observers.remove(at: idx)
-            return true
-        }
-        return false
+        return Thread.isMainThread ? onMainQueue() : DispatchQueue.main.sync(execute: onMainQueue)
     }
 }
 
@@ -148,39 +152,37 @@ public extension FutureEvent where DataType: Any {
 
 private extension FutureEvent {
     @discardableResult func observe(_ wrapper: LifecycleBoundObserver<DataType>) -> Observer<DataType> {
-        lock.lock()
-        defer {
-            lock.unlock()
-        }
-        guard observers.contains(wrapper) == false else {
-            fatalError("Unable to register same observer multiple time")
-        }
-        observers.insert(wrapper)
+        func onMainQueue() -> Observer<DataType> {
+            guard observers.contains(wrapper) == false else {
+                fatalError("Unable to register same observer multiple time")
+            }
+            observers.insert(wrapper)
 
-        // Removes observer on owner dealloc
-        if let owner = wrapper.owner {
-            onDealloc(of: owner) { [weak self, weak wrapper] in
-                if let wrapper = wrapper {
-                    self?.remove(observer: wrapper.observer)
+            // Removes observer on owner dealloc
+            if let owner = wrapper.owner {
+                onDealloc(of: owner) { [weak self, weak wrapper] in
+                    if let wrapper = wrapper {
+                        self?.remove(observer: wrapper.observer)
+                    }
                 }
             }
-        }
 
-        return wrapper.observer
+            return wrapper.observer
+        }
+        return Thread.isMainThread ? onMainQueue() : DispatchQueue.main.sync(execute: onMainQueue)
     }
     
     func triggerObservers(_ arg: DataType) {
-        lock.lock()
-        defer {
-            lock.unlock()
+        func onMainQueue() {
+            // Removes destroyed observers
+            observers = observers.filter {
+                $0.state != .destroyed
+            }
+            // Triggers all observers
+            observers.forEach {
+                $0.observer.update(arg)
+            }
         }
-        // Removes destroyed observers
-        observers = observers.filter {
-            $0.state != .destroyed
-        }
-        // Triggers all observers
-        observers.forEach {
-            $0.observer.update(arg)
-        }
+        return Thread.isMainThread ? onMainQueue() : DispatchQueue.main.sync(execute: onMainQueue)
     }
 }

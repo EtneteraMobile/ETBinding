@@ -35,8 +35,7 @@ public class LiveData<Value>: Observable, CustomStringConvertible {
     /// multiple calls of `dispatch`.
     public var data: DataType {
         didSet {
-            version += 1
-            dispatch()
+            dispatch(initiator: nil, increaseVersion: true)
         }
     }
 
@@ -55,7 +54,6 @@ public class LiveData<Value>: Observable, CustomStringConvertible {
     // MARK: internal
 
     var observers: Set<LifecycleBoundObserver<DataType>> = []
-    var lock: NSRecursiveLock = NSRecursiveLock()
 
     // MARK: private
 
@@ -78,10 +76,11 @@ public extension LiveData {
     ///
     /// - Attention:
     ///   - After deallocation of owner `onUpdate` will be never called.
+    ///   - Inside of `onUpdate` closure you are alway on main thread.
     ///
     /// - Parameters:
     ///   - owner: LifecycleOwner of newly created observation.
-    ///   - onUpdate: Closure that is called on change.
+    ///   - onUpdate: Closure that is called on change **on main queue**.
     ///
     /// - Returns: Observer that represents update block.
     @discardableResult func observe(owner: LifecycleOwner, onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
@@ -95,6 +94,7 @@ public extension LiveData {
     ///
     /// - Attention:
     ///   - After deallocation of owner `observer.update` will be never called.
+    ///   - Inside of `observer.update` closure you are alway on main thread.
     ///
     /// - Parameters:
     ///   - owner: LifecycleOwner of newly created observation.
@@ -108,6 +108,7 @@ public extension LiveData {
     ///
     /// - Parameters:
     ///   - onUpdate: Closure that is called on `data` change.
+    ///   - Inside of `onUpdate` closure you are alway on main thread.
     ///
     /// - Returns: Observer that represents update block.
     @discardableResult func observeForever(onUpdate: @escaping (DataType) -> Void) -> Observer<DataType> {
@@ -118,6 +119,9 @@ public extension LiveData {
     /// Starts observation until `remove(observer:)` called.
     ///
     /// - Requires: Given `observer` can be registered only once.
+    ///
+    /// - Attention:
+    ///   - Inside of `observer.update` closure you are alway on main thread.
     ///
     /// - Parameters:
     ///   - observer: Observer that is updated on every `data` change.
@@ -134,18 +138,17 @@ public extension LiveData {
     /// - Returns: `True` if observer was unregistered or `false` if observer
     ///            wasn't never registered.
     @discardableResult func remove(observer: Observer<DataType>) -> Bool {
-        lock.lock()
-        defer {
-            lock.unlock()
+        func onMainQueue() -> Bool {
+            let existingIdx = observers.index { (rhs) -> Bool in
+                observer.hashValue == rhs.observer.hashValue
+            }
+            if let idx = existingIdx {
+                observers.remove(at: idx)
+                return true
+            }
+            return false
         }
-        let existingIdx = observers.index { (rhs) -> Bool in
-            observer.hashValue == rhs.observer.hashValue
-        }
-        if let idx = existingIdx {
-            observers.remove(at: idx)
-            return true
-        }
-        return false
+        return Thread.isMainThread ? onMainQueue() : DispatchQueue.main.sync(execute: onMainQueue)
     }
     
     // MARK: - Dispatch
@@ -161,53 +164,58 @@ public extension LiveData {
     /// version. Every version is delivered only once despite of multiple
     /// calls of `dispatch`.
     func dispatch(initiator: Observer<DataType>? = nil) {
-        lock.lock()
-        defer {
-            lock.unlock()
-        }
-        // Removes destroyed observers
-        observers = observers.filter {
-            $0.state != .destroyed
-        }
-
-        if let initiator = initiator {
-            // Dispaches only to iniciator
-            guard let wrapper = observers.first(where: { $0.hashValue == initiator.hashValue }) else {
-                fatalError("Initiator was never registered for observation")
-            }
-            considerNotify(wrapper)
-        } else {
-            // Dispatches to all observers
-            observers.forEach {
-                self.considerNotify($0)
-            }
-        }
+        return dispatch(initiator: initiator, increaseVersion: false)
     }
 }
 
 // MARK: - Private
 
 private extension LiveData {
-    @discardableResult func observe(_ wrapper: LifecycleBoundObserver<DataType>) -> Observer<DataType> {
-        lock.lock()
-        defer {
-            lock.unlock()
-        }
-        guard observers.contains(wrapper) == false else {
-            fatalError("Unable to register same observer multiple time")
-        }
-        observers.insert(wrapper)
+    func dispatch(initiator: Observer<DataType>? = nil, increaseVersion: Bool) {
+        func onMainQueue() {
+            if increaseVersion {
+                version += 1
+            }
 
-        // Removes observer on owner dealloc
-        if let owner = wrapper.owner {
-            onDealloc(of: owner) { [weak self, weak wrapper] in
-                if let wrapper = wrapper {
-                    self?.remove(observer: wrapper.observer)
+            // Removes destroyed observers
+            observers = observers.filter {
+                $0.state != .destroyed
+            }
+
+            if let initiator = initiator {
+                // Dispaches only to iniciator
+                guard let wrapper = observers.first(where: { $0.hashValue == initiator.hashValue }) else {
+                    fatalError("Initiator was never registered for observation")
+                }
+                considerNotify(wrapper)
+            } else {
+                // Dispatches to all observers
+                observers.forEach {
+                    self.considerNotify($0)
                 }
             }
         }
+        Thread.isMainThread ? onMainQueue() : DispatchQueue.main.sync(execute: onMainQueue)
+    }
 
-        return wrapper.observer
+    @discardableResult func observe(_ wrapper: LifecycleBoundObserver<DataType>) -> Observer<DataType> {
+        func onMainQueue() -> Observer<DataType> {
+            guard observers.contains(wrapper) == false else {
+                fatalError("Unable to register same observer multiple time")
+            }
+            observers.insert(wrapper)
+
+            // Removes observer on owner dealloc
+            if let owner = wrapper.owner {
+                onDealloc(of: owner) { [weak self, weak wrapper] in
+                    if let wrapper = wrapper {
+                        self?.remove(observer: wrapper.observer)
+                    }
+                }
+            }
+            return wrapper.observer
+        }
+        return Thread.isMainThread ? onMainQueue() : DispatchQueue.main.sync(execute: onMainQueue)
     }
 
     func considerNotify(_ wrapper: LifecycleBoundObserver<DataType>) {

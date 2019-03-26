@@ -14,8 +14,7 @@ public class Observer<T>: Hashable {
     /// Update closure
     public let update: (T) -> Void
     /// Identity identifier
-    public let hashValue: Int
-
+    public let identity: Int
 
     /// Initializes `Observer` with given identity/hashValue and update closure.
     ///
@@ -23,8 +22,12 @@ public class Observer<T>: Hashable {
     ///   - identity: Identity of observer. If is nil then is generated.
     ///   - update: Update closure.
     public init(identity: Int? = nil, update: @escaping (T) -> Void) {
-        self.hashValue = identity ?? UUID().uuidString.hashValue
+        self.identity = identity ?? UUID().uuidString.hashValue
         self.update = update
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(identity)
     }
 
     /// `Observer` equal comparator

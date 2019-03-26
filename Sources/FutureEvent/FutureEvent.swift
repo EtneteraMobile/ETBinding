@@ -118,7 +118,7 @@ public extension FutureEvent {
     ///            wasn't never registered.
     @discardableResult func remove(observer: Observer<DataType>) -> Bool {
         func onMainQueue() -> Bool {
-            let existingIdx = observers.index { (rhs) -> Bool in
+            let existingIdx = observers.firstIndex { (rhs) -> Bool in
                 observer.hashValue == rhs.observer.hashValue
             }
             if let idx = existingIdx {
@@ -135,7 +135,7 @@ public extension FutureEvent {
 
 public extension FutureEvent where DataType == Void {
     /// Triggers observers.
-    public func trigger() {
+    func trigger() {
         triggerObservers(())
     }
 }
@@ -145,7 +145,7 @@ public extension FutureEvent where DataType: Any {
     ///
     /// - Parameters:
     ///   - arg: Argument that is passed to observers.
-    public func trigger(_ arg: DataType) {
+    func trigger(_ arg: DataType) {
         triggerObservers(arg)
     }
 }

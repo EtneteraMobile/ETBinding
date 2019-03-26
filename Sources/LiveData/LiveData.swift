@@ -140,7 +140,7 @@ public extension LiveData {
     ///            wasn't never registered.
     @discardableResult func remove(observer: Observer<DataType>) -> Bool {
         func onMainQueue() -> Bool {
-            let existingIdx = observers.index { (rhs) -> Bool in
+            let existingIdx = observers.firstIndex { (rhs) -> Bool in
                 observer.hashValue == rhs.observer.hashValue
             }
             if let idx = existingIdx {

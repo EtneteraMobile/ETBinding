@@ -241,7 +241,6 @@ class FutureEventTests: XCTestCase {
             }
         }
         let exp1 = expectations[0]
-        let exp2 = expectations[1]
         DispatchQueue.global().async {
             self.futureEvent.trigger(exp1.expectationDescription)
         }

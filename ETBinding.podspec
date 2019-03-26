@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ETBinding"
-  s.version      = "3.0"
+  s.version      = "3.1"
   s.summary      = "ETBinding"
   s.description  = <<-DESC
     ETBinding is set of observable classes. Unlike a regular observable is lifecycle-aware, meaning it respects the lifecycle of its owner.

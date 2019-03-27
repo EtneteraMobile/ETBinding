@@ -185,7 +185,7 @@ private extension LiveData {
 
             if let initiator = initiator {
                 // Dispaches only to iniciator
-                guard let wrapper = observers.first(where: { $0.hashValue == initiator.hashValue }) else {
+                guard let wrapper = observers.first(where: { $0.observer.hashValue == initiator.hashValue }) else {
                     fatalError("Initiator was never registered for observation")
                 }
                 considerNotify(wrapper)

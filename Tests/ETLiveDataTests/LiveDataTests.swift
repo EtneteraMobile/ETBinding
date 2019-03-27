@@ -291,6 +291,18 @@ class LiveOptionalDataTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
+    func testDispatchWithName() {
+        expectations = [expectation(description: "New data 1")]
+
+        let liveData = LiveOptionalData(data: "doesn't matter")
+        let observer = liveData.observe(owner: self) { _ in
+            self.expectations[0].fulfill()
+        }
+
+        liveData.dispatch(initiator: observer)
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
     static var allTests = [
         ("testObserveWithObserverAndLifecycleOwner", testObserveWithObserverAndLifecycleOwner),
         ("testObserveWithOnUpdateAndLifecycleOwner", testObserveWithOnUpdateAndLifecycleOwner),

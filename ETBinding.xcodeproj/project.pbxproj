@@ -188,7 +188,6 @@
 			children = (
 				7169DA00204C24C8006CAACA /* ETBinding.podspec */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
-				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
 				52D6D97D1BEFF229002C0205 /* Products */,
 				713F7DF31FE3DA2400B86A50 /* Frameworks */,
@@ -276,11 +275,12 @@
 			isa = PBXGroup;
 			children = (
 				8E3DBC5323052B2B003F642C /* ETBinding */,
+				8933C7831EB5B7EB000D00A4 /* ETBindingTests */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		8933C7831EB5B7EB000D00A4 /* Tests */ = {
+		8933C7831EB5B7EB000D00A4 /* ETBindingTests */ = {
 			isa = PBXGroup;
 			children = (
 				712FA2F01FEA209300969753 /* Helpers */,
@@ -289,8 +289,8 @@
 				71A48A51204D2E15004A2CD3 /* FutureEventTests.swift */,
 				71E05DE6204E6165006A9341 /* PerformanceTests.swift */,
 			);
-			name = Tests;
-			path = Tests/ETLiveDataTests;
+			name = ETBindingTests;
+			path = ETLiveDataTests;
 			sourceTree = "<group>";
 		};
 		8E3DBC5323052B2B003F642C /* ETBinding */ = {

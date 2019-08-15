@@ -275,11 +275,7 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				718BCFC41FE3A11C008075BD /* Constants.swift */,
-				7169D9EB204C2372006CAACA /* Observable */,
-				7169DA0C204C2D60006CAACA /* LiveData */,
-				71A48A4B204D28BD004A2CD3 /* FutureEvent */,
-				713F7DFC1FE3F54100B86A50 /* Helpers */,
+				8E3DBC5323052B2B003F642C /* ETBinding */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -295,6 +291,18 @@
 			);
 			name = Tests;
 			path = Tests/ETLiveDataTests;
+			sourceTree = "<group>";
+		};
+		8E3DBC5323052B2B003F642C /* ETBinding */ = {
+			isa = PBXGroup;
+			children = (
+				718BCFC41FE3A11C008075BD /* Constants.swift */,
+				7169D9EB204C2372006CAACA /* Observable */,
+				7169DA0C204C2D60006CAACA /* LiveData */,
+				71A48A4B204D28BD004A2CD3 /* FutureEvent */,
+				713F7DFC1FE3F54100B86A50 /* Helpers */,
+			);
+			path = ETBinding;
 			sourceTree = "<group>";
 		};
 		DD7502721C68FC1B006590AF /* Frameworks */ = {

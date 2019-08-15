@@ -51,6 +51,10 @@ Add `pod 'ETBinding'` to your Podfile.
 
 Add `github "EtneteraMobile/ETBinding"` to your Cartfile.
 
+### Swift Package Manager
+
+In Xcode (>11.0) go to File -> Swift Packages -> Add Package Dependency. There insert `https://github.com/EtneteraMobile/ETBinding` in URL input and finish importing `ETBinding` to your project.
+
 ## Usage
 
 Follow these steps to work with `LiveData` objects:

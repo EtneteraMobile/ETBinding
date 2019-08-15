@@ -290,7 +290,7 @@
 				71E05DE6204E6165006A9341 /* PerformanceTests.swift */,
 			);
 			name = ETBindingTests;
-			path = ETLiveDataTests;
+			path = ETBindingTests;
 			sourceTree = "<group>";
 		};
 		8E3DBC5323052B2B003F642C /* ETBinding */ = {

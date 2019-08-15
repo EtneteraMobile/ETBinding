@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.2
+osx_image: xcode10.3
 
 script:
  - xcodebuild build -project ETBinding.xcodeproj -scheme ETBinding-iOS -configuration "Release" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

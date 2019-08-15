@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "ETBinding",
             dependencies: []),
-        .testTarget(
-            name: "ETBindingTests",
-            dependencies: ["ETBinding"]),
     ]
 )
